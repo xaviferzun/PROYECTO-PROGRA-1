@@ -6,5 +6,12 @@ package Modelos;
 
 
 public class Albumes {
+    private int numero;
+    private String nombre;
+    private String tipo;
+    private Generos genero;
+    private int publicacion;
+    private String discografica;
+    private int cantidadCanciones;
     
 }

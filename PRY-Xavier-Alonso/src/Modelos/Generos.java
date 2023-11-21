@@ -6,5 +6,7 @@ package Modelos;
 
 
 public class Generos {
+    private String nombre;
+    private String descripcion;
     
 }

@@ -6,5 +6,14 @@ package Modelos;
 
 
 public class Artistas {
+    private String nombre;
+    private int tipo;
+    private Generos generos;
+    private int anioFormacion;
+    private String origen;
+    private String sitioWeb;
+    private Albumes albumes;
+    private int cantidadCanciones;
+    private int estado;
     
 }

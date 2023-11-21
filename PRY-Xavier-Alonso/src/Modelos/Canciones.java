@@ -6,5 +6,10 @@ package Modelos;
 
 
 public class Canciones {
+    private int numero;
+    private String titulo;
+    private String duracion;
+    private String autorLetra;
+    private int anioGrabacion;
     
 }
