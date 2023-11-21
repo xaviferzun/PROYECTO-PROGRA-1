@@ -11,5 +11,50 @@ public class Canciones {
     private String duracion;
     private String autorLetra;
     private int anioGrabacion;
+
+    public Canciones() {
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(String duracion) {
+        this.duracion = duracion;
+    }
+
+    public String getAutorLetra() {
+        return autorLetra;
+    }
+
+    public void setAutorLetra(String autorLetra) {
+        this.autorLetra = autorLetra;
+    }
+
+    public int getAnioGrabacion() {
+        return anioGrabacion;
+    }
+
+    public void setAnioGrabacion(int anioGrabacion) {
+        this.anioGrabacion = anioGrabacion;
+    }
     
+    
+   
 }
