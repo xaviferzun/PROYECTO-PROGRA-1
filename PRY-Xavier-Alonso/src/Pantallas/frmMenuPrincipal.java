@@ -44,11 +44,11 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         frmPrincipal.setLayout(frmPrincipalLayout);
         frmPrincipalLayout.setHorizontalGroup(
             frmPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 702, Short.MAX_VALUE)
+            .addGap(0, 406, Short.MAX_VALUE)
         );
         frmPrincipalLayout.setVerticalGroup(
             frmPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 242, Short.MAX_VALUE)
         );
 
         menuInicio.setText("Inicio");
