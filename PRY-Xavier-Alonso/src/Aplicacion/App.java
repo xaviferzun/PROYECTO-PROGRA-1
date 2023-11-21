@@ -4,10 +4,7 @@
  */
 package Aplicacion;
 
-/**
- *
- * @author alonsohc
- */
+
 public class App {
     
 }

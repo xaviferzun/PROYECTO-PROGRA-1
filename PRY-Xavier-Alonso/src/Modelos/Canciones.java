@@ -4,10 +4,7 @@
  */
 package Modelos;
 
-/**
- *
- * @author alonsohc
- */
+
 public class Canciones {
     
 }
