@@ -4,10 +4,14 @@
  */
 package Aplicacion;
 
+import Pantallas.frmMenuPrincipal;
+
 
 public class App {
     public static void main(String[] args) {
-        
+        //Crear instancia de la pantalla de Menu Principal
+        frmMenuPrincipal menuPrincipal = new frmMenuPrincipal();
+        menuPrincipal.setVisible(true);
     }
     
 }

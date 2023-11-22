@@ -4,6 +4,8 @@
  */
 package Pantallas;
 
+import Logica.Utilitario;
+
 /**
  *
  * @author XAVIER FERNÁNDEZ Z
@@ -15,6 +17,9 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
      */
     public frmMenuPrincipal() {
         initComponents();
+        
+        //Centrar la ventanda del Menu Principal
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -54,6 +59,11 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         menuInicio.setText("Inicio");
 
         menuInicioDatos.setText("Cargar datos iniciales");
+        menuInicioDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuInicioDatosActionPerformed(evt);
+            }
+        });
         menuInicio.add(menuInicioDatos);
 
         menuInicioSalir.setText("Salir");
@@ -116,6 +126,11 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         frmArtistas artistas = new frmArtistas(this, true);
         artistas.setVisible(true);
     }//GEN-LAST:event_mantenimientoArtistasActionPerformed
+    
+    //Este método permite que al presionar el botón se llame al método utilitario para cargar datos iniciales.
+    private void menuInicioDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicioDatosActionPerformed
+        Utilitario.cargarDatosArtista();
+    }//GEN-LAST:event_menuInicioDatosActionPerformed
 
     /**
      * @param args the command line arguments

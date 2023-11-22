@@ -22,8 +22,12 @@ public class frmArtistas extends javax.swing.JDialog {
     public frmArtistas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
         
         lstArtistas.setModel(modeloListaArtistas);
+        for (Artistas artista : Utilitario.listaArtistas) {
+            modeloListaArtistas.addElement(artista.getNombre());
+        }
         
     }
 
