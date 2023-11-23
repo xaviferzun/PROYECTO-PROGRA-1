@@ -18,12 +18,9 @@ public class Artistas {
 
     public Artistas(String nombre, int tipo, int anioFormacion, String origen, String sitioWeb, int cantidadCanciones, int estado) {
         this.nombre = nombre;
-        this.tipo = tipo;
-        this.anioFormacion = anioFormacion;
         this.origen = origen;
+        this.anioFormacion = anioFormacion;
         this.sitioWeb = sitioWeb;
-        this.cantidadCanciones = cantidadCanciones;
-        this.estado = estado;
     }
 
     
