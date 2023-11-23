@@ -12,6 +12,8 @@ import javax.swing.DefaultListModel;
 public class frmArtistas extends javax.swing.JDialog {
     
     DefaultListModel modeloListaArtistas = new DefaultListModel();
+    private boolean modificando = false; //Variable para verificar si el usuario está usando el botón "Modificar"
+    
 
     /**
      * Creates new form frmArtistas
@@ -311,16 +313,24 @@ public class frmArtistas extends javax.swing.JDialog {
     }//GEN-LAST:event_btnConsultarArtistaActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        
-        
-        Artistas nuevoArtista = new Artistas(
+        Artistas artista;
+        if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
+            int indice = lstArtistas.getSelectedIndex();
+            artista = Utilitario.listaArtistas.get(indice);
+        } else {
+            artista = new Artistas(
             txtNombreArtista.getText(),
             txtOrigenArtista.getText(),
             Integer.parseInt(txtAnioFormacion.getText()),
             txtSitioWeb.getText());
-
-        Utilitario.listaArtistas.add(nuevoArtista);
-
+            Utilitario.listaArtistas.add(artista);
+        }
+        
+        artista.setNombre(txtNombreArtista.getText());
+        artista.setOrigen(txtOrigenArtista.getText());
+        artista.setAnioFormacion(Integer.parseInt(txtAnioFormacion.getText()));
+        artista.setSitioWeb(txtSitioWeb.getText());          
+      
         txtNombreArtista.setEditable(false);
         txtOrigenArtista.setEditable(false);
         txtAnioFormacion.setEditable(false);
@@ -328,9 +338,12 @@ public class frmArtistas extends javax.swing.JDialog {
 
         actualizarListaArtistas();
         btnAceptar.setEnabled(false);
+        modificando = false;
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnInsertarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarArtistaActionPerformed
+        modificando = false;
+
         //Habilitar las cajas de texto para agregar datos
         txtNombreArtista.setEditable(true);
         txtOrigenArtista.setEditable(true);
@@ -351,6 +364,7 @@ public class frmArtistas extends javax.swing.JDialog {
     }//GEN-LAST:event_txtSitioWebActionPerformed
 
     private void btnModificarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarArtistaActionPerformed
+        modificando = true;
         int indice = lstArtistas.getSelectedIndex();
         if (indice != -1) {
             Artistas artista = Utilitario.listaArtistas.get(indice);

@@ -20,9 +20,11 @@ public class Utilitario {
         listaArtistas.add(artista);
         artista = new Artistas("Coldplay", "Inglaterra", 1997, "coldplay.com");
         listaArtistas.add(artista);
+        
+        
     }
     
-        
+       
 }
       
     
