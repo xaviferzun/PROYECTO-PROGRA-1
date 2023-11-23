@@ -41,16 +41,17 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         mantenimientoGenerosxArtista = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         javax.swing.GroupLayout frmPrincipalLayout = new javax.swing.GroupLayout(frmPrincipal);
         frmPrincipal.setLayout(frmPrincipalLayout);
         frmPrincipalLayout.setHorizontalGroup(
             frmPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 546, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         frmPrincipalLayout.setVerticalGroup(
             frmPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         menuInicio.setText("Inicio");

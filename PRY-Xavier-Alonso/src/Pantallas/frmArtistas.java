@@ -56,6 +56,8 @@ public class frmArtistas extends javax.swing.JDialog {
         btnInsertarArtista = new javax.swing.JButton();
         btnAceptar = new javax.swing.JToggleButton();
         jSeparator1 = new javax.swing.JSeparator();
+        btnEliminarArtista = new javax.swing.JButton();
+        btnModificarArtista = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,6 +76,9 @@ public class frmArtistas extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
+
+        lstArtistas.setPreferredSize(null);
         jScrollPane1.setViewportView(lstArtistas);
 
         btnConsultarArtista.setText("Consultar");
@@ -128,6 +133,9 @@ public class frmArtistas extends javax.swing.JDialog {
         jLabel4.setText("Sitio Web");
 
         btnInsertarArtista.setText("Insertar");
+        btnInsertarArtista.setMaximumSize(new java.awt.Dimension(81, 23));
+        btnInsertarArtista.setMinimumSize(new java.awt.Dimension(81, 23));
+        btnInsertarArtista.setPreferredSize(new java.awt.Dimension(81, 23));
         btnInsertarArtista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertarArtistaActionPerformed(evt);
@@ -144,23 +152,44 @@ public class frmArtistas extends javax.swing.JDialog {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        btnEliminarArtista.setText("Eliminar");
+        btnEliminarArtista.setMaximumSize(new java.awt.Dimension(81, 23));
+        btnEliminarArtista.setMinimumSize(new java.awt.Dimension(81, 23));
+        btnEliminarArtista.setPreferredSize(new java.awt.Dimension(81, 23));
+        btnEliminarArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarArtistaActionPerformed(evt);
+            }
+        });
+
+        btnModificarArtista.setText("Modificar");
+        btnModificarArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarArtistaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(58, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnConsultarArtista)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnInsertarArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnConsultarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnInsertarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnEliminarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnModificarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(78, 78, 78))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,21 +214,15 @@ public class frmArtistas extends javax.swing.JDialog {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtAnioFormacion, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(btnAceptar, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(84, 84, 84))
+                .addGap(45, 45, 45))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnConsultarArtista)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnInsertarArtista))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
+                .addGap(97, 97, 97)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
@@ -219,17 +242,27 @@ public class frmArtistas extends javax.swing.JDialog {
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtSitioWeb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAceptar)))
-                .addContainerGap(71, Short.MAX_VALUE))
-            .addComponent(jSeparator1)
+                        .addGap(50, 50, 50)
+                        .addComponent(btnAceptar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnModificarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnConsultarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnEliminarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnInsertarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(53, 125, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,6 +271,105 @@ public class frmArtistas extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    //Eliminar artista seleccionado de la lista
+    private void btnEliminarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarArtistaActionPerformed
+        int indice = lstArtistas.getSelectedIndex();
+        if (indice != -1) {
+            Utilitario.listaArtistas.remove(indice);
+
+            actualizarListaArtistas();
+        }
+    }//GEN-LAST:event_btnEliminarArtistaActionPerformed
+
+    private void txtAnioFormacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioFormacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAnioFormacionActionPerformed
+
+    private void txtOrigenArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrigenArtistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtOrigenArtistaActionPerformed
+
+    private void txtNombreArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreArtistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreArtistaActionPerformed
+
+    private void btnConsultarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarArtistaActionPerformed
+        int indice = lstArtistas.getSelectedIndex();
+        if (indice != -1) {
+            Artistas artista = Utilitario.listaArtistas.get(indice);
+            txtNombreArtista.setText(artista.getNombre());
+            txtOrigenArtista.setText(artista.getOrigen());
+            txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));
+            txtSitioWeb.setText(artista.getSitioWeb());
+
+            txtNombreArtista.setEditable(false);
+            txtOrigenArtista.setEditable(false);
+            txtAnioFormacion.setEditable(false);
+            txtSitioWeb.setEditable(false);
+        }
+    }//GEN-LAST:event_btnConsultarArtistaActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        
+        
+        Artistas nuevoArtista = new Artistas(
+            txtNombreArtista.getText(),
+            txtOrigenArtista.getText(),
+            Integer.parseInt(txtAnioFormacion.getText()),
+            txtSitioWeb.getText());
+
+        Utilitario.listaArtistas.add(nuevoArtista);
+
+        txtNombreArtista.setEditable(false);
+        txtOrigenArtista.setEditable(false);
+        txtAnioFormacion.setEditable(false);
+        txtSitioWeb.setEditable(false);
+
+        actualizarListaArtistas();
+        btnAceptar.setEnabled(false);
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnInsertarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarArtistaActionPerformed
+        //Habilitar las cajas de texto para agregar datos
+        txtNombreArtista.setEditable(true);
+        txtOrigenArtista.setEditable(true);
+        txtAnioFormacion.setEditable(true);
+        txtSitioWeb.setEditable(true);
+
+        txtNombreArtista.setText("");
+        txtOrigenArtista.setText("");
+        txtAnioFormacion.setText("");
+        txtSitioWeb.setText("");
+
+        btnAceptar.setEnabled(true);
+        
+    }//GEN-LAST:event_btnInsertarArtistaActionPerformed
+
+    private void txtSitioWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSitioWebActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSitioWebActionPerformed
+
+    private void btnModificarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarArtistaActionPerformed
+        int indice = lstArtistas.getSelectedIndex();
+        if (indice != -1) {
+            Artistas artista = Utilitario.listaArtistas.get(indice);
+            txtNombreArtista.setText(artista.getNombre());
+            txtOrigenArtista.setText(artista.getOrigen());
+            txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));
+            txtSitioWeb.setText(artista.getSitioWeb());
+            
+        //Habilitar las cajas de texto para agregar datos
+        txtNombreArtista.setEditable(true);
+        txtOrigenArtista.setEditable(true);
+        txtAnioFormacion.setEditable(true);
+        txtSitioWeb.setEditable(true);
+        
+        btnAceptar.setEnabled(true);
+        }
+            
+            
+    }//GEN-LAST:event_btnModificarArtistaActionPerformed
 
     //Método para actualizar la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
     private void actualizarListaArtistas(){
@@ -248,70 +380,6 @@ public class frmArtistas extends javax.swing.JDialog {
     }
     
     
-    private void btnConsultarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarArtistaActionPerformed
-        int indice = lstArtistas.getSelectedIndex();
-        if (indice != -1) {
-            Artistas artista = Utilitario.listaArtistas.get(indice);
-                txtNombreArtista.setText(artista.getNombre());
-                txtOrigenArtista.setText(artista.getOrigen());
-                txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));
-                txtSitioWeb.setText(artista.getSitioWeb());
-                
-                txtNombreArtista.setEditable(false);
-                txtOrigenArtista.setEditable(false);
-                txtAnioFormacion.setEditable(false);
-                txtSitioWeb.setEditable(false);  
-        }
-    }//GEN-LAST:event_btnConsultarArtistaActionPerformed
-
-    private void txtNombreArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreArtistaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreArtistaActionPerformed
-
-    private void txtOrigenArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrigenArtistaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtOrigenArtistaActionPerformed
-
-    private void txtAnioFormacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioFormacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnioFormacionActionPerformed
-
-    private void txtSitioWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSitioWebActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSitioWebActionPerformed
-
-    private void btnInsertarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarArtistaActionPerformed
-       txtNombreArtista.setEditable(true);
-       txtOrigenArtista.setEditable(true);
-       txtAnioFormacion.setEditable(true);
-       txtSitioWeb.setEditable(true);
-       
-       txtNombreArtista.setText("");
-       txtOrigenArtista.setText("");
-       txtAnioFormacion.setText("");
-       txtSitioWeb.setText("");
-       
-       btnAceptar.setEnabled(true);
-    }//GEN-LAST:event_btnInsertarArtistaActionPerformed
-
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        Artistas nuevoArtista = new Artistas(
-               txtNombreArtista.getText(), 
-               txtOrigenArtista.getText(), 
-               Integer.parseInt(txtAnioFormacion.getText()),
-               txtSitioWeb.getText());
-        
-       Utilitario.listaArtistas.add(nuevoArtista);
-       
-       txtNombreArtista.setEditable(false);
-       txtOrigenArtista.setEditable(false);
-       txtAnioFormacion.setEditable(false);
-       txtSitioWeb.setEditable(false);
-       
-       actualizarListaArtistas();
-       btnAceptar.setEnabled(false);
-    }//GEN-LAST:event_btnAceptarActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -357,7 +425,9 @@ public class frmArtistas extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnAceptar;
     private javax.swing.JButton btnConsultarArtista;
+    private javax.swing.JButton btnEliminarArtista;
     private javax.swing.JButton btnInsertarArtista;
+    private javax.swing.JButton btnModificarArtista;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

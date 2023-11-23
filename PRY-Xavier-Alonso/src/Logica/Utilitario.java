@@ -13,10 +13,12 @@ public class Utilitario {
     
     public static void cargarDatosArtistas(){
         Artistas artista;
-        artista = new Artistas("Misael", "San Carlos", 2023, "misael.com");
+        artista = new Artistas("Don Diablo", "Países Bajos", 1995, "dondiablo.com");
         listaArtistas.add(artista);
         
-        artista = new Artistas("Michael Jackson", "Estados Unidos", 1700, "muertos.com");
+        artista = new Artistas("Michael Jackson", "Estados Unidos", 1964, "michaeljackson.com");
+        listaArtistas.add(artista);
+        artista = new Artistas("Coldplay", "Inglaterra", 1997, "coldplay.com");
         listaArtistas.add(artista);
     }
     
