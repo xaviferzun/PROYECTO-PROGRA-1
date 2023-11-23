@@ -16,13 +16,12 @@ public class Artistas {
     private int cantidadCanciones;
     private int estado;
 
-    public Artistas(String nombre, int tipo, int anioFormacion, String origen, String sitioWeb, int cantidadCanciones, int estado) {
+    public Artistas(String nombre, String origen, int anioFormacion, String sitioWeb) {
         this.nombre = nombre;
         this.origen = origen;
         this.anioFormacion = anioFormacion;
         this.sitioWeb = sitioWeb;
     }
-
     
 
     public String getNombre() {

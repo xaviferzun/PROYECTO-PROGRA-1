@@ -7,17 +7,19 @@ package Logica;
 import Modelos.Artistas;
 import java.util.ArrayList;
 
+
 public class Utilitario {
     public static ArrayList<Artistas> listaArtistas = new ArrayList<>();
     
-    public static void cargarDatosArtista(){
+    public static void cargarDatosArtistas(){
         Artistas artista;
-        artista = new Artistas("Misael", 1, 2023, "San Carlos", "misael.com", 0, 1);
+        artista = new Artistas("Misael", "San Carlos", 2023, "misael.com");
         listaArtistas.add(artista);
         
-        artista = new Artistas("Michael Jackson", 1, 1700, "Estados Unidos", "muertos.com", 0, 2);
+        artista = new Artistas("Michael Jackson", "Estados Unidos", 1700, "muertos.com");
         listaArtistas.add(artista);
     }
+    
         
 }
       
