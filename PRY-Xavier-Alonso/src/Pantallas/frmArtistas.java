@@ -24,10 +24,7 @@ public class frmArtistas extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         
         lstArtistas.setModel(modeloListaArtistas); //Asignar esta lista al modelo
-        for (Artistas artista : Utilitario.listaArtistas) {
-            modeloListaArtistas.addElement(artista.getNombre()); //Obtener los nombres de los artistas para mostrarlos en la interfaz al cargar la ventana
-        }
-        
+        modeloListaArtistas.addAll(Utilitario.generarListaArtistas());
     }
 
     /**
@@ -388,10 +385,9 @@ public class frmArtistas extends javax.swing.JDialog {
     //Método para actualizar la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
     private void actualizarListaArtistas(){
         modeloListaArtistas.clear(); //Limpiar la lista visualmente antes de volver a cargarla,evitando el duplicado visual de informacion
-        for (Artistas artista : Utilitario.listaArtistas) {
-            modeloListaArtistas.addElement(artista.getNombre());
+        modeloListaArtistas.addAll(Utilitario.generarListaArtistas());
         }
-    }
+    
     
     
     /**

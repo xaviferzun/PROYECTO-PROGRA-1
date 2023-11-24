@@ -6,6 +6,7 @@ package Logica;
 
 import Modelos.Artistas;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 
 public class Utilitario {
@@ -21,9 +22,15 @@ public class Utilitario {
         artista = new Artistas("Coldplay", "Inglaterra", 1997, "coldplay.com");
         listaArtistas.add(artista);
         
-        
     }
     
+    public static LinkedList<String> generarListaArtistas(){
+        LinkedList<String> resultado = new LinkedList<>();
+        for (Artistas artista : listaArtistas) {
+            resultado.add(artista.getNombre());     
+        }
+        return resultado;
+    }
        
 }
       
