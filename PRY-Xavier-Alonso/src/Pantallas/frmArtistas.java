@@ -46,7 +46,7 @@ public class frmArtistas extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstArtistas = new javax.swing.JList<>();
-        btnConsultarArtista = new javax.swing.JButton();
+        btnConsultar = new javax.swing.JButton();
         txtNombreArtista = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtOrigenArtista = new javax.swing.JTextField();
@@ -55,11 +55,11 @@ public class frmArtistas extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         txtSitioWeb = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        btnInsertarArtista = new javax.swing.JButton();
+        btnInsertar = new javax.swing.JButton();
         btnAceptar = new javax.swing.JToggleButton();
         jSeparator1 = new javax.swing.JSeparator();
-        btnEliminarArtista = new javax.swing.JButton();
-        btnModificarArtista = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,10 +83,10 @@ public class frmArtistas extends javax.swing.JDialog {
         lstArtistas.setPreferredSize(null);
         jScrollPane1.setViewportView(lstArtistas);
 
-        btnConsultarArtista.setText("Consultar");
-        btnConsultarArtista.addActionListener(new java.awt.event.ActionListener() {
+        btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarArtistaActionPerformed(evt);
+                btnConsultarActionPerformed(evt);
             }
         });
 
@@ -134,13 +134,13 @@ public class frmArtistas extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Sitio Web");
 
-        btnInsertarArtista.setText("Insertar");
-        btnInsertarArtista.setMaximumSize(new java.awt.Dimension(81, 23));
-        btnInsertarArtista.setMinimumSize(new java.awt.Dimension(81, 23));
-        btnInsertarArtista.setPreferredSize(new java.awt.Dimension(81, 23));
-        btnInsertarArtista.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertar.setText("Insertar");
+        btnInsertar.setMaximumSize(new java.awt.Dimension(81, 23));
+        btnInsertar.setMinimumSize(new java.awt.Dimension(81, 23));
+        btnInsertar.setPreferredSize(new java.awt.Dimension(81, 23));
+        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertarArtistaActionPerformed(evt);
+                btnInsertarActionPerformed(evt);
             }
         });
 
@@ -154,20 +154,20 @@ public class frmArtistas extends javax.swing.JDialog {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        btnEliminarArtista.setText("Eliminar");
-        btnEliminarArtista.setMaximumSize(new java.awt.Dimension(81, 23));
-        btnEliminarArtista.setMinimumSize(new java.awt.Dimension(81, 23));
-        btnEliminarArtista.setPreferredSize(new java.awt.Dimension(81, 23));
-        btnEliminarArtista.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setMaximumSize(new java.awt.Dimension(81, 23));
+        btnEliminar.setMinimumSize(new java.awt.Dimension(81, 23));
+        btnEliminar.setPreferredSize(new java.awt.Dimension(81, 23));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarArtistaActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
 
-        btnModificarArtista.setText("Modificar");
-        btnModificarArtista.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarArtistaActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
 
@@ -180,12 +180,12 @@ public class frmArtistas extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnConsultarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnInsertarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnEliminarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnModificarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(78, 78, 78))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -251,12 +251,12 @@ public class frmArtistas extends javax.swing.JDialog {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnModificarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnConsultarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnEliminarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnInsertarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(53, 125, Short.MAX_VALUE))
         );
 
@@ -275,14 +275,13 @@ public class frmArtistas extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     //Eliminar artista seleccionado de la lista
-    private void btnEliminarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarArtistaActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         int indice = lstArtistas.getSelectedIndex();
         if (indice != -1) {
             Utilitario.listaArtistas.remove(indice);
-
             actualizarListaArtistas();
         }
-    }//GEN-LAST:event_btnEliminarArtistaActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtAnioFormacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioFormacionActionPerformed
         // TODO add your handling code here:
@@ -296,87 +295,53 @@ public class frmArtistas extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreArtistaActionPerformed
 
-    private void btnConsultarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarArtistaActionPerformed
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         int indice = lstArtistas.getSelectedIndex();
         if (indice != -1) {
             obtenerInfoArtista(indice);
-
-            txtNombreArtista.setEditable(false);
-            txtOrigenArtista.setEditable(false);
-            txtAnioFormacion.setEditable(false);
-            txtSitioWeb.setEditable(false);  
-    }//GEN-LAST:event_btnConsultarArtistaActionPerformed
-    }
+            deshabilitarCajas();
+        }
+    }//GEN-LAST:event_btnConsultarActionPerformed
     
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        Artista artista;
         if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
-            int indice = lstArtistas.getSelectedIndex();
-            artista = Utilitario.listaArtistas.get(indice);
+            modificarArtista();
         } else {
-            artista = new Artista(
-            txtNombreArtista.getText(),
-            txtOrigenArtista.getText(),
-            Integer.parseInt(txtAnioFormacion.getText()),
-            txtSitioWeb.getText());
-            Utilitario.listaArtistas.add(artista);
+            agregarArtista();
         }
-        
-        artista.setNombre(txtNombreArtista.getText());
-        artista.setOrigen(txtOrigenArtista.getText());
-        artista.setAnioFormacion(Integer.parseInt(txtAnioFormacion.getText()));
-        artista.setSitioWeb(txtSitioWeb.getText());          
-      
-        txtNombreArtista.setEditable(false);
-        txtOrigenArtista.setEditable(false);
-        txtAnioFormacion.setEditable(false);
-        txtSitioWeb.setEditable(false);
-
+        deshabilitarCajas();
         actualizarListaArtistas();
         btnAceptar.setEnabled(false);
         modificando = false;
     }//GEN-LAST:event_btnAceptarActionPerformed
 
-    private void btnInsertarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarArtistaActionPerformed
+    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         modificando = false;
-
-        //Habilitar las cajas de texto para agregar datos
-        txtNombreArtista.setEditable(true);
-        txtOrigenArtista.setEditable(true);
-        txtAnioFormacion.setEditable(true);
-        txtSitioWeb.setEditable(true);
-
+        habilitarCajas();
+       
         txtNombreArtista.setText("");
         txtOrigenArtista.setText("");
         txtAnioFormacion.setText("");
         txtSitioWeb.setText("");
 
-        btnAceptar.setEnabled(true);
-        
-    }//GEN-LAST:event_btnInsertarArtistaActionPerformed
+        btnAceptar.setEnabled(true); 
+    }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void txtSitioWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSitioWebActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSitioWebActionPerformed
 
-    private void btnModificarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarArtistaActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         modificando = true;
         int indice = lstArtistas.getSelectedIndex();
         if (indice != -1) {
             obtenerInfoArtista(indice);
-                        
-        //Habilitar las cajas de texto para agregar datos
-        txtNombreArtista.setEditable(true);
-        txtOrigenArtista.setEditable(true);
-        txtAnioFormacion.setEditable(true);
-        txtSitioWeb.setEditable(true);
-        
+        habilitarCajas();
         btnAceptar.setEnabled(true);
-        }
-            
-            
-    }//GEN-LAST:event_btnModificarArtistaActionPerformed
+        }        
+    }//GEN-LAST:event_btnModificarActionPerformed
 
+    
     //Obtiene los datos de un artista, y los muestra en las cajas de texto respectivas
     private void obtenerInfoArtista(int indice){
         Artista artista = Utilitario.listaArtistas.get(indice);
@@ -386,11 +351,45 @@ public class frmArtistas extends javax.swing.JDialog {
             txtSitioWeb.setText(artista.getSitioWeb());   
     }
     
-    //Método para actualizar la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
+    private void agregarArtista(){
+        Artista artista = new Artista(
+            txtNombreArtista.getText(),
+            txtOrigenArtista.getText(),
+            Integer.parseInt(txtAnioFormacion.getText()),
+            txtSitioWeb.getText());
+            Utilitario.listaArtistas.add(artista);
+    }
+    
+    private void modificarArtista(){
+        int indice = lstArtistas.getSelectedIndex();
+        Artista artista = Utilitario.listaArtistas.get(indice);
+        artista.setNombre(txtNombreArtista.getText());
+        artista.setOrigen(txtOrigenArtista.getText());
+        artista.setAnioFormacion(Integer.parseInt(txtAnioFormacion.getText()));
+        artista.setSitioWeb(txtSitioWeb.getText());        
+    }
+    
+    //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
     private void actualizarListaArtistas(){
         modeloListaArtistas.clear(); //Limpiar la lista visualmente antes de volver a cargarla,evitando el duplicado visual de informacion
         modeloListaArtistas.addAll(Utilitario.generarListaArtistas());
         }
+    
+    //Deshabilita las cajas de texto para prevenir cambios en los datos
+    private void deshabilitarCajas(){
+        txtNombreArtista.setEditable(false);
+        txtOrigenArtista.setEditable(false);
+        txtAnioFormacion.setEditable(false);
+        txtSitioWeb.setEditable(false);
+    }
+    
+    //Habilita las cajas de texto para agregar datos
+    private void habilitarCajas(){
+        txtNombreArtista.setEditable(true);
+        txtOrigenArtista.setEditable(true);
+        txtAnioFormacion.setEditable(true);
+        txtSitioWeb.setEditable(true);
+    }
     
     
     
@@ -438,10 +437,10 @@ public class frmArtistas extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnAceptar;
-    private javax.swing.JButton btnConsultarArtista;
-    private javax.swing.JButton btnEliminarArtista;
-    private javax.swing.JButton btnInsertarArtista;
-    private javax.swing.JButton btnModificarArtista;
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnInsertar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
