@@ -81,6 +81,11 @@ public class frmArtistas extends javax.swing.JDialog {
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
 
         lstArtistas.setPreferredSize(null);
+        lstArtistas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstArtistasValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lstArtistas);
 
         btnConsultar.setText("Consultar");
@@ -318,12 +323,7 @@ public class frmArtistas extends javax.swing.JDialog {
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         modificando = false;
         habilitarCajas();
-       
-        txtNombreArtista.setText("");
-        txtOrigenArtista.setText("");
-        txtAnioFormacion.setText("");
-        txtSitioWeb.setText("");
-
+        limpiarCajas();
         btnAceptar.setEnabled(true); 
     }//GEN-LAST:event_btnInsertarActionPerformed
 
@@ -341,6 +341,12 @@ public class frmArtistas extends javax.swing.JDialog {
         }        
     }//GEN-LAST:event_btnModificarActionPerformed
 
+    //Limpia las cajas de texto si el elemento seleccionado en la lista cambia
+    private void lstArtistasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstArtistasValueChanged
+        limpiarCajas();
+    }//GEN-LAST:event_lstArtistasValueChanged
+
+    
     
     //Obtiene los datos de un artista, y los muestra en las cajas de texto respectivas
     private void obtenerInfoArtista(int indice){
@@ -389,6 +395,14 @@ public class frmArtistas extends javax.swing.JDialog {
         txtOrigenArtista.setEditable(true);
         txtAnioFormacion.setEditable(true);
         txtSitioWeb.setEditable(true);
+    }
+    
+    //Limpia las cajas de texto
+    private void limpiarCajas(){
+        txtNombreArtista.setText("");
+        txtOrigenArtista.setText("");
+        txtAnioFormacion.setText("");
+        txtSitioWeb.setText("");
     }
     
     
