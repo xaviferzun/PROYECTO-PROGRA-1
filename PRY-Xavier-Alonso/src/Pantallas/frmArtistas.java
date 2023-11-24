@@ -5,7 +5,7 @@
 package Pantallas;
 
 import Logica.Utilitario;
-import Modelos.Artistas;
+import Modelos.Artista;
 import javax.swing.DefaultListModel;
 
 
@@ -23,7 +23,10 @@ public class frmArtistas extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        lstArtistas.setModel(modeloListaArtistas); //Asignar esta lista al modelo
+        //Asignar esta lista al modelo
+        lstArtistas.setModel(modeloListaArtistas); 
+        
+        //Agregar los nombres de los Artistas a la lista para mostrarlos
         modeloListaArtistas.addAll(Utilitario.generarListaArtistas());
     }
 
@@ -296,7 +299,7 @@ public class frmArtistas extends javax.swing.JDialog {
     private void btnConsultarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarArtistaActionPerformed
         int indice = lstArtistas.getSelectedIndex();
         if (indice != -1) {
-            Artistas artista = Utilitario.listaArtistas.get(indice);
+            Artista artista = Utilitario.listaArtistas.get(indice);
             txtNombreArtista.setText(artista.getNombre());
             txtOrigenArtista.setText(artista.getOrigen());
             txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));
@@ -305,17 +308,17 @@ public class frmArtistas extends javax.swing.JDialog {
             txtNombreArtista.setEditable(false);
             txtOrigenArtista.setEditable(false);
             txtAnioFormacion.setEditable(false);
-            txtSitioWeb.setEditable(false);
-        }
+            txtSitioWeb.setEditable(false);  
     }//GEN-LAST:event_btnConsultarArtistaActionPerformed
-
+    }
+    
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        Artistas artista;
+        Artista artista;
         if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
             int indice = lstArtistas.getSelectedIndex();
             artista = Utilitario.listaArtistas.get(indice);
         } else {
-            artista = new Artistas(
+            artista = new Artista(
             txtNombreArtista.getText(),
             txtOrigenArtista.getText(),
             Integer.parseInt(txtAnioFormacion.getText()),
@@ -364,7 +367,7 @@ public class frmArtistas extends javax.swing.JDialog {
         modificando = true;
         int indice = lstArtistas.getSelectedIndex();
         if (indice != -1) {
-            Artistas artista = Utilitario.listaArtistas.get(indice);
+            Artista artista = Utilitario.listaArtistas.get(indice);
             txtNombreArtista.setText(artista.getNombre());
             txtOrigenArtista.setText(artista.getOrigen());
             txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));

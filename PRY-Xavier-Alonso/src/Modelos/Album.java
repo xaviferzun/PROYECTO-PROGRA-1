@@ -5,16 +5,16 @@
 package Modelos;
 
 
-public class Albumes {
+public class Album {
     private int numero;
     private String nombre;
     private String tipo;
-    private Generos genero;
+    private Genero genero;
     private int publicacion;
     private String discografica;
     private int cantidadCanciones;
 
-    public Albumes() {
+    public Album() {
     }
 
     public int getNumero() {
@@ -41,11 +41,11 @@ public class Albumes {
         this.tipo = tipo;
     }
 
-    public Generos getGenero() {
+    public Genero getGenero() {
         return genero;
     }
 
-    public void setGenero(Generos genero) {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
 

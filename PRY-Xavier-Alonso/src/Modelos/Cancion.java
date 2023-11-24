@@ -5,14 +5,14 @@
 package Modelos;
 
 
-public class Canciones {
+public class Cancion {
     private int numero;
     private String titulo;
     private String duracion;
     private String autorLetra;
     private int anioGrabacion;
 
-    public Canciones() {
+    public Cancion() {
     }
 
     public int getNumero() {

@@ -4,29 +4,25 @@
  */
 package Logica;
 
-import Modelos.Artistas;
+import Modelos.Artista;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 
 public class Utilitario {
-    public static ArrayList<Artistas> listaArtistas = new ArrayList<>();
+    public static ArrayList<Artista> listaArtistas = new ArrayList<>();
     
+    //Inicializar datos de Artistas predefinidos
     public static void cargarDatosArtistas(){
-        Artistas artista;
-        artista = new Artistas("Don Diablo", "Países Bajos", 1995, "dondiablo.com");
-        listaArtistas.add(artista);
-        
-        artista = new Artistas("Michael Jackson", "Estados Unidos", 1964, "michaeljackson.com");
-        listaArtistas.add(artista);
-        artista = new Artistas("Coldplay", "Inglaterra", 1997, "coldplay.com");
-        listaArtistas.add(artista);
-        
+        listaArtistas.add(new Artista("Don Diablo", "Países Bajos", 1995, "dondiablo.com"));
+        listaArtistas.add(new Artista("Michael Jackson", "Estados Unidos", 1964, "michaeljackson.com"));
+        listaArtistas.add(new Artista("Coldplay", "Inglaterra", 1997, "coldplay.com"));
     }
     
+    //Crear lista de Strings con nombres de Artistas
     public static LinkedList<String> generarListaArtistas(){
         LinkedList<String> resultado = new LinkedList<>();
-        for (Artistas artista : listaArtistas) {
+        for (Artista artista : listaArtistas) {
             resultado.add(artista.getNombre());     
         }
         return resultado;

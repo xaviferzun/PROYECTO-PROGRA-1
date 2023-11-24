@@ -5,11 +5,11 @@
 package Modelos;
 
 
-public class Generos {
+public class Genero {
     private String nombre;
     private String descripcion;
 
-    public Generos() {
+    public Genero() {
     }
 
     public String getNombre() {
