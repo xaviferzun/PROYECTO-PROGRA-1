@@ -299,11 +299,7 @@ public class frmArtistas extends javax.swing.JDialog {
     private void btnConsultarArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarArtistaActionPerformed
         int indice = lstArtistas.getSelectedIndex();
         if (indice != -1) {
-            Artista artista = Utilitario.listaArtistas.get(indice);
-            txtNombreArtista.setText(artista.getNombre());
-            txtOrigenArtista.setText(artista.getOrigen());
-            txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));
-            txtSitioWeb.setText(artista.getSitioWeb());
+            obtenerInfoArtista(indice);
 
             txtNombreArtista.setEditable(false);
             txtOrigenArtista.setEditable(false);
@@ -367,12 +363,8 @@ public class frmArtistas extends javax.swing.JDialog {
         modificando = true;
         int indice = lstArtistas.getSelectedIndex();
         if (indice != -1) {
-            Artista artista = Utilitario.listaArtistas.get(indice);
-            txtNombreArtista.setText(artista.getNombre());
-            txtOrigenArtista.setText(artista.getOrigen());
-            txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));
-            txtSitioWeb.setText(artista.getSitioWeb());
-            
+            obtenerInfoArtista(indice);
+                        
         //Habilitar las cajas de texto para agregar datos
         txtNombreArtista.setEditable(true);
         txtOrigenArtista.setEditable(true);
@@ -385,6 +377,15 @@ public class frmArtistas extends javax.swing.JDialog {
             
     }//GEN-LAST:event_btnModificarArtistaActionPerformed
 
+    //Obtiene los datos de un artista, y los muestra en las cajas de texto respectivas
+    private void obtenerInfoArtista(int indice){
+        Artista artista = Utilitario.listaArtistas.get(indice);
+            txtNombreArtista.setText(artista.getNombre());
+            txtOrigenArtista.setText(artista.getOrigen());
+            txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));
+            txtSitioWeb.setText(artista.getSitioWeb());   
+    }
+    
     //Método para actualizar la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
     private void actualizarListaArtistas(){
         modeloListaArtistas.clear(); //Limpiar la lista visualmente antes de volver a cargarla,evitando el duplicado visual de informacion
