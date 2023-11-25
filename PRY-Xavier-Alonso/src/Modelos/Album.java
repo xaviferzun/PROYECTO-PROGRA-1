@@ -9,12 +9,15 @@ public class Album {
     private int numero;
     private String nombre;
     private String tipo;
+    private String publicacion;
     private Genero genero;
-    private int publicacion;
     private String discografica;
     private int cantidadCanciones;
 
-    public Album() {
+    
+    public Album(int numero, String nombre) {
+        this.numero = numero;
+        this.nombre = nombre;
     }
 
     public int getNumero() {
@@ -33,46 +36,8 @@ public class Album {
         this.nombre = nombre;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public Genero getGenero() {
-        return genero;
-    }
-
-    public void setGenero(Genero genero) {
-        this.genero = genero;
-    }
-
-    public int getPublicacion() {
-        return publicacion;
-    }
-
-    public void setPublicacion(int publicacion) {
-        this.publicacion = publicacion;
-    }
-
-    public String getDiscografica() {
-        return discografica;
-    }
-
-    public void setDiscografica(String discografica) {
-        this.discografica = discografica;
-    }
-
-    public int getCantidadCanciones() {
-        return cantidadCanciones;
-    }
-
-    public void setCantidadCanciones(int cantidadCanciones) {
-        this.cantidadCanciones = cantidadCanciones;
-    }
     
-    
-    
+  
 }
+
+    

@@ -41,7 +41,8 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         mantenimientoGenerosxArtista = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setTitle("Sistema Gestor Musical Digital");
+        setSize(new java.awt.Dimension(800, 600));
 
         javax.swing.GroupLayout frmPrincipalLayout = new javax.swing.GroupLayout(frmPrincipal);
         frmPrincipal.setLayout(frmPrincipalLayout);
@@ -85,6 +86,11 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         menuMantenimiento.add(mantenimientoArtistas);
 
         mantenimientoAlbumes.setText("Albumes");
+        mantenimientoAlbumes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mantenimientoAlbumesActionPerformed(evt);
+            }
+        });
         menuMantenimiento.add(mantenimientoAlbumes);
 
         mantenimientoCanciones.setText("Canciones");
@@ -106,13 +112,13 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(frmPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 527, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(frmPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 447, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,6 +139,11 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     private void menuInicioDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicioDatosActionPerformed
         Utilitario.cargarDatosArtistas();
     }//GEN-LAST:event_menuInicioDatosActionPerformed
+
+    private void mantenimientoAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoAlbumesActionPerformed
+        frmAlbumes albumes = new frmAlbumes(this, true);
+        albumes.setVisible(true);
+    }//GEN-LAST:event_mantenimientoAlbumesActionPerformed
 
     /**
      * @param args the command line arguments

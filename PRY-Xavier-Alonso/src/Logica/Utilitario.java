@@ -4,6 +4,7 @@
  */
 package Logica;
 
+import Modelos.Album;
 import Modelos.Artista;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -14,7 +15,13 @@ public class Utilitario {
     
     //Inicializar datos de Artistas predefinidos
     public static void cargarDatosArtistas(){
-        listaArtistas.add(new Artista("Don Diablo", "Países Bajos", 1995, "dondiablo.com"));
+        Artista artista;
+        artista = new Artista("Don Diablo", "Países Bajos", 1995, "dondiablo.com");
+        artista.agregarAlbum(new Album(3, "Future"));
+        listaArtistas.add(artista);
+        //listaArtistas.add(new Artista("Don Diablo", "Países Bajos", 1995, "dondiablo.com"));
+        
+        
         listaArtistas.add(new Artista("Michael Jackson", "Estados Unidos", 1964, "michaeljackson.com"));
         listaArtistas.add(new Artista("Coldplay", "Inglaterra", 1997, "coldplay.com"));
     }

@@ -4,6 +4,10 @@
  */
 package Modelos;
 
+import static Logica.Utilitario.listaArtistas;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class Artista {
     private String nombre;
     private int tipo;
@@ -11,7 +15,7 @@ public class Artista {
     private int anioFormacion;
     private String origen;
     private String sitioWeb;
-    private Album albumes;
+    private ArrayList<Album> albumes = new ArrayList<>();
     private int cantidadCanciones;
     private int estado;
 
@@ -54,5 +58,21 @@ public class Artista {
         this.sitioWeb = sitioWeb;
     }
 
+    public ArrayList<Album> getAlbumes() {
+        return albumes;
+    }
+
+    public void agregarAlbum(Album album){
+        this.albumes.add(album);
+    }
+    
+    //Crear lista de Strings con nombres de Albumes
+    public LinkedList<String> generarListaAlbumes(){
+        LinkedList<String> resultado = new LinkedList<>();
+        for (Album album : albumes) {
+            resultado.add(album.getNombre());     
+        }
+        return resultado;
+    }
     
 }
