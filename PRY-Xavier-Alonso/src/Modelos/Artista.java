@@ -16,7 +16,8 @@ public class Artista {
     private String origen;
     private String sitioWeb;
     private ArrayList<Album> albumes = new ArrayList<>();
-    private int cantidadCanciones;
+    private int cantidadAlbumes = 0;
+    private int cantidadCanciones = 0;
     private int estado;
 
     public Artista(String nombre, String origen, int anioFormacion, String sitioWeb) {
@@ -64,6 +65,16 @@ public class Artista {
 
     public void agregarAlbum(Album album){
         this.albumes.add(album);
+        this.cantidadAlbumes++;
+    }
+    
+    public void eliminarAlbum(Album album){
+        this.albumes.remove(album);
+        this.cantidadAlbumes--;
+    }
+
+    public int getCantidadAlbumes() {
+        return cantidadAlbumes;
     }
     
     //Crear lista de Strings con nombres de Albumes
