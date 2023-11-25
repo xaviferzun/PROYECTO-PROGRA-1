@@ -14,7 +14,12 @@ public class frmAlbumes extends javax.swing.JDialog {
     
     DefaultListModel modeloListaArtistas = new DefaultListModel();
     DefaultListModel modeloListaAlbumes = new DefaultListModel();
-    private boolean modificando = false; //Variable para verificar si el usuario está usando el botón "Modificar"
+    
+    //Variable para verificar si el usuario está usando el botón "Modificar"
+    private boolean modificando = false; 
+    
+    //Variable de instancia para almacenar el Artista actual
+    private Artista artistaActual;
     
 
     /**
@@ -97,6 +102,7 @@ public class frmAlbumes extends javax.swing.JDialog {
 
         btnVerAlbumes.setText("Ver Albumes");
         btnVerAlbumes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVerAlbumes.setPreferredSize(new java.awt.Dimension(98, 23));
         btnVerAlbumes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerAlbumesActionPerformed(evt);
@@ -174,7 +180,7 @@ public class frmAlbumes extends javax.swing.JDialog {
         btnEliminar.setText("Eliminar");
         btnEliminar.setMaximumSize(new java.awt.Dimension(81, 23));
         btnEliminar.setMinimumSize(new java.awt.Dimension(81, 23));
-        btnEliminar.setPreferredSize(new java.awt.Dimension(81, 23));
+        btnEliminar.setPreferredSize(new java.awt.Dimension(98, 23));
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -223,7 +229,7 @@ public class frmAlbumes extends javax.swing.JDialog {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                    .addComponent(btnVerAlbumes)
+                    .addComponent(btnVerAlbumes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,9 +237,7 @@ public class frmAlbumes extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnModificar))
+                            .addComponent(btnModificar)
                             .addGap(118, 118, 118)
                             .addComponent(btnAceptar))
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -263,6 +267,7 @@ public class frmAlbumes extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
@@ -274,7 +279,7 @@ public class frmAlbumes extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVerAlbumes)
+                .addComponent(btnVerAlbumes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
@@ -285,7 +290,9 @@ public class frmAlbumes extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -313,9 +320,7 @@ public class frmAlbumes extends javax.swing.JDialog {
                         .addGap(76, 76, 76))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(35, 35, 35))))
             .addComponent(jSeparator1)
         );
 
@@ -333,13 +338,14 @@ public class frmAlbumes extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     //Eliminar artista seleccionado de la lista
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        /*int indice = lstArtistas.getSelectedIndex();
+        int indice = lstAlbumes.getSelectedIndex();
         if (indice != -1) {
             Utilitario.listaArtistas.remove(indice);
-            actualizarListaArtistas();
-        }*/
+            actualizarListaAlbumes(artistaActual);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtNombreAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreAlbumActionPerformed
@@ -348,15 +354,16 @@ public class frmAlbumes extends javax.swing.JDialog {
 
     private void btnVerAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlbumesActionPerformed
         lstAlbumes.setModel(modeloListaAlbumes);
-        actualizarListaAlbumes();
+        actualizarListaAlbumes(artistaActual);
     }//GEN-LAST:event_btnVerAlbumesActionPerformed
     
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
             modificarArtista();
         } else {
-            agregarAlbum();
+            agregarAlbum(artistaActual);
         }
+        actualizarListaAlbumes(artistaActual);
         deshabilitarCajas();
        
         btnAceptar.setEnabled(false);
@@ -402,19 +409,24 @@ public class frmAlbumes extends javax.swing.JDialog {
     }//GEN-LAST:event_txtOrigenArtistaActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        obtenerInfoAlbum();
+        obtenerInfoAlbum(artistaActual);
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void lstAlbumesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstAlbumesValueChanged
         btnConsultar.setEnabled(true);
+        limpiarCajas();
     }//GEN-LAST:event_lstAlbumesValueChanged
 
     
     
-    //Obtiene los datos de un artista, y los muestra en las cajas de texto respectivas
-    private void obtenerInfoAlbum(){
+    private void artistaSeleccionado(){
         int indiceArtista = lstArtistas.getSelectedIndex();
-        Artista artista = Utilitario.listaArtistas.get(indiceArtista);
+        this.artistaActual = Utilitario.listaArtistas.get(indiceArtista);
+    }
+    
+    
+    //Obtiene los datos de un artista, y los muestra en las cajas de texto respectivas
+    private void obtenerInfoAlbum(Artista artista){
         int indice = lstAlbumes.getSelectedIndex();
         if (indice != -1) {
             Album album = artista.getAlbumes().get(indice);
@@ -423,16 +435,12 @@ public class frmAlbumes extends javax.swing.JDialog {
         }
     }
     
-    private void agregarAlbum(){
-        int indiceArtista = lstArtistas.getSelectedIndex();
-        if (indiceArtista != -1) {
-        Artista artista = Utilitario.listaArtistas.get(indiceArtista);
-        int indice = lstAlbumes.getSelectedIndex();
-        Album album = new Album(
-                Integer.parseInt(txtNumero.getText()),
-                txtNombreAlbum.getText());
+    private void agregarAlbum(Artista artista){
+       Album album = new Album(
+        Integer.parseInt(txtNumero.getText()),
+        txtNombreAlbum.getText());
         artista.agregarAlbum(album); 
-        }
+        
     }
     
     private void modificarArtista(){
@@ -445,13 +453,9 @@ public class frmAlbumes extends javax.swing.JDialog {
     }
     
     //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
-    private void actualizarListaAlbumes(){
-        int indice = lstArtistas.getSelectedIndex();
-        if (indice != -1) {
-            Artista artista = Utilitario.listaArtistas.get(indice);
-            modeloListaAlbumes.clear(); //Limpiar la lista visualmente antes de volver a cargarla, evitando el duplicado visual de informacion
-            modeloListaAlbumes.addAll(artista.generarListaAlbumes());
-        }
+    private void actualizarListaAlbumes(Artista artista){
+        modeloListaAlbumes.clear(); //Limpiar la lista visualmente antes de volver a cargarla, evitando el duplicado visual de informacion
+        modeloListaAlbumes.addAll(artista.generarListaAlbumes());
     }
     
     //Deshabilita las cajas de texto para prevenir cambios en los datos
