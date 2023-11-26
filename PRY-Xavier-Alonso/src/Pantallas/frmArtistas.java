@@ -14,6 +14,8 @@ public class frmArtistas extends javax.swing.JDialog {
     DefaultListModel modeloListaArtistas = new DefaultListModel();
     private boolean modificando = false; //Variable para verificar si el usuario está usando el botón "Modificar"
     
+    //Variable de instancia para almacenar el Artista actual
+    private Artista artistaActual;
 
     /**
      * Creates new form frmArtistas
@@ -217,9 +219,9 @@ public class frmArtistas extends javax.swing.JDialog {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -318,11 +320,10 @@ public class frmArtistas extends javax.swing.JDialog {
 
     //Eliminar artista seleccionado de la lista
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int indice = lstArtistas.getSelectedIndex();
-        if (indice != -1) {
-            Utilitario.listaArtistas.remove(indice);
-            actualizarListaArtistas();
-        }
+        artistaSeleccionado();
+        Utilitario.listaArtistas.remove(artistaActual);
+        actualizarListaArtistas();
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtAnioFormacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioFormacionActionPerformed
@@ -338,16 +339,14 @@ public class frmArtistas extends javax.swing.JDialog {
     }//GEN-LAST:event_txtNombreArtistaActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        int indice = lstArtistas.getSelectedIndex();
-        if (indice != -1) {
-            obtenerInfoArtista(indice);
-            deshabilitarCajas();
-        }
+        artistaSeleccionado();
+        obtenerInfoArtista(artistaActual);
+        deshabilitarCajas(); 
     }//GEN-LAST:event_btnConsultarActionPerformed
     
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
-            modificarArtista();
+            modificarArtista(artistaActual);
         } else {
             agregarArtista();
         }
@@ -370,12 +369,11 @@ public class frmArtistas extends javax.swing.JDialog {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         modificando = true;
-        int indice = lstArtistas.getSelectedIndex();
-        if (indice != -1) {
-            obtenerInfoArtista(indice);
+        artistaSeleccionado();
+        obtenerInfoArtista(artistaActual);
         habilitarCajas();
         btnAceptar.setEnabled(true);
-        }        
+                
     }//GEN-LAST:event_btnModificarActionPerformed
 
     //Limpia las cajas de texto si el elemento seleccionado en la lista cambia
@@ -391,9 +389,16 @@ public class frmArtistas extends javax.swing.JDialog {
 
     
     
+    //Toma el indice seleccionado de la lista Artista
+    private void artistaSeleccionado(){
+        int indiceArtista = lstArtistas.getSelectedIndex();
+        if (indiceArtista != -1){
+            this.artistaActual = Utilitario.listaArtistas.get(indiceArtista);
+        }
+    }
+    
     //Obtiene los datos de un artista, y los muestra en las cajas de texto respectivas
-    private void obtenerInfoArtista(int indice){
-        Artista artista = Utilitario.listaArtistas.get(indice);
+    private void obtenerInfoArtista(Artista artista){
         txtNombreArtista.setText(artista.getNombre());
         txtOrigenArtista.setText(artista.getOrigen());
         txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));
@@ -401,6 +406,7 @@ public class frmArtistas extends javax.swing.JDialog {
         txtCantAlbumes.setText(Integer.toString(artista.getCantidadAlbumes()));
     }
     
+    //Agrega un nuevo artista a la lista
     private void agregarArtista(){
         Artista artista = new Artista(
             txtNombreArtista.getText(),
@@ -410,9 +416,8 @@ public class frmArtistas extends javax.swing.JDialog {
             Utilitario.listaArtistas.add(artista);
     }
     
-    private void modificarArtista(){
-        int indice = lstArtistas.getSelectedIndex();
-        Artista artista = Utilitario.listaArtistas.get(indice);
+    //Permite cambiar datos a un artista existente
+    private void modificarArtista(Artista artista){
         artista.setNombre(txtNombreArtista.getText());
         artista.setOrigen(txtOrigenArtista.getText());
         artista.setAnioFormacion(Integer.parseInt(txtAnioFormacion.getText()));
