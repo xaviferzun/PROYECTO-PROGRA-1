@@ -178,6 +178,7 @@ public class frmAlbumes extends javax.swing.JDialog {
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.setEnabled(false);
         btnEliminar.setMaximumSize(new java.awt.Dimension(81, 23));
         btnEliminar.setMinimumSize(new java.awt.Dimension(81, 23));
         btnEliminar.setPreferredSize(new java.awt.Dimension(98, 23));
@@ -212,8 +213,6 @@ public class frmAlbumes extends javax.swing.JDialog {
         btnConsultar.setText("Consultar");
         btnConsultar.setEnabled(false);
         btnConsultar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnConsultar.setMaximumSize(new java.awt.Dimension(81, 23));
-        btnConsultar.setMinimumSize(new java.awt.Dimension(81, 23));
         btnConsultar.setPreferredSize(new java.awt.Dimension(98, 23));
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -341,11 +340,9 @@ public class frmAlbumes extends javax.swing.JDialog {
     
     //Eliminar artista seleccionado de la lista
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int indice = lstAlbumes.getSelectedIndex();
-        if (indice != -1) {
-            Utilitario.listaArtistas.remove(indice);
-            actualizarListaAlbumes(artistaActual);
-        }
+        artistaSeleccionado();
+        eliminarAlbum(artistaActual);
+        actualizarListaAlbumes(artistaActual);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtNombreAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreAlbumActionPerformed
@@ -354,6 +351,7 @@ public class frmAlbumes extends javax.swing.JDialog {
 
     private void btnVerAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlbumesActionPerformed
         lstAlbumes.setModel(modeloListaAlbumes);
+        artistaSeleccionado();
         actualizarListaAlbumes(artistaActual);
     }//GEN-LAST:event_btnVerAlbumesActionPerformed
     
@@ -371,13 +369,11 @@ public class frmAlbumes extends javax.swing.JDialog {
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
-        int indiceArtista = lstArtistas.getSelectedIndex();
-        if (indiceArtista != -1) {
-            modificando = false;
-            habilitarCajas();
-            limpiarCajas();
-            btnAceptar.setEnabled(true);
-        }
+        artistaSeleccionado();
+        modificando = false;
+        habilitarCajas();
+        limpiarCajas();
+        btnAceptar.setEnabled(true);
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -394,6 +390,7 @@ public class frmAlbumes extends javax.swing.JDialog {
     private void lstArtistasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstArtistasValueChanged
         modeloListaAlbumes.clear();
         btnConsultar.setEnabled(false);
+        btnEliminar.setEnabled(false);
     }//GEN-LAST:event_lstArtistasValueChanged
 
     private void txtSitioWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSitioWebActionPerformed
@@ -414,14 +411,17 @@ public class frmAlbumes extends javax.swing.JDialog {
 
     private void lstAlbumesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstAlbumesValueChanged
         btnConsultar.setEnabled(true);
+        btnEliminar.setEnabled(true);
         limpiarCajas();
     }//GEN-LAST:event_lstAlbumesValueChanged
 
     
-    
+    //Toma el indice seleccionado de la lista Artista
     private void artistaSeleccionado(){
         int indiceArtista = lstArtistas.getSelectedIndex();
-        this.artistaActual = Utilitario.listaArtistas.get(indiceArtista);
+        if (indiceArtista != -1){
+            this.artistaActual = Utilitario.listaArtistas.get(indiceArtista);
+        }
     }
     
     
@@ -441,6 +441,14 @@ public class frmAlbumes extends javax.swing.JDialog {
         txtNombreAlbum.getText());
         artista.agregarAlbum(album); 
         
+    }
+    
+    private void eliminarAlbum(Artista artista){
+        int indiceAlbum = lstAlbumes.getSelectedIndex();
+        if (indiceAlbum != -1) {
+            Album album = artista.getAlbumes().get(indiceAlbum);
+            artista.eliminarAlbum(album);  
+        }
     }
     
     private void modificarArtista(){
