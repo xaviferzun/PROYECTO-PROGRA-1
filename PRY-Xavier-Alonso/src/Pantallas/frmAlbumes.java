@@ -56,11 +56,8 @@ public class frmAlbumes extends javax.swing.JDialog {
         btnVerAlbumes = new javax.swing.JButton();
         txtNombreAlbum = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txtOrigenArtista = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         txtNumero = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtSitioWeb = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnInsertar = new javax.swing.JButton();
         btnAceptar = new javax.swing.JToggleButton();
@@ -122,17 +119,6 @@ public class frmAlbumes extends javax.swing.JDialog {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Nombre");
 
-        txtOrigenArtista.setEditable(false);
-        txtOrigenArtista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtOrigenArtista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtOrigenArtistaActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("?");
-
         txtNumero.setEditable(false);
         txtNumero.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -146,18 +132,10 @@ public class frmAlbumes extends javax.swing.JDialog {
         jLabel3.setText("Número");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        txtSitioWeb.setEditable(false);
-        txtSitioWeb.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtSitioWeb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSitioWebActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setText("?");
 
         btnInsertar.setText("Insertar");
+        btnInsertar.setEnabled(false);
         btnInsertar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnInsertar.setMaximumSize(new java.awt.Dimension(81, 23));
         btnInsertar.setMinimumSize(new java.awt.Dimension(81, 23));
@@ -190,6 +168,7 @@ public class frmAlbumes extends javax.swing.JDialog {
         });
 
         btnModificar.setText("Modificar");
+        btnModificar.setEnabled(false);
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
@@ -235,40 +214,28 @@ public class frmAlbumes extends javax.swing.JDialog {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(btnModificar)
-                            .addGap(118, 118, 118)
-                            .addComponent(btnAceptar))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(101, 101, 101)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtOrigenArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(37, 37, 37)
-                                    .addComponent(jLabel2)))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtSitioWeb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(34, 34, 34)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombreAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(324, 324, 324)
+                        .addComponent(jLabel4))
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombreAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnAceptar))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -286,41 +253,29 @@ public class frmAlbumes extends javax.swing.JDialog {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNumero)
+                            .addComponent(txtNombreAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnModificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombreAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSitioWeb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtOrigenArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAceptar)
-                        .addGap(76, 76, 76))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(35, 35, 35))))
+                .addGap(27, 27, 27)
+                .addComponent(btnAceptar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(177, 177, 177))
             .addComponent(jSeparator1)
         );
 
@@ -358,7 +313,7 @@ public class frmAlbumes extends javax.swing.JDialog {
     
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
-            modificarArtista();
+            modificarAlbum(artistaActual);
         } else {
             agregarAlbum(artistaActual);
         }
@@ -378,13 +333,11 @@ public class frmAlbumes extends javax.swing.JDialog {
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        /*modificando = true;
-        int indice = lstArtistas.getSelectedIndex();
-        if (indice != -1) {
-            obtenerInfoArtista(indice);
+        modificando = true;
+        artistaSeleccionado();
+        obtenerInfoAlbum(artistaActual);
         habilitarCajas();
-        btnAceptar.setEnabled(true);
-        } */       
+        btnAceptar.setEnabled(true);    
     }//GEN-LAST:event_btnModificarActionPerformed
 
     //Limpia las cajas de texto si el elemento seleccionado en la lista cambia
@@ -392,19 +345,13 @@ public class frmAlbumes extends javax.swing.JDialog {
         modeloListaAlbumes.clear();
         btnConsultar.setEnabled(false);
         btnEliminar.setEnabled(false);
+        btnModificar.setEnabled(false);
+        btnInsertar.setEnabled(true);
     }//GEN-LAST:event_lstArtistasValueChanged
-
-    private void txtSitioWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSitioWebActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSitioWebActionPerformed
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumeroActionPerformed
-
-    private void txtOrigenArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrigenArtistaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtOrigenArtistaActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         obtenerInfoAlbum(artistaActual);
@@ -412,6 +359,7 @@ public class frmAlbumes extends javax.swing.JDialog {
 
     private void lstAlbumesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstAlbumesValueChanged
         btnConsultar.setEnabled(true);
+        btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);
         limpiarCajas();
     }//GEN-LAST:event_lstAlbumesValueChanged
@@ -425,8 +373,7 @@ public class frmAlbumes extends javax.swing.JDialog {
         }
     }
     
-    
-    //Obtiene los datos de un artista, y los muestra en las cajas de texto respectivas
+    //Obtiene los datos de un album, y los muestra en las cajas de texto respectivas
     private void obtenerInfoAlbum(Artista artista){
         int indice = lstAlbumes.getSelectedIndex();
         if (indice != -1) {
@@ -452,13 +399,13 @@ public class frmAlbumes extends javax.swing.JDialog {
         }
     }
     
-    private void modificarArtista(){
-        int indice = lstArtistas.getSelectedIndex();
-        Artista artista = Utilitario.listaArtistas.get(indice);
-        artista.setNombre(txtNombreAlbum.getText());
-        artista.setOrigen(txtOrigenArtista.getText());
-        artista.setAnioFormacion(Integer.parseInt(txtNumero.getText()));
-        artista.setSitioWeb(txtSitioWeb.getText());        
+    private void modificarAlbum(Artista artista){
+        int indice = lstAlbumes.getSelectedIndex();
+        if (indice != -1) {
+            Album album = artista.getAlbumes().get(indice);
+            album.setNumero(Integer.parseInt(txtNumero.getText()));
+            album.setNombre(txtNombreAlbum.getText());
+        }        
     }
     
     //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
@@ -470,25 +417,19 @@ public class frmAlbumes extends javax.swing.JDialog {
     //Deshabilita las cajas de texto para prevenir cambios en los datos
     private void deshabilitarCajas(){
         txtNombreAlbum.setEditable(false);
-        txtOrigenArtista.setEditable(false);
         txtNumero.setEditable(false);
-        txtSitioWeb.setEditable(false);
     }
     
     //Habilita las cajas de texto para agregar datos
     private void habilitarCajas(){
         txtNombreAlbum.setEditable(true);
-        txtOrigenArtista.setEditable(true);
         txtNumero.setEditable(true);
-        txtSitioWeb.setEditable(true);
     }
     
     //Limpia las cajas de texto
     private void limpiarCajas(){
         txtNombreAlbum.setText("");
-        txtOrigenArtista.setText("");
         txtNumero.setText("");
-        txtSitioWeb.setText("");
     }
     
     
@@ -545,7 +486,6 @@ public class frmAlbumes extends javax.swing.JDialog {
     private javax.swing.JButton btnVerAlbumes;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -561,7 +501,5 @@ public class frmAlbumes extends javax.swing.JDialog {
     private javax.swing.JList<String> lstArtistas;
     private javax.swing.JTextField txtNombreAlbum;
     private javax.swing.JTextField txtNumero;
-    private javax.swing.JTextField txtOrigenArtista;
-    private javax.swing.JTextField txtSitioWeb;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,24 +4,22 @@
  */
 package Modelos;
 
-import static Logica.Utilitario.listaArtistas;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Artista {
     private String nombre;
-    private int tipo;
-    private Genero generos;
+    private int tipo; // 1 = Solista, 2 = Banda
     private int anioFormacion;
     private String origen;
     private String sitioWeb;
     private ArrayList<Album> albumes = new ArrayList<>();
     private int cantidadAlbumes = 0;
     private int cantidadCanciones = 0;
-    private int estado;
 
-    public Artista(String nombre, String origen, int anioFormacion, String sitioWeb) {
+    public Artista(String nombre, int tipo, String origen, int anioFormacion, String sitioWeb) {
         this.nombre = nombre;
+        this.tipo = tipo;
         this.origen = origen;
         this.anioFormacion = anioFormacion;
         this.sitioWeb = sitioWeb;
@@ -34,7 +32,22 @@ public class Artista {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
+    public String getTipo() {
+        switch (this.tipo){
+            case 1:
+                return "Solista";
+            case 2: 
+                return "Banda";
+            default:
+                return "Desconocido";
+        }
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+       
     public int getAnioFormacion() {
         return anioFormacion;
     }
@@ -76,6 +89,12 @@ public class Artista {
     public int getCantidadAlbumes() {
         return cantidadAlbumes;
     }
+
+    public int getCantidadCanciones() {
+        return cantidadCanciones;
+    }
+    
+    
     
     //Crear lista de Strings con nombres de Albumes
     public LinkedList<String> generarListaAlbumes(){
