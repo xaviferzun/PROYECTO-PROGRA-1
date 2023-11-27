@@ -16,11 +16,13 @@ public class Artista {
     private ArrayList<Album> albumes = new ArrayList<>();
     private int cantidadAlbumes = 0;
     private int cantidadCanciones = 0;
+    private int estado; // 1 = Activo, 2 = Inactivo, 3 = Pausa
 
-    public Artista(String nombre, int tipo, String origen, int anioFormacion, String sitioWeb) {
+    public Artista(String nombre, int tipo, String origen, int estado, int anioFormacion, String sitioWeb) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.origen = origen;
+        this.estado = estado;
         this.anioFormacion = anioFormacion;
         this.sitioWeb = sitioWeb;
     }
@@ -94,6 +96,22 @@ public class Artista {
         return cantidadCanciones;
     }
     
+    public String getEstado() {
+        switch (this.estado){
+            case 1:
+                return "Activo";
+            case 2: 
+                return "Inactivo";
+            case 3: 
+                return "Pausa";
+            default:
+                return "Desconocido";
+        }
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
     
     
     //Crear lista de Strings con nombres de Albumes
