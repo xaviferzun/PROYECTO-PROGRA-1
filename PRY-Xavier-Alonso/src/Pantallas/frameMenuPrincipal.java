@@ -7,12 +7,12 @@ package Pantallas;
 import Logica.Utilitario;
 
 
-public class frmMenuPrincipal extends javax.swing.JFrame {
+public class frameMenuPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form frmMenuPrincipal
      */
-    public frmMenuPrincipal() {
+    public frameMenuPrincipal() {
         initComponents();
         
         //Centrar la ventanda del Menu Principal
@@ -42,7 +42,9 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Gestor Musical Digital");
-        setSize(new java.awt.Dimension(800, 600));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new java.awt.Dimension(1024, 760));
+        setSize(new java.awt.Dimension(1024, 760));
 
         javax.swing.GroupLayout frmPrincipalLayout = new javax.swing.GroupLayout(frmPrincipal);
         frmPrincipal.setLayout(frmPrincipalLayout);
@@ -55,9 +57,17 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        menuInicio.setText("Inicio");
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenuBar1.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
 
+        menuInicio.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        menuInicio.setText("Inicio");
+        menuInicio.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        menuInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        menuInicioDatos.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         menuInicioDatos.setText("Cargar datos iniciales");
+        menuInicioDatos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         menuInicioDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuInicioDatosActionPerformed(evt);
@@ -65,7 +75,9 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         });
         menuInicio.add(menuInicioDatos);
 
+        menuInicioSalir.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         menuInicioSalir.setText("Salir");
+        menuInicioSalir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         menuInicioSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuInicioSalirActionPerformed(evt);
@@ -75,9 +87,15 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuInicio);
 
+        menuMantenimiento.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         menuMantenimiento.setText("Mantenimiento");
+        menuMantenimiento.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        menuMantenimiento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        menuMantenimiento.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        mantenimientoArtistas.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         mantenimientoArtistas.setText("Artistas");
+        mantenimientoArtistas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         mantenimientoArtistas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mantenimientoArtistasActionPerformed(evt);
@@ -85,7 +103,9 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         });
         menuMantenimiento.add(mantenimientoArtistas);
 
+        mantenimientoAlbumes.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         mantenimientoAlbumes.setText("Albumes");
+        mantenimientoAlbumes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         mantenimientoAlbumes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mantenimientoAlbumesActionPerformed(evt);
@@ -93,13 +113,19 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         });
         menuMantenimiento.add(mantenimientoAlbumes);
 
+        mantenimientoCanciones.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         mantenimientoCanciones.setText("Canciones");
+        mantenimientoCanciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         menuMantenimiento.add(mantenimientoCanciones);
 
+        menuMantenimientoGeneros.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         menuMantenimientoGeneros.setText("Géneros");
+        menuMantenimientoGeneros.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         menuMantenimiento.add(menuMantenimientoGeneros);
 
+        mantenimientoGenerosxArtista.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         mantenimientoGenerosxArtista.setText("Géneros por artista");
+        mantenimientoGenerosxArtista.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         menuMantenimiento.add(mantenimientoGenerosxArtista);
 
         jMenuBar1.add(menuMantenimiento);
@@ -118,7 +144,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(frmPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 447, Short.MAX_VALUE))
+                .addGap(0, 448, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,7 +157,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
     //Método para instanciar la ventana de Artistas
     private void mantenimientoArtistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoArtistasActionPerformed
-        frmArtistas artistas = new frmArtistas(this, true);
+        dialogArtistas artistas = new dialogArtistas(this, true);
         artistas.setVisible(true);
     }//GEN-LAST:event_mantenimientoArtistasActionPerformed
     
@@ -141,8 +167,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuInicioDatosActionPerformed
 
     private void mantenimientoAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoAlbumesActionPerformed
-        frmAlbumes albumes = new frmAlbumes(this, true);
-        albumes.setVisible(true);
+
     }//GEN-LAST:event_mantenimientoAlbumesActionPerformed
 
     /**
@@ -162,20 +187,21 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frameMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frameMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frameMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frameMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmMenuPrincipal().setVisible(true);
+                new frameMenuPrincipal().setVisible(true);
             }
         });
     }
