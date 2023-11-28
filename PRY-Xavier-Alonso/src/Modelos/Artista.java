@@ -5,19 +5,24 @@
 package Modelos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 public class Artista {
     private String nombre;
     private int tipo; // 1 = Solista, 2 = Banda
+    private String generos;
     private int anioFormacion;
     private String origen;
     private String sitioWeb;
-    private ArrayList<Album> albumes = new ArrayList<>();
+    private static ArrayList<Album> listaAlbumes = new ArrayList<>();
+    private static Map<String, String> mapaAlbumArtista = new HashMap<>();
     private int cantidadAlbumes = 0;
     private int cantidadCanciones = 0;
     private int estado; // 1 = Activo, 2 = Inactivo, 3 = Pausa
 
+    // Método Constructor
     public Artista(String nombre, int tipo, String origen, int estado, int anioFormacion, String sitioWeb) {
         this.nombre = nombre;
         this.tipo = tipo;
@@ -27,6 +32,7 @@ public class Artista {
         this.sitioWeb = sitioWeb;
     }
     
+    // Métodos Getters y Setters
     public String getNombre() {
         return nombre;
     }
@@ -74,20 +80,14 @@ public class Artista {
         this.sitioWeb = sitioWeb;
     }
 
-    public ArrayList<Album> getAlbumes() {
-        return albumes;
+    public static ArrayList<Album> getAlbumes() {
+        return listaAlbumes;
     }
 
-    public void agregarAlbum(Album album){
-        this.albumes.add(album);
-        this.cantidadAlbumes++;
+    public static Map<String, String> getMapaAlbumArtista() {
+        return mapaAlbumArtista;
     }
     
-    public void eliminarAlbum(Album album){
-        this.albumes.remove(album);
-        this.cantidadAlbumes--;
-    }
-
     public int getCantidadAlbumes() {
         return cantidadAlbumes;
     }
@@ -112,12 +112,27 @@ public class Artista {
     public void setEstado(int estado) {
         this.estado = estado;
     }
+
     
+    // Métodos de Clase
+    
+    public void agregarAlbum(Album album){
+        this.listaAlbumes.add(album);
+        this.mapaAlbumArtista.put(album.getNombre(), this.nombre);
+        this.cantidadAlbumes++;
+    }
+    
+    public void eliminarAlbum(Album album){
+        this.listaAlbumes.remove(album);
+        
+        this.cantidadAlbumes--;
+    }
+
     
     //Crear lista de Strings con nombres de Albumes
-    public LinkedList<String> generarListaAlbumes(){
+    public static LinkedList<String> generarListaAlbumes(){
         LinkedList<String> resultado = new LinkedList<>();
-        for (Album album : albumes) {
+        for (Album album : listaAlbumes) {
             resultado.add(album.getNombre());     
         }
         return resultado;

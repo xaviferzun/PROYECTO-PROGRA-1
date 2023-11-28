@@ -69,38 +69,35 @@
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
+        <Property name="name" type="java.lang.String" value="Artistas" noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[856, 638]"/>
         </Property>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Artistas"/>
+      </AccessibilityProperties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="btnConsultar" max="32767" attributes="0"/>
+                              <Component id="btnModificar" pref="94" max="32767" attributes="0"/>
                               <Component id="btnEliminar" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnInsertar" min="-2" pref="84" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="btnInsertar1" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnInsertar" min="-2" pref="94" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel5" min="-2" pref="258" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel5" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="74" max="32767" attributes="0"/>
+                  <EmptySpace pref="99" max="32767" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="15" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -114,8 +111,8 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="comboTipo" pref="122" max="32767" attributes="0"/>
                               <Component id="jLabel8" max="32767" attributes="0"/>
-                              <Component id="comboTipo" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="btnAceptar" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -222,14 +219,10 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnModificar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnInsertar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnInsertar1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="btnEliminar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -261,23 +254,16 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btnConsultar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Consultar"/>
-            <Property name="enabled" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[84, 23]"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtNombreArtista">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[122, 22]"/>
             </Property>
@@ -298,7 +284,13 @@
         <Component class="javax.swing.JTextField" name="txtOrigenArtista">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[122, 22]"/>
             </Property>
@@ -319,7 +311,13 @@
         <Component class="javax.swing.JTextField" name="txtAnioFormacion">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[122, 22]"/>
             </Property>
@@ -340,7 +338,13 @@
         <Component class="javax.swing.JTextField" name="txtSitioWeb">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[122, 22]"/>
             </Property>
@@ -444,7 +448,13 @@
         <Component class="javax.swing.JTextField" name="txtCantAlbumes">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[122, 22]"/>
             </Property>
@@ -466,7 +476,13 @@
         <Component class="javax.swing.JTextField" name="txtCantCanciones">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[122, 22]"/>
             </Property>
@@ -534,24 +550,6 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnInsertar1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ver Albumes"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[81, 23]"/>
-            </Property>
-            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[81, 23]"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[81, 23]"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertar1ActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

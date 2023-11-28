@@ -157,8 +157,8 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
 
     //Método para instanciar la ventana de Artistas
     private void mantenimientoArtistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoArtistasActionPerformed
-        dialogArtistas artistas = new dialogArtistas(this, true);
-        artistas.setVisible(true);
+        dialogArtistas PantallaArtistas = new dialogArtistas(this, true);
+        PantallaArtistas.setVisible(true);
     }//GEN-LAST:event_mantenimientoArtistasActionPerformed
     
     //Este método permite que al presionar el botón se llame al método utilitario para cargar datos iniciales.
@@ -167,7 +167,9 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuInicioDatosActionPerformed
 
     private void mantenimientoAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoAlbumesActionPerformed
-
+        dialogAlbumes pantallaAlbumes = new dialogAlbumes(this, true);
+        pantallaAlbumes.setVisible(true);
+        
     }//GEN-LAST:event_mantenimientoAlbumesActionPerformed
 
     /**

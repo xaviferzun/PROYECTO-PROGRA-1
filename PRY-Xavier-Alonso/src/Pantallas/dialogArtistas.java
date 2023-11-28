@@ -6,7 +6,6 @@ package Pantallas;
 
 import Logica.Utilitario;
 import Modelos.Artista;
-import java.awt.Frame;
 import javax.swing.DefaultListModel;
 
 
@@ -17,6 +16,7 @@ public class dialogArtistas extends javax.swing.JDialog {
     
     //Variable de instancia para almacenar el Artista actual
     private Artista artistaActual;
+    
 
     /**
      * Creates new form dialogArtistas
@@ -49,7 +49,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstArtistas = new javax.swing.JList<>();
-        btnConsultar = new javax.swing.JButton();
         txtNombreArtista = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtOrigenArtista = new javax.swing.JTextField();
@@ -72,7 +71,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         comboTipo = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         comboEstado = new javax.swing.JComboBox<>();
-        btnInsertar1 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -91,6 +89,7 @@ public class dialogArtistas extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setName("Artistas"); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(856, 638));
 
         lstArtistas.setPreferredSize(null);
@@ -101,18 +100,10 @@ public class dialogArtistas extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(lstArtistas);
 
-        btnConsultar.setText("Consultar");
-        btnConsultar.setEnabled(false);
-        btnConsultar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnConsultar.setPreferredSize(new java.awt.Dimension(84, 23));
-        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarActionPerformed(evt);
-            }
-        });
-
         txtNombreArtista.setEditable(false);
+        txtNombreArtista.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreArtista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNombreArtista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtNombreArtista.setPreferredSize(new java.awt.Dimension(122, 22));
         txtNombreArtista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +116,9 @@ public class dialogArtistas extends javax.swing.JDialog {
         jLabel1.setText("Nombre");
 
         txtOrigenArtista.setEditable(false);
+        txtOrigenArtista.setBackground(new java.awt.Color(255, 255, 255));
         txtOrigenArtista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtOrigenArtista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtOrigenArtista.setPreferredSize(new java.awt.Dimension(122, 22));
         txtOrigenArtista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +131,9 @@ public class dialogArtistas extends javax.swing.JDialog {
         jLabel2.setText("Origen");
 
         txtAnioFormacion.setEditable(false);
+        txtAnioFormacion.setBackground(new java.awt.Color(255, 255, 255));
         txtAnioFormacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAnioFormacion.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtAnioFormacion.setPreferredSize(new java.awt.Dimension(122, 22));
         txtAnioFormacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +146,9 @@ public class dialogArtistas extends javax.swing.JDialog {
         jLabel3.setText("Año Formación");
 
         txtSitioWeb.setEditable(false);
+        txtSitioWeb.setBackground(new java.awt.Color(255, 255, 255));
         txtSitioWeb.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtSitioWeb.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtSitioWeb.setPreferredSize(new java.awt.Dimension(122, 22));
         txtSitioWeb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +213,9 @@ public class dialogArtistas extends javax.swing.JDialog {
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         txtCantAlbumes.setEditable(false);
+        txtCantAlbumes.setBackground(new java.awt.Color(255, 255, 255));
         txtCantAlbumes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCantAlbumes.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtCantAlbumes.setPreferredSize(new java.awt.Dimension(122, 22));
         txtCantAlbumes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,7 +229,9 @@ public class dialogArtistas extends javax.swing.JDialog {
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         txtCantCanciones.setEditable(false);
+        txtCantCanciones.setBackground(new java.awt.Color(255, 255, 255));
         txtCantCanciones.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCantCanciones.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtCantCanciones.setPreferredSize(new java.awt.Dimension(122, 22));
         txtCantCanciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,40 +266,24 @@ public class dialogArtistas extends javax.swing.JDialog {
             }
         });
 
-        btnInsertar1.setText("Ver Albumes");
-        btnInsertar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnInsertar1.setMaximumSize(new java.awt.Dimension(81, 23));
-        btnInsertar1.setMinimumSize(new java.awt.Dimension(81, 23));
-        btnInsertar1.setPreferredSize(new java.awt.Dimension(81, 23));
-        btnInsertar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertar1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                             .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnInsertar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(83, 83, 83)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -310,8 +295,8 @@ public class dialogArtistas extends javax.swing.JDialog {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(comboTipo, 0, 122, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(btnAceptar)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -390,12 +375,9 @@ public class dialogArtistas extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInsertar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(120, 120, 120))
         );
 
@@ -409,6 +391,8 @@ public class dialogArtistas extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
         );
+
+        jPanel1.getAccessibleContext().setAccessibleName("Artistas");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -432,12 +416,6 @@ public class dialogArtistas extends javax.swing.JDialog {
     private void txtNombreArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreArtistaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreArtistaActionPerformed
-
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        artistaSeleccionado();
-        obtenerInfoArtista(artistaActual);
-        deshabilitarCajas(); 
-    }//GEN-LAST:event_btnConsultarActionPerformed
     
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
@@ -473,9 +451,9 @@ public class dialogArtistas extends javax.swing.JDialog {
 
     //Limpia las cajas de texto si el elemento seleccionado en la lista cambia
     private void lstArtistasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstArtistasValueChanged
-        limpiarCajas();
+        artistaSeleccionado();
+        obtenerInfoArtista(artistaActual);
         deshabilitarCajas();
-        btnConsultar.setEnabled(true);
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);
         btnAceptar.setEnabled(false);
@@ -496,13 +474,6 @@ public class dialogArtistas extends javax.swing.JDialog {
     private void comboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEstadoActionPerformed
-
-    private void btnInsertar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertar1ActionPerformed
-        artistaSeleccionado();
-        Frame owner = (Frame) this.getOwner();
-        dialogAlbumes albumes = new dialogAlbumes(owner, true, artistaActual);
-        albumes.setVisible(true);
-    }//GEN-LAST:event_btnInsertar1ActionPerformed
 
     
     
@@ -633,10 +604,8 @@ public class dialogArtistas extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnAceptar;
-    private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
-    private javax.swing.JButton btnInsertar1;
     private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.JComboBox<String> comboTipo;
