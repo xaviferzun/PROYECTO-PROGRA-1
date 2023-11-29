@@ -116,6 +116,11 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         mantenimientoCanciones.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         mantenimientoCanciones.setText("Canciones");
         mantenimientoCanciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        mantenimientoCanciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mantenimientoCancionesActionPerformed(evt);
+            }
+        });
         menuMantenimiento.add(mantenimientoCanciones);
 
         menuMantenimientoGeneros.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
@@ -171,6 +176,12 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         pantallaAlbumes.setVisible(true);
         
     }//GEN-LAST:event_mantenimientoAlbumesActionPerformed
+
+    private void mantenimientoCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoCancionesActionPerformed
+        // TODO add your handling code here:
+        dialogCanciones pantallaCanciones = new dialogCanciones(this,true);
+        pantallaCanciones.setVisible(true);
+    }//GEN-LAST:event_mantenimientoCancionesActionPerformed
 
     /**
      * @param args the command line arguments

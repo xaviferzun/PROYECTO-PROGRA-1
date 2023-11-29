@@ -6,6 +6,7 @@ package Logica;
 
 import Modelos.Album;
 import Modelos.Artista;
+import Modelos.Cancion;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -16,6 +17,7 @@ public class Utilitario {
     //Inicializar datos de Artistas predefinidos
     public static void cargarDatosArtistas(){
         Artista artista;
+        Album album;
         artista = new Artista("Guns N' Roses", 2, "Estados Unidos", 3, 1985, "gunsnroses.com");
         artista.agregarAlbum(new Album(1, "Appetite for Destruction"));
         artista.agregarAlbum(new Album(3, "Use Your Illusion I"));
@@ -26,7 +28,9 @@ public class Utilitario {
         listaArtistas.add(artista);
         
         artista = new Artista("Dua Lipa", 1, "Inglaterra", 1, 2013, "dualipa.com");
-        artista.agregarAlbum(new Album(2, "Future Nostalgia"));
+        album = new Album(2, "Future Nostalgia");
+        artista.agregarAlbum(album);
+        album.agregarCancion(new Cancion(1, "Physical"));
         listaArtistas.add(artista);        
     }
     

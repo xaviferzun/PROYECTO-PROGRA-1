@@ -4,6 +4,9 @@
  */
 package Modelos;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 
 public class Album {
     private int numero;
@@ -13,6 +16,7 @@ public class Album {
     private Genero genero;
     private String discografica;
     private int cantidadCanciones;
+    private static ArrayList<Cancion> listaCanciones = new ArrayList<>();
 
     
     public Album(int numero, String nombre) {
@@ -28,6 +32,10 @@ public class Album {
         this.numero = numero;
     }
 
+    public static ArrayList<Cancion> getListaCanciones() {
+        return listaCanciones;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -37,7 +45,21 @@ public class Album {
     }
 
     
+    public void agregarCancion(Cancion cancion){
+        this.listaCanciones.add(cancion);
+        this.cantidadCanciones++;
+    }
+    
+    //Crear lista de Strings con nombres de las Canciones
+    public static LinkedList<String> generarListaCanciones(){
+        LinkedList<String> resultado = new LinkedList<>();
+        for (Cancion item : listaCanciones) {
+            resultado.add(item.getTitulo());     
+        }
+        return resultado;
+    }
   
+    
 }
 
     

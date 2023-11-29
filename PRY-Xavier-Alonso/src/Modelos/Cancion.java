@@ -12,8 +12,10 @@ public class Cancion {
     private String autorLetra;
     private int anioGrabacion;
 
-    public Cancion() {
-    }
+    public Cancion(int numero, String titulo) {
+        this.numero = numero;
+        this.titulo = titulo;
+    }    
 
     public int getNumero() {
         return numero;
