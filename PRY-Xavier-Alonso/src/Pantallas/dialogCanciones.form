@@ -119,7 +119,7 @@
                                   </Group>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="cmbArtistas" max="32767" attributes="0"/>
+                                  <Component id="cmbAlbumes" max="32767" attributes="0"/>
                                   <Component id="jLabel5" min="-2" pref="124" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -143,7 +143,7 @@
                           <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cmbArtistas" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbAlbumes" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -319,14 +319,17 @@
             <Property name="text" type="java.lang.String" value="Canciones"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cmbArtistas">
+        <Component class="javax.swing.JComboBox" name="cmbAlbumes">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbAlbumesActionPerformed"/>
+          </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="for (Artista item : Utilitario.listaArtistas){&#xa;    cmbArtistas.addItem(item.getNombre());&#xa;}"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="for (Album item : Artista.getAlbumes()){&#xa;    cmbAlbumes.addItem(item.getNombre());&#xa;}"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
@@ -336,7 +339,7 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Artista del  Album"/>
+            <Property name="text" type="java.lang.String" value="Album de la Canci&#xf3;n"/>
           </Properties>
         </Component>
       </SubComponents>

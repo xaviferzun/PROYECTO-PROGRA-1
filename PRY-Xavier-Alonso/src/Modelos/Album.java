@@ -5,7 +5,9 @@
 package Modelos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 
 public class Album {
@@ -17,6 +19,7 @@ public class Album {
     private String discografica;
     private int cantidadCanciones;
     private static ArrayList<Cancion> listaCanciones = new ArrayList<>();
+    private static Map<String, String> mapaCancionAlbum = new HashMap<>();
 
     
     public Album(int numero, String nombre) {
@@ -24,6 +27,10 @@ public class Album {
         this.nombre = nombre;
     }
 
+    public static Map<String, String> getMapaCancionAlbum() {
+        return mapaCancionAlbum;
+    }
+    
     public int getNumero() {
         return numero;
     }
@@ -47,6 +54,7 @@ public class Album {
     
     public void agregarCancion(Cancion cancion){
         this.listaCanciones.add(cancion);
+        this.mapaCancionAlbum.put(cancion.getTitulo(),this.nombre);
         this.cantidadCanciones++;
     }
     
