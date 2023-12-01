@@ -12,7 +12,7 @@ import java.util.Map;
 public class Artista {
     private String nombre;
     private int tipo; // 1 = Solista, 2 = Banda
-    private String generos;
+    private ArrayList<Genero> listaGeneros;
     private int anioFormacion;
     private String origen;
     private String sitioWeb;
