@@ -58,6 +58,11 @@ public class Album {
         this.cantidadCanciones++;
     }
     
+      public void eliminarCancion(Cancion cancion){
+        this.listaCanciones.remove(cancion);        
+        this.cantidadCanciones--;
+    }
+    
     //Crear lista de Strings con nombres de las Canciones
     public static LinkedList<String> generarListaCanciones(){
         LinkedList<String> resultado = new LinkedList<>();

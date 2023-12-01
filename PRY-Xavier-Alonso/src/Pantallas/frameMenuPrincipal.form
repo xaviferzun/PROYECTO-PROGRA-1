@@ -113,6 +113,9 @@
                 <Property name="text" type="java.lang.String" value="G&#xe9;neros"/>
                 <Property name="horizontalAlignment" type="int" value="2"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMantenimientoGenerosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mantenimientoGenerosxArtista">
               <Properties>

@@ -126,6 +126,11 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         menuMantenimientoGeneros.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         menuMantenimientoGeneros.setText("Géneros");
         menuMantenimientoGeneros.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        menuMantenimientoGeneros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantenimientoGenerosActionPerformed(evt);
+            }
+        });
         menuMantenimiento.add(menuMantenimientoGeneros);
 
         mantenimientoGenerosxArtista.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
@@ -169,6 +174,7 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
     //Este método permite que al presionar el botón se llame al método utilitario para cargar datos iniciales.
     private void menuInicioDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicioDatosActionPerformed
         Utilitario.cargarDatosArtistas();
+        Utilitario.cargarDatosGeneros();
     }//GEN-LAST:event_menuInicioDatosActionPerformed
 
     private void mantenimientoAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoAlbumesActionPerformed
@@ -182,6 +188,11 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         dialogCanciones pantallaCanciones = new dialogCanciones(this,true);
         pantallaCanciones.setVisible(true);
     }//GEN-LAST:event_mantenimientoCancionesActionPerformed
+
+    private void menuMantenimientoGenerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantenimientoGenerosActionPerformed
+        dialogGeneros pantallaGeneros = new dialogGeneros(this, true);
+        pantallaGeneros.setVisible(true);
+    }//GEN-LAST:event_menuMantenimientoGenerosActionPerformed
 
     /**
      * @param args the command line arguments

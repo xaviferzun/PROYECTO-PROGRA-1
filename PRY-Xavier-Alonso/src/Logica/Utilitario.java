@@ -7,12 +7,15 @@ package Logica;
 import Modelos.Album;
 import Modelos.Artista;
 import Modelos.Cancion;
+import Modelos.Genero;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 
 public class Utilitario {
     public static ArrayList<Artista> listaArtistas = new ArrayList<>();
+    
+    public static ArrayList<Genero> listaGeneros = new ArrayList<>();
     
     //Inicializar datos de Artistas predefinidos
     public static void cargarDatosArtistas(){
@@ -39,6 +42,25 @@ public class Utilitario {
         LinkedList<String> resultado = new LinkedList<>();
         for (Artista artista : listaArtistas) {
             resultado.add(artista.getNombre());     
+        }
+        return resultado;
+    }
+    
+    //Inicializar datos de Géneros predefinidos
+    public static void cargarDatosGeneros(){
+        Genero genero;
+        genero = new Genero("Hard Rock", "Subgénero más pesado de la música rock caracterizado por voces agresivas y guitarras eléctricas distorsionadas");
+        listaGeneros.add(genero);
+        
+        genero = new Genero("Pop", "Mezcla de diferentes estilos, caracterizada por estribillos o ritmos pegadizos");
+        listaGeneros.add(genero);
+    }
+    
+     //Crear lista de Strings con nombres de Géneros
+    public static LinkedList<String> generarListaGeneros(){
+        LinkedList<String> resultado = new LinkedList<>();
+        for (Genero item : listaGeneros) {
+            resultado.add(item.getNombre());     
         }
         return resultado;
     }

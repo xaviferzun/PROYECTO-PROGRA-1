@@ -8,13 +8,14 @@ import Logica.Utilitario;
 import Modelos.Album;
 import Modelos.Artista;
 import Modelos.Cancion;
+import Modelos.Genero;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 
 
-public class dialogCanciones extends javax.swing.JDialog {
+public class dialogGeneros extends javax.swing.JDialog {
    
-    DefaultListModel modeloListaCanciones = new DefaultListModel();
+    DefaultListModel modeloListaGeneros = new DefaultListModel();
     
     
     //Variable para verificar si el usuario está usando el botón "Modificar"
@@ -23,23 +24,23 @@ public class dialogCanciones extends javax.swing.JDialog {
     //Variable de instancia para almacenar el Artista actual
     private Album albumActual;
     private Artista artistaActual;
-    private Cancion cancionActual;
+    private Genero generoActual;
     
 
     /**
      * Creates new form dialogArtistas
      */
-    public dialogCanciones(java.awt.Frame parent, boolean modal) {
+    public dialogGeneros(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
         
-        lstCanciones.setModel(modeloListaCanciones);
-        actualizarListaCanciones();
+        lstGeneros.setModel(modeloListaGeneros);
+        actualizarListaGeneros();
         
     }
 
-    private dialogCanciones(JFrame jFrame, boolean b) {
+    private dialogGeneros(JFrame jFrame, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -57,9 +58,8 @@ public class dialogCanciones extends javax.swing.JDialog {
         jScrollPane3 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
         jPanel1 = new javax.swing.JPanel();
-        txtTituloCancion = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txtNumeroCancion = new javax.swing.JTextField();
+        txtNombreGenero = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnInsertar = new javax.swing.JButton();
@@ -68,10 +68,10 @@ public class dialogCanciones extends javax.swing.JDialog {
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        lstCanciones = new javax.swing.JList<>();
+        lstGeneros = new javax.swing.JList<>();
         jLabel6 = new javax.swing.JLabel();
-        cmbAlbumes = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDescripcion = new javax.swing.JTextArea();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,32 +93,22 @@ public class dialogCanciones extends javax.swing.JDialog {
         jPanel1.setPreferredSize(new java.awt.Dimension(735, 548));
         jPanel1.setRequestFocusEnabled(false);
 
-        txtTituloCancion.setEditable(false);
-        txtTituloCancion.setBackground(new java.awt.Color(255, 255, 255));
-        txtTituloCancion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtTituloCancion.setPreferredSize(new java.awt.Dimension(135, 22));
-        txtTituloCancion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTituloCancionActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Título");
+        jLabel1.setText("Descripción");
 
-        txtNumeroCancion.setEditable(false);
-        txtNumeroCancion.setBackground(new java.awt.Color(255, 255, 255));
-        txtNumeroCancion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtNumeroCancion.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreGenero.setEditable(false);
+        txtNombreGenero.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreGenero.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNombreGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumeroCancionActionPerformed(evt);
+                txtNombreGeneroActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Número");
+        jLabel3.setText("Nombre");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -163,29 +153,22 @@ public class dialogCanciones extends javax.swing.JDialog {
             }
         });
 
-        lstCanciones.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        lstGeneros.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                lstCancionesValueChanged(evt);
+                lstGenerosValueChanged(evt);
             }
         });
-        jScrollPane4.setViewportView(lstCanciones);
+        jScrollPane4.setViewportView(lstGeneros);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Canciones");
+        jLabel6.setText("Géneros");
 
-        for (Album item : Artista.getListaAlbumes()){
-            cmbAlbumes.addItem(item.getNombre());
-        }
-        cmbAlbumes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbAlbumesActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Album de la Canción");
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setLineWrap(true);
+        txtDescripcion.setRows(5);
+        txtDescripcion.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(txtDescripcion);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -194,12 +177,12 @@ public class dialogCanciones extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnInsertar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModificar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(26, 26, 26)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,58 +190,53 @@ public class dialogCanciones extends javax.swing.JDialog {
                         .addGap(350, 350, 350)
                         .addComponent(jLabel4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAceptar)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNumeroCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTituloCancion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(cmbAlbumes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombreGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(177, 177, 177))
             .addComponent(jSeparator1)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbAlbumes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(102, 102, 102)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(134, 134, 134)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNombreGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnModificar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAceptar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNumeroCancion)
-                            .addComponent(txtTituloCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addComponent(btnAceptar))
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnModificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(158, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)))
+                .addGap(177, 177, 177))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -266,14 +244,14 @@ public class dialogCanciones extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -283,23 +261,20 @@ public class dialogCanciones extends javax.swing.JDialog {
     
     //Eliminar artista seleccionado de la lista
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        eliminarCancion(albumActual);
-        actualizarListaCanciones();
+        generoSeleccionado();
+        eliminarGenero(generoActual);
+        actualizarListaGeneros();
         limpiarCajas();
     }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void txtTituloCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloCancionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTituloCancionActionPerformed
     
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        albumSeleccionado();
+        generoSeleccionado();
         if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
-            modificarCancion(albumActual);
+            modificarGenero(generoActual);
         } else {
-            agregarCancion(albumActual);
+            agregarGenero();
         }
-        actualizarListaCanciones();
+        actualizarListaGeneros();
         deshabilitarCajas();
         btnAceptar.setEnabled(false);
         modificando = false;
@@ -314,39 +289,35 @@ public class dialogCanciones extends javax.swing.JDialog {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         modificando = true;
-        //obtenerInfoAlbum(albumActual);
+        obtenerInfoGenero(generoActual);
         habilitarCajas();
         btnAceptar.setEnabled(true);    
     }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void txtNumeroCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroCancionActionPerformed
+    private void txtNombreGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreGeneroActionPerformed
            
-    }//GEN-LAST:event_txtNumeroCancionActionPerformed
+    }//GEN-LAST:event_txtNombreGeneroActionPerformed
 
-    private void lstCancionesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstCancionesValueChanged
-        cancionSeleccionada();
-        albumSeleccionado();
-        obtenerInfoCancion(cancionActual);
+    private void lstGenerosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstGenerosValueChanged
+        generoSeleccionado();
+        //albumSeleccionado();
+        obtenerInfoGenero(generoActual);
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);        
-    }//GEN-LAST:event_lstCancionesValueChanged
-
-    private void cmbAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAlbumesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbAlbumesActionPerformed
+    }//GEN-LAST:event_lstGenerosValueChanged
 
     
     
-    //Toma el indice seleccionado de la lista Albumes
-    private void cancionSeleccionada(){
-        int indiceCancion = lstCanciones.getSelectedIndex();
-        if (indiceCancion != -1){
-            this.cancionActual = Album.getListaCanciones().get(indiceCancion);
+    //Toma el indice seleccionado de la lista Géneros
+    private void generoSeleccionado(){
+        int indiceGenero = lstGeneros.getSelectedIndex();
+        if (indiceGenero != -1){
+            this.generoActual = Utilitario.listaGeneros.get(indiceGenero);
         }
     }
     
     //Toma el indice seleccionado del ComboBox Albumes
-    private void albumSeleccionado(){
+    /*private void albumSeleccionado(){
         int indiceAlbum = cmbAlbumes.getSelectedIndex();
         if (indiceAlbum != -1){
             this.albumActual = Artista.getListaAlbumes().get(indiceAlbum);
@@ -354,70 +325,65 @@ public class dialogCanciones extends javax.swing.JDialog {
     }
     
     //Toma el indice seleccionado del ComboBox Artistas
-    private void artistaSeleccionado(){
+    /*private void artistaSeleccionado(){
         int indiceArtista = cmbAlbumes.getSelectedIndex();
         if (indiceArtista != -1){
             Artista artista = Utilitario.listaArtistas.get(indiceArtista);
             this.artistaActual = artista;
         }
-    }
+    }*/
     
     //Obtiene los datos de un album, y los muestra en las cajas de texto respectivas
-    private void obtenerInfoCancion(Cancion cancion){
-       txtNumeroCancion.setText(Integer.toString(cancion.getNumero()));
-       txtTituloCancion.setText(cancion.getTitulo());
-       cmbAlbumes.setSelectedItem(Album.getMapaCancionAlbum().get(cancion.getTitulo()));
-       
+    private void obtenerInfoGenero(Genero genero){
+       txtNombreGenero.setText(genero.getNombre());
+       txtDescripcion.setText(genero.getDescripcion());
     }
     
-    private void agregarCancion(Album album){
-       Cancion cancion = new Cancion(
-        Integer.parseInt(txtNumeroCancion.getText()),
-        txtTituloCancion.getText());
-        album.agregarCancion(cancion);
+    private void agregarGenero(){
+       Genero genero = new Genero(
+        txtNombreGenero.getText(),
+        txtDescripcion.getText());
+        Utilitario.listaGeneros.add(genero);
     }
     
-    private void eliminarCancion(Album album){
-        int indice = lstCanciones.getSelectedIndex();
+    private void eliminarGenero(Genero genero){
+        int indice = lstGeneros.getSelectedIndex();
         if (indice != -1) {
-            Cancion cancion = album.getListaCanciones().get(indice);
-            album.eliminarCancion(cancion);  
+            genero = Utilitario.listaGeneros.get(indice);
+            Utilitario.listaGeneros.remove(genero);
         }
     }
     
-    private void modificarCancion(Album album){
-        int indice = lstCanciones.getSelectedIndex();
+    private void modificarGenero(Genero genero){
+        int indice = lstGeneros.getSelectedIndex();
         if (indice != -1) {
-            Cancion cancion = album.getListaCanciones().get(indice);
-            cancion.setNumero(Integer.parseInt(txtNumeroCancion.getText()));
-            cancion.setTitulo(txtTituloCancion.getText());
-            album.getMapaCancionAlbum().put(cancion.getTitulo(), album.getNombre());
+            genero.setNombre(txtNombreGenero.getText());
+            genero.setDescripcion(txtDescripcion.getText());
         }        
     }
     
     //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
-    private void actualizarListaCanciones(){
-        modeloListaCanciones.clear(); //Limpiar la lista visualmente antes de volver a cargarla, evitando el duplicado visual de informacion
-        modeloListaCanciones.addAll(Modelos.Album.generarListaCanciones());
+    private void actualizarListaGeneros(){
+        modeloListaGeneros.clear(); //Limpiar la lista visualmente antes de volver a cargarla, evitando el duplicado visual de informacion
+        modeloListaGeneros.addAll(Utilitario.generarListaGeneros());
     }
     
     //Deshabilita las cajas de texto para prevenir cambios en los datos
     private void deshabilitarCajas(){
-        txtTituloCancion.setEditable(false);
-        txtNumeroCancion.setEditable(false);
+        txtDescripcion.setEditable(false);
+        txtNombreGenero.setEditable(false);
     }
     
     //Habilita las cajas de texto para agregar datos
     private void habilitarCajas(){
-        txtTituloCancion.setEditable(true);
-        txtNumeroCancion.setEditable(true);
+        txtDescripcion.setEditable(true);
+        txtNombreGenero.setEditable(true);
     }
     
     //Limpia las cajas de texto
     private void limpiarCajas(){
-        txtTituloCancion.setText("");
-        txtNumeroCancion.setText("");
-        cmbAlbumes.setSelectedItem(null);
+        txtDescripcion.setText("");
+        txtNombreGenero.setText("");
     }
     
     
@@ -439,14 +405,22 @@ public class dialogCanciones extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(dialogCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(dialogGeneros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(dialogCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(dialogGeneros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(dialogCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(dialogGeneros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(dialogCanciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(dialogGeneros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -459,7 +433,7 @@ public class dialogCanciones extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                dialogCanciones dialog = new dialogCanciones(new javax.swing.JFrame(), true);
+                dialogGeneros dialog = new dialogGeneros(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -476,21 +450,20 @@ public class dialogCanciones extends javax.swing.JDialog {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JComboBox<String> cmbAlbumes;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JList<String> lstCanciones;
-    private javax.swing.JTextField txtNumeroCancion;
-    private javax.swing.JTextField txtTituloCancion;
+    private javax.swing.JList<String> lstGeneros;
+    private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JTextField txtNombreGenero;
     // End of variables declaration//GEN-END:variables
 }
