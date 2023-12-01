@@ -80,7 +80,7 @@ public class Artista {
         this.sitioWeb = sitioWeb;
     }
 
-    public static ArrayList<Album> getAlbumes() {
+    public static ArrayList<Album> getListaAlbumes() {
         return listaAlbumes;
     }
 

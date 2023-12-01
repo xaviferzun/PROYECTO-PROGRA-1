@@ -174,7 +174,7 @@ public class dialogCanciones extends javax.swing.JDialog {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Canciones");
 
-        for (Album item : Artista.getAlbumes()){
+        for (Album item : Artista.getListaAlbumes()){
             cmbAlbumes.addItem(item.getNombre());
         }
         cmbAlbumes.addActionListener(new java.awt.event.ActionListener() {
@@ -193,13 +193,13 @@ public class dialogCanciones extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btnInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +283,7 @@ public class dialogCanciones extends javax.swing.JDialog {
     
     //Eliminar artista seleccionado de la lista
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        eliminarAlbum(artistaActual);
+        //eliminarAlbum(artistaActual);
         actualizarListaCanciones();
         limpiarCajas();
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -293,11 +293,11 @@ public class dialogCanciones extends javax.swing.JDialog {
     }//GEN-LAST:event_txtTituloCancionActionPerformed
     
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        artistaSeleccionado();
+        albumSeleccionado();
         if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
-            modificarAlbum(artistaActual);
+            //modificarAlbum(artistaActual);
         } else {
-            agregarAlbum(artistaActual);
+            agregarCancion(albumActual);
         }
         actualizarListaCanciones();
         deshabilitarCajas();
@@ -325,7 +325,7 @@ public class dialogCanciones extends javax.swing.JDialog {
 
     private void lstCancionesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstCancionesValueChanged
         cancionSeleccionada();
-        artistaSeleccionado();
+        albumSeleccionado();
         obtenerInfoCancion(cancionActual);
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);        
@@ -342,6 +342,14 @@ public class dialogCanciones extends javax.swing.JDialog {
         int indiceCancion = lstCanciones.getSelectedIndex();
         if (indiceCancion != -1){
             this.cancionActual = Album.getListaCanciones().get(indiceCancion);
+        }
+    }
+    
+    //Toma el indice seleccionado del ComboBox Albumes
+    private void albumSeleccionado(){
+        int indiceAlbum = cmbAlbumes.getSelectedIndex();
+        if (indiceAlbum != -1){
+            this.albumActual = Artista.getListaAlbumes().get(indiceAlbum);
         }
     }
     
@@ -362,14 +370,14 @@ public class dialogCanciones extends javax.swing.JDialog {
        
     }
     
-    private void agregarAlbum(Artista artista){
-       Album album = new Album(
+    private void agregarCancion(Album album){
+       Cancion cancion = new Cancion(
         Integer.parseInt(txtNumeroCancion.getText()),
         txtTituloCancion.getText());
-        artista.agregarAlbum(album);
+        album.agregarCancion(cancion);
     }
     
-    private void eliminarAlbum(Artista artista){
+    /*private void eliminarAlbum(Artista artista){
         int indiceAlbum = lstCanciones.getSelectedIndex();
         if (indiceAlbum != -1) {
             Album album = artista.getAlbumes().get(indiceAlbum);
@@ -377,7 +385,7 @@ public class dialogCanciones extends javax.swing.JDialog {
         }
     }
     
-    private void modificarAlbum(Artista artista){
+    /*private void modificarAlbum(Artista artista){
         int indice = lstCanciones.getSelectedIndex();
         if (indice != -1) {
             Album album = artista.getAlbumes().get(indice);
@@ -385,7 +393,7 @@ public class dialogCanciones extends javax.swing.JDialog {
             album.setNombre(txtTituloCancion.getText());
             artista.getMapaAlbumArtista().put(album.getNombre(), artista.getNombre());
         }        
-    }
+    }*/
     
     //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
     private void actualizarListaCanciones(){

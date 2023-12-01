@@ -185,13 +185,13 @@ public class dialogAlbumes extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btnInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,7 +330,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
     private void albumSeleccionado(){
         int indiceAlbum = lstAlbumes.getSelectedIndex();
         if (indiceAlbum != -1){
-            this.albumActual = Artista.getAlbumes().get(indiceAlbum);
+            this.albumActual = Artista.getListaAlbumes().get(indiceAlbum);
         }
     }
     
@@ -362,7 +362,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
     private void eliminarAlbum(Artista artista){
         int indiceAlbum = lstAlbumes.getSelectedIndex();
         if (indiceAlbum != -1) {
-            Album album = artista.getAlbumes().get(indiceAlbum);
+            Album album = artista.getListaAlbumes().get(indiceAlbum);
             artista.eliminarAlbum(album);  
         }
     }
@@ -370,7 +370,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
     private void modificarAlbum(Artista artista){
         int indice = lstAlbumes.getSelectedIndex();
         if (indice != -1) {
-            Album album = artista.getAlbumes().get(indice);
+            Album album = artista.getListaAlbumes().get(indice);
             album.setNumero(Integer.parseInt(txtNumeroAlbum.getText()));
             album.setNombre(txtNombreAlbum.getText());
             artista.getMapaAlbumArtista().put(album.getNombre(), artista.getNombre());
