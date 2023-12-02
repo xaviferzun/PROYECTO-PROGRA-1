@@ -21,6 +21,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
     //Variable de instancia para almacenar el Artista actual
     private Album albumActual;
     private Artista artistaActual;
+    private Artista artistaAnterior;
     
 
     /**
@@ -293,7 +294,8 @@ public class dialogAlbumes extends javax.swing.JDialog {
     
     //Eliminar artista seleccionado de la lista
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        eliminarAlbum(artistaActual);
+        artistaSeleccionado();
+        eliminarAlbum(albumActual);
         actualizarListaAlbumes();
         limpiarCajas();
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -305,7 +307,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         artistaSeleccionado();
         if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
-           // modificarAlbum(artistaActual);
+           modificarAlbum(albumActual);
         } else {
             agregarAlbum(artistaActual);
         }
@@ -324,7 +326,8 @@ public class dialogAlbumes extends javax.swing.JDialog {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         modificando = true;
-        //obtenerInfoAlbum(albumActual);
+        obtenerInfoAlbum(albumActual);
+        artistaAnterior();
         habilitarCajas();
         btnAceptar.setEnabled(true);    
     }//GEN-LAST:event_btnModificarActionPerformed
@@ -338,7 +341,6 @@ public class dialogAlbumes extends javax.swing.JDialog {
         obtenerInfoAlbum(albumActual);
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);
-        
     }//GEN-LAST:event_lstAlbumesValueChanged
 
     private void txtCantidadCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadCancionesActionPerformed
@@ -379,6 +381,15 @@ public class dialogAlbumes extends javax.swing.JDialog {
         }
     }
     
+    //Toma el indice seleccionado del ComboBox Artistas para guardarlo en una variable temporal
+    private void artistaAnterior(){
+        int indiceArtista = cmbArtistas.getSelectedIndex();
+        if (indiceArtista != -1){
+            Artista artista = Utilitario.listaArtistas.get(indiceArtista);
+            this.artistaAnterior = artista;
+        }
+    }
+    
     //Obtiene los datos de un album, y los muestra en las cajas de texto respectivas
     private void obtenerInfoAlbum(Album album){
        txtNumeroAlbum.setText(Integer.toString(album.getNumero()));
@@ -388,29 +399,22 @@ public class dialogAlbumes extends javax.swing.JDialog {
     }
     
     private void agregarAlbum(Artista artista){
-       Album album = new Album(
+        Album album = new Album(
         Integer.parseInt(txtNumeroAlbum.getText()),
         txtNombreAlbum.getText());
         artista.agregarAlbum(album);
     }
     
-    private void eliminarAlbum(Artista artista){
-        int indiceAlbum = lstAlbumes.getSelectedIndex();
-        if (indiceAlbum != -1) {
-            Album album = artista.getListaAlbumes().get(indiceAlbum);
-            artista.eliminarAlbum(album);  
-        }
+    private void eliminarAlbum(Album album){
+        artistaActual.eliminarAlbum(album);
     }
     
-    /*private void modificarAlbum(Artista artista){
-        int indice = lstAlbumes.getSelectedIndex();
-        if (indice != -1) {
-            Album album = artista.getListaAlbumes().get(indice);
-            album.setNumero(Integer.parseInt(txtNumeroAlbum.getText()));
-            album.setNombre(txtNombreAlbum.getText());
-            artista.getMapaAlbumArtista().put(album.getNombre(), artista.getNombre());
-        }        
-    }*/
+    private void modificarAlbum(Album album){
+        artistaAnterior.eliminarAlbum(album);
+        album.setNumero(Integer.parseInt(txtNumeroAlbum.getText()));
+        album.setNombre(txtNombreAlbum.getText());
+        artistaActual.agregarAlbum(album);
+    }
     
         
     //Deshabilita las cajas de texto para prevenir cambios en los datos

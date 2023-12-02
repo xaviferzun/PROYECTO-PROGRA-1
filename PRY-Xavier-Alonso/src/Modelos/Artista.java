@@ -124,7 +124,8 @@ public class Artista {
     }
     
     public void eliminarAlbum(Album album){
-        this.listaAlbumes.remove(album);        
+        this.listaAlbumes.remove(album);  
+        album.getMapaAlbumArtista().remove(album);
         this.cantidadAlbumes--;
     }
 
