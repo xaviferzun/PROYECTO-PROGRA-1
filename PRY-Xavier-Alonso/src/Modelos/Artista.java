@@ -17,7 +17,6 @@ public class Artista {
     private String origen;
     private String sitioWeb;
     private ArrayList<Album> listaAlbumes = new ArrayList<>();
-    private Map<String, String> mapaAlbumArtista = new HashMap<>();
     private int cantidadAlbumes = 0;
     private int cantidadCanciones = 0;
     private int estado; // 1 = Activo, 2 = Inactivo, 3 = Pausa
@@ -83,10 +82,6 @@ public class Artista {
     public ArrayList<Album> getListaAlbumes() {
         return listaAlbumes;
     }
-
-    public Map<String, String> getMapaAlbumArtista() {
-        return mapaAlbumArtista;
-    }
     
     public int getCantidadAlbumes() {
         return cantidadAlbumes;
@@ -124,7 +119,7 @@ public class Artista {
     
     public void agregarAlbum(Album album){
         this.listaAlbumes.add(album);
-        this.mapaAlbumArtista.put(album.getNombre(), this.nombre);
+        album.getMapaAlbumArtista().put(album, this);
         this.cantidadAlbumes++;
     }
     

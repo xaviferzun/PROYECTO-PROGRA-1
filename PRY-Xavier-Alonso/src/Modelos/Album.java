@@ -19,16 +19,13 @@ public class Album {
     private String discografica;
     private int cantidadCanciones;
     private static ArrayList<Cancion> listaCanciones = new ArrayList<>();
+    private Map<Album, Artista> mapaAlbumArtista = new HashMap<>();
     private static Map<String, String> mapaCancionAlbum = new HashMap<>();
 
     
     public Album(int numero, String nombre) {
         this.numero = numero;
         this.nombre = nombre;
-    }
-
-    public static Map<String, String> getMapaCancionAlbum() {
-        return mapaCancionAlbum;
     }
     
     public int getNumero() {
@@ -39,21 +36,30 @@ public class Album {
         this.numero = numero;
     }
 
-    public static ArrayList<Cancion> getListaCanciones() {
-        return listaCanciones;
-    }
-
     public String getNombre() {
         return nombre;
-    }
-
-    public int getCantidadCanciones() {
-        return cantidadCanciones;
     }
     
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+    public static ArrayList<Cancion> getListaCanciones() {
+        return listaCanciones;
+    }
+
+    public Map<Album, Artista> getMapaAlbumArtista() {
+        return mapaAlbumArtista;
+    }
+
+    public static Map<String, String> getMapaCancionAlbum() {
+        return mapaCancionAlbum;
+    }
+    public int getCantidadCanciones() {
+        return cantidadCanciones;
+    }
+    
+    
 
     
     public void agregarCancion(Cancion cancion){

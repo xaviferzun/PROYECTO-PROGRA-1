@@ -33,6 +33,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
         
         lstAlbumes.setModel(modeloListaAlbumes);
         actualizarListaAlbumes();
+        limpiarCajas();
         
     }
 
@@ -304,7 +305,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         artistaSeleccionado();
         if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
-            modificarAlbum(artistaActual);
+           // modificarAlbum(artistaActual);
         } else {
             agregarAlbum(artistaActual);
         }
@@ -334,7 +335,6 @@ public class dialogAlbumes extends javax.swing.JDialog {
 
     private void lstAlbumesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstAlbumesValueChanged
         albumSeleccionado();
-        artistaSeleccionado();
         obtenerInfoAlbum(albumActual);
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);
@@ -347,11 +347,26 @@ public class dialogAlbumes extends javax.swing.JDialog {
 
     
     
+    
+    //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
+    private void actualizarListaAlbumes(){
+        modeloListaAlbumes.clear(); //Limpiar la lista visualmente antes de volver a cargarla, evitando el duplicado visual de informacion
+        for (Artista artista : Utilitario.listaArtistas) {
+            modeloListaAlbumes.addAll(artista.generarListaAlbumes());
+        }
+    }
+    
     //Toma el indice seleccionado de la lista Albumes
     private void albumSeleccionado(){
-        int indiceAlbum = lstAlbumes.getSelectedIndex();
-        if (indiceAlbum != -1){
-            this.albumActual = artistaActual.getListaAlbumes().get(indiceAlbum);
+        String nombreAlbum = lstAlbumes.getSelectedValue();
+        if (nombreAlbum != null) {
+            for (Artista artista : Utilitario.listaArtistas) {
+                for (Album album : artista.getListaAlbumes()) {
+                    if (album.getNombre().equals(nombreAlbum)) {
+                    this.albumActual = album;
+                    }
+                }
+            }
         }
     }
     
@@ -369,7 +384,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
        txtNumeroAlbum.setText(Integer.toString(album.getNumero()));
        txtNombreAlbum.setText(album.getNombre());
        txtCantidadCanciones.setText(Integer.toString(album.getCantidadCanciones()));
-       cmbArtistas.setSelectedItem(artistaActual.getMapaAlbumArtista().get(album.getNombre()));       
+       cmbArtistas.setSelectedItem(album.getMapaAlbumArtista().get(album).getNombre());
     }
     
     private void agregarAlbum(Artista artista){
@@ -387,7 +402,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
         }
     }
     
-    private void modificarAlbum(Artista artista){
+    /*private void modificarAlbum(Artista artista){
         int indice = lstAlbumes.getSelectedIndex();
         if (indice != -1) {
             Album album = artista.getListaAlbumes().get(indice);
@@ -395,14 +410,9 @@ public class dialogAlbumes extends javax.swing.JDialog {
             album.setNombre(txtNombreAlbum.getText());
             artista.getMapaAlbumArtista().put(album.getNombre(), artista.getNombre());
         }        
-    }
+    }*/
     
-    //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
-    private void actualizarListaAlbumes(){
-        modeloListaAlbumes.clear(); //Limpiar la lista visualmente antes de volver a cargarla, evitando el duplicado visual de informacion
-        modeloListaAlbumes.addAll(artistaActual.generarListaAlbumes());
-    }
-    
+        
     //Deshabilita las cajas de texto para prevenir cambios en los datos
     private void deshabilitarCajas(){
         txtNombreAlbum.setEditable(false);

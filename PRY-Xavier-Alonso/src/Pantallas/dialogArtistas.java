@@ -173,6 +173,8 @@ public class dialogArtistas extends javax.swing.JDialog {
 
         btnAceptar.setText("Aceptar");
         btnAceptar.setEnabled(false);
+        btnAceptar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAceptar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
@@ -319,6 +321,9 @@ public class dialogArtistas extends javax.swing.JDialog {
                                 .addComponent(txtSitioWeb, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(52, 52, 52))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAceptar, comboEstado, comboTipo, jLabel1, jLabel2, jLabel3, jLabel4, jLabel6, jLabel7, jLabel8, jLabel9, txtAnioFormacion, txtCantAlbumes, txtCantCanciones, txtNombreArtista, txtOrigenArtista, txtSitioWeb});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -378,6 +383,8 @@ public class dialogArtistas extends javax.swing.JDialog {
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(120, 120, 120))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAceptar, comboEstado, comboTipo, jLabel1, jLabel2, jLabel3, jLabel4, jLabel6, jLabel7, jLabel8, jLabel9, txtAnioFormacion, txtCantAlbumes, txtCantCanciones, txtNombreArtista, txtOrigenArtista, txtSitioWeb});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
