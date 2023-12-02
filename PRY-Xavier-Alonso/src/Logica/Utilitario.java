@@ -33,7 +33,7 @@ public class Utilitario {
         artista = new Artista("Dua Lipa", 1, "Inglaterra", 1, 2013, "dualipa.com");
         album = new Album(2, "Future Nostalgia");
         artista.agregarAlbum(album);
-        album.agregarCancion(new Cancion(1, "Physical"));
+        album.agregarCancion(new Cancion(1, "Physical"));      
         listaArtistas.add(artista);        
     }
     

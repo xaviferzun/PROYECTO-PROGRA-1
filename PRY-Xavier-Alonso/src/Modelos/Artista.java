@@ -16,8 +16,8 @@ public class Artista {
     private int anioFormacion;
     private String origen;
     private String sitioWeb;
-    private static ArrayList<Album> listaAlbumes = new ArrayList<>();
-    private static Map<String, String> mapaAlbumArtista = new HashMap<>();
+    private ArrayList<Album> listaAlbumes = new ArrayList<>();
+    private Map<String, String> mapaAlbumArtista = new HashMap<>();
     private int cantidadAlbumes = 0;
     private int cantidadCanciones = 0;
     private int estado; // 1 = Activo, 2 = Inactivo, 3 = Pausa
@@ -63,7 +63,7 @@ public class Artista {
     public void setAnioFormacion(int anioFormacion) {
         this.anioFormacion = anioFormacion;
     }
-
+    
     public String getOrigen() {
         return origen;
     }
@@ -80,11 +80,11 @@ public class Artista {
         this.sitioWeb = sitioWeb;
     }
 
-    public static ArrayList<Album> getListaAlbumes() {
+    public ArrayList<Album> getListaAlbumes() {
         return listaAlbumes;
     }
 
-    public static Map<String, String> getMapaAlbumArtista() {
+    public Map<String, String> getMapaAlbumArtista() {
         return mapaAlbumArtista;
     }
     
@@ -92,8 +92,14 @@ public class Artista {
         return cantidadAlbumes;
     }
 
-    public int getCantidadCanciones() {
+    public int getCantidadCanciones() {       
+        for (Album item : this.listaAlbumes) {
+            cantidadCanciones = item.getCantidadCanciones();
+        }       
         return cantidadCanciones;
+    }
+    
+    public void setCantidadCanciones() {       
     }
     
     public String getEstado() {
@@ -129,7 +135,7 @@ public class Artista {
 
     
     //Crear lista de Strings con nombres de Albumes
-    public static LinkedList<String> generarListaAlbumes(){
+    public LinkedList<String> generarListaAlbumes(){
         LinkedList<String> resultado = new LinkedList<>();
         for (Album album : listaAlbumes) {
             resultado.add(album.getNombre());     

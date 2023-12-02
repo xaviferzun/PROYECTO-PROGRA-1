@@ -47,6 +47,10 @@ public class Album {
         return nombre;
     }
 
+    public int getCantidadCanciones() {
+        return cantidadCanciones;
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

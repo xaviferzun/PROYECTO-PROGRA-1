@@ -69,6 +69,8 @@ public class dialogAlbumes extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         cmbArtistas = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtCantidadCanciones = new javax.swing.JTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,6 +181,15 @@ public class dialogAlbumes extends javax.swing.JDialog {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Artista del  Album");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("Cantidad de Canciones");
+
+        txtCantidadCanciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantidadCancionesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -195,9 +206,6 @@ public class dialogAlbumes extends javax.swing.JDialog {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(350, 350, 350)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAceptar)
@@ -209,12 +217,20 @@ public class dialogAlbumes extends javax.swing.JDialog {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
-                                        .addComponent(txtNombreAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtNombreAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(36, 36, 36)
+                                        .addComponent(txtCantidadCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(cmbArtistas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(350, 350, 350)
+                        .addComponent(jLabel4)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,12 +248,15 @@ public class dialogAlbumes extends javax.swing.JDialog {
                         .addComponent(cmbArtistas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2))
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNumeroAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNombreAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCantidadCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addComponent(btnAceptar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -259,7 +278,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 786, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -322,13 +341,17 @@ public class dialogAlbumes extends javax.swing.JDialog {
         
     }//GEN-LAST:event_lstAlbumesValueChanged
 
+    private void txtCantidadCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadCancionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantidadCancionesActionPerformed
+
     
     
     //Toma el indice seleccionado de la lista Albumes
     private void albumSeleccionado(){
         int indiceAlbum = lstAlbumes.getSelectedIndex();
         if (indiceAlbum != -1){
-            this.albumActual = Artista.getListaAlbumes().get(indiceAlbum);
+            this.albumActual = artistaActual.getListaAlbumes().get(indiceAlbum);
         }
     }
     
@@ -345,9 +368,8 @@ public class dialogAlbumes extends javax.swing.JDialog {
     private void obtenerInfoAlbum(Album album){
        txtNumeroAlbum.setText(Integer.toString(album.getNumero()));
        txtNombreAlbum.setText(album.getNombre());
-       cmbArtistas.setSelectedItem(Artista.getMapaAlbumArtista().get(album.getNombre()));
-       
-        
+       txtCantidadCanciones.setText(Integer.toString(album.getCantidadCanciones()));
+       cmbArtistas.setSelectedItem(artistaActual.getMapaAlbumArtista().get(album.getNombre()));       
     }
     
     private void agregarAlbum(Artista artista){
@@ -378,7 +400,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
     //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
     private void actualizarListaAlbumes(){
         modeloListaAlbumes.clear(); //Limpiar la lista visualmente antes de volver a cargarla, evitando el duplicado visual de informacion
-        modeloListaAlbumes.addAll(Modelos.Artista.generarListaAlbumes());
+        modeloListaAlbumes.addAll(artistaActual.generarListaAlbumes());
     }
     
     //Deshabilita las cajas de texto para prevenir cambios en los datos
@@ -455,6 +477,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> cmbArtistas;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -466,6 +489,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JList<String> lstAlbumes;
+    private javax.swing.JTextField txtCantidadCanciones;
     private javax.swing.JTextField txtNombreAlbum;
     private javax.swing.JTextField txtNumeroAlbum;
     // End of variables declaration//GEN-END:variables
