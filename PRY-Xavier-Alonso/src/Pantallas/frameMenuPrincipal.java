@@ -184,7 +184,6 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mantenimientoAlbumesActionPerformed
 
     private void mantenimientoCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoCancionesActionPerformed
-        // TODO add your handling code here:
         dialogCanciones pantallaCanciones = new dialogCanciones(this,true);
         pantallaCanciones.setVisible(true);
     }//GEN-LAST:event_mantenimientoCancionesActionPerformed

@@ -18,16 +18,17 @@ public class Album {
     private Genero genero;
     private String discografica;
     private int cantidadCanciones;
-    private static ArrayList<Cancion> listaCanciones = new ArrayList<>();
+    private ArrayList<Cancion> listaCanciones = new ArrayList<>();
     private Map<Album, Artista> mapaAlbumArtista = new HashMap<>();
-    private static Map<String, String> mapaCancionAlbum = new HashMap<>();
 
     
+    // Método Constructor
     public Album(int numero, String nombre) {
         this.numero = numero;
         this.nombre = nombre;
     }
     
+    // Métodos Getter y Setter
     public int getNumero() {
         return numero;
     }
@@ -44,37 +45,33 @@ public class Album {
         this.nombre = nombre;
     }
     
-    public static ArrayList<Cancion> getListaCanciones() {
+    public int getCantidadCanciones() {
+        return cantidadCanciones;
+    }
+        
+    public ArrayList<Cancion> getListaCanciones() {
         return listaCanciones;
     }
 
     public Map<Album, Artista> getMapaAlbumArtista() {
         return mapaAlbumArtista;
     }
-
-    public static Map<String, String> getMapaCancionAlbum() {
-        return mapaCancionAlbum;
-    }
-    public int getCantidadCanciones() {
-        return cantidadCanciones;
-    }
-    
-    
-
-    
+     
+    // Métodos de Clase
     public void agregarCancion(Cancion cancion){
         this.listaCanciones.add(cancion);
-        this.mapaCancionAlbum.put(cancion.getTitulo(),this.nombre);
+        cancion.getMapaCancionAlbum().put(cancion, this);
         this.cantidadCanciones++;
     }
     
       public void eliminarCancion(Cancion cancion){
-        this.listaCanciones.remove(cancion);        
+        this.listaCanciones.remove(cancion);    
+        cancion.getMapaCancionAlbum().remove(cancion);
         this.cantidadCanciones--;
     }
     
     //Crear lista de Strings con nombres de las Canciones
-    public static LinkedList<String> generarListaCanciones(){
+    public LinkedList<String> generarListaCanciones(){
         LinkedList<String> resultado = new LinkedList<>();
         for (Cancion item : listaCanciones) {
             resultado.add(item.getTitulo());     

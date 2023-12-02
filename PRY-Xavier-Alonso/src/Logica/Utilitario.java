@@ -19,11 +19,14 @@ public class Utilitario {
     
     //Inicializar datos de Artistas predefinidos
     public static void cargarDatosArtistas(){
-        Artista artista;
+        Artista artista; 
         Album album;
         artista = new Artista("Guns N' Roses", 2, "Estados Unidos", 3, 1985, "gunsnroses.com");
-        artista.agregarAlbum(new Album(1, "Appetite for Destruction"));
-        artista.agregarAlbum(new Album(3, "Use Your Illusion I"));
+        album = new Album(1, "Appetite for Destruction");
+        artista.agregarAlbum(album); 
+        album.agregarCancion(new Cancion(1, "Welcome to the Jungle"));
+        album = new Album(3, "Use Your Illusion I"); 
+        artista.agregarAlbum(album);
         listaArtistas.add(artista);
         
         artista = new Artista("Queen", 2, "Inglaterra", 2, 1970, "queenonline.com");
@@ -33,7 +36,8 @@ public class Utilitario {
         artista = new Artista("Dua Lipa", 1, "Inglaterra", 1, 2013, "dualipa.com");
         album = new Album(2, "Future Nostalgia");
         artista.agregarAlbum(album);
-        album.agregarCancion(new Cancion(1, "Physical"));      
+        album.agregarCancion(new Cancion(2, "Don't Start Now"));
+        album.agregarCancion(new Cancion(4, "Physical"));
         listaArtistas.add(artista);        
     }
     

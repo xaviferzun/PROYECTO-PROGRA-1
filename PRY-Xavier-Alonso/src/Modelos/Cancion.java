@@ -4,6 +4,9 @@
  */
 package Modelos;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Cancion {
     private int numero;
@@ -11,6 +14,7 @@ public class Cancion {
     private String duracion;
     private String autorLetra;
     private int anioGrabacion;
+    private Map<Cancion, Album> mapaCancionAlbum = new HashMap<>();
 
     public Cancion(int numero, String titulo) {
         this.numero = numero;
@@ -56,6 +60,12 @@ public class Cancion {
     public void setAnioGrabacion(int anioGrabacion) {
         this.anioGrabacion = anioGrabacion;
     }
+
+    public Map<Cancion, Album> getMapaCancionAlbum() {
+        return mapaCancionAlbum;
+    }
+    
+    
     
     
    

@@ -87,14 +87,12 @@ public class Artista {
         return cantidadAlbumes;
     }
 
-    public int getCantidadCanciones() {       
-        for (Album item : this.listaAlbumes) {
-            cantidadCanciones = item.getCantidadCanciones();
+    public int getCantidadCanciones() {    
+        cantidadCanciones = 0;
+        for (Album album : this.listaAlbumes) {
+            cantidadCanciones += album.getCantidadCanciones();
         }       
         return cantidadCanciones;
-    }
-    
-    public void setCantidadCanciones() {       
     }
     
     public String getEstado() {
