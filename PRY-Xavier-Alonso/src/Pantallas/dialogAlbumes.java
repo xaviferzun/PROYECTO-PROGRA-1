@@ -190,8 +190,11 @@ public class dialogAlbumes extends javax.swing.JDialog {
         jLabel5.setText("Artista del  Album");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Cantidad de Canciones");
 
+        txtCantidadCanciones.setEditable(false);
+        txtCantidadCanciones.setBackground(new java.awt.Color(255, 255, 255));
         txtCantidadCanciones.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCantidadCanciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

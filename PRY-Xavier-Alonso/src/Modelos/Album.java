@@ -15,7 +15,6 @@ public class Album {
     private String nombre;
     private String tipo;
     private String publicacion;
-    private Genero genero;
     private String discografica;
     private int cantidadCanciones;
     private ArrayList<Cancion> listaCanciones = new ArrayList<>();

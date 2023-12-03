@@ -820,6 +820,7 @@ public class dialogArtistas extends javax.swing.JDialog {
         txtEstadoArtistaConsultar.setText("");
         txtAnioFormacionConsultar.setText("");
         txtSitioWebConsultar.setText("");
+        modeloListaGenerosPorArtista.clear();
         txtCantAlbumes.setText("");
         txtCantCanciones.setText("");
     }
