@@ -165,6 +165,7 @@ public class dialogCanciones extends javax.swing.JDialog {
             }
         });
 
+        lstCanciones.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         lstCanciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lstCancionesMouseClicked(evt);

@@ -4,13 +4,13 @@
  */
 package Modelos;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 
 public class Genero {
     private String nombre;
     private String descripcion;
+    private ArrayList<Artista> listaArtistas = new ArrayList<>();
     
 
     public Genero(String nombre, String descripcion) {
@@ -35,6 +35,11 @@ public class Genero {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public ArrayList<Artista> getListaArtistas() {
+        return listaArtistas;
+    }
+    
 
   
     

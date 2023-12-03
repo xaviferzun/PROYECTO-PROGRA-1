@@ -29,9 +29,9 @@ public class Utilitario {
         album = new Album(3, "Use Your Illusion I"); 
         artista.agregarAlbum(album);
         genero = listaGeneros.get(0);
-        artista.getMapaArtistaGenero().put(artista, genero);
+        asignarGenero(artista, genero);
         genero = listaGeneros.get(1);
-        artista.getMapaArtistaGenero().put(artista, genero);
+        asignarGenero(artista, genero);
         listaArtistas.add(artista);
         
         artista = new Artista("Queen", 2, "Inglaterra", 2, 1970, "queenonline.com");
@@ -43,6 +43,8 @@ public class Utilitario {
         artista.agregarAlbum(album);
         album.agregarCancion(new Cancion(2, "Don't Start Now"));
         album.agregarCancion(new Cancion(4, "Physical"));
+        genero = listaGeneros.get(2);
+        asignarGenero(artista, genero);
         listaArtistas.add(artista);        
     }
     
@@ -75,6 +77,13 @@ public class Utilitario {
             resultado.add(item.getNombre());     
         }
         return resultado;
+    }
+    
+    public static void asignarGenero(Artista artista, Genero genero) {
+        if (!artista.getListaGeneros().contains(genero)) {
+            artista.getListaGeneros().add(genero);
+            genero.getListaArtistas().add(artista);
+        }
     }
        
 }

@@ -16,7 +16,7 @@ public class Artista {
     private String origen;
     private String sitioWeb;
     private ArrayList<Album> listaAlbumes = new ArrayList<>();
-    private Map<Artista, Genero> mapaArtistaGenero = new HashMap<>();
+    private ArrayList<Genero> listaGeneros = new ArrayList<>();
     private int cantidadAlbumes = 0;
     private int cantidadCanciones = 0;
     private int estado; // 1 = Activo, 2 = Inactivo, 3 = Pausa
@@ -83,8 +83,8 @@ public class Artista {
         return listaAlbumes;
     }
 
-    public Map<Artista, Genero> getMapaArtistaGenero() {
-        return mapaArtistaGenero;
+    public ArrayList<Genero> getListaGeneros() {
+        return listaGeneros;
     }
     
     public int getCantidadAlbumes() {

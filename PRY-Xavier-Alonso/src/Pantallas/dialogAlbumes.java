@@ -164,6 +164,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
             }
         });
 
+        lstAlbumes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         lstAlbumes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lstAlbumesMouseClicked(evt);

@@ -13,6 +13,8 @@ import javax.swing.DefaultListModel;
 public class dialogArtistas extends javax.swing.JDialog {
     
     DefaultListModel modeloListaArtistas = new DefaultListModel();
+    DefaultListModel modeloListaGenerosPorArtista = new DefaultListModel();
+    
     private boolean modificando = false; //Variable para verificar si el usuario está usando el botón "Modificar"
     
     //Variable de instancia para almacenar el Artista actual
@@ -27,11 +29,13 @@ public class dialogArtistas extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        //Asignar esta lista al modelo
+        //Asignar las listas al modelo correspondiente
         lstArtistas.setModel(modeloListaArtistas); 
+        lstGeneros.setModel(modeloListaGenerosPorArtista);
         
         //Agregar los nombres de los Artistas a la lista para mostrarlos
         modeloListaArtistas.addAll(Utilitario.generarListaArtistas());
+        frameEditarArtista.setVisible(false);
     }
 
     /**
@@ -50,30 +54,47 @@ public class dialogArtistas extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstArtistas = new javax.swing.JList<>();
-        txtNombreArtista = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        txtOrigenArtista = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txtAnioFormacion = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtSitioWeb = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         btnInsertar = new javax.swing.JButton();
-        btnAceptar = new javax.swing.JToggleButton();
         jSeparator1 = new javax.swing.JSeparator();
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtCantAlbumes = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txtCantCanciones = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        comboTipo = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
-        comboEstado = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
+        frameEditarArtista = new javax.swing.JInternalFrame();
+        txtAnioFormacion = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         comboGeneros = new javax.swing.JComboBox<>();
+        txtSitioWeb = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        comboEstado = new javax.swing.JComboBox<>();
+        jLabel18 = new javax.swing.JLabel();
+        txtNombreArtista = new javax.swing.JTextField();
+        txtOrigenArtista = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        comboTipo = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        btnAceptar = new javax.swing.JToggleButton();
+        jLabel15 = new javax.swing.JLabel();
+        paneInfoArtista = new javax.swing.JLayeredPane();
+        txtSitioWebConsultar = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtNombreArtistaConsultar = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtAnioFormacionConsultar = new javax.swing.JTextField();
+        txtTipoArtistaConsultar = new javax.swing.JTextField();
+        txtCantCanciones = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        lstGeneros = new javax.swing.JList<>();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtOrigenArtistaConsultar = new javax.swing.JTextField();
+        txtEstadoArtistaConsultar = new javax.swing.JTextField();
+        txtCantAlbumes = new javax.swing.JTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,7 +115,9 @@ public class dialogArtistas extends javax.swing.JDialog {
 
         jPanel1.setName("Artistas"); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(856, 638));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lstArtistas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         lstArtistas.setPreferredSize(null);
         lstArtistas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -103,65 +126,7 @@ public class dialogArtistas extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(lstArtistas);
 
-        txtNombreArtista.setEditable(false);
-        txtNombreArtista.setBackground(new java.awt.Color(255, 255, 255));
-        txtNombreArtista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtNombreArtista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txtNombreArtista.setPreferredSize(new java.awt.Dimension(122, 22));
-        txtNombreArtista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreArtistaActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Nombre");
-
-        txtOrigenArtista.setEditable(false);
-        txtOrigenArtista.setBackground(new java.awt.Color(255, 255, 255));
-        txtOrigenArtista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtOrigenArtista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txtOrigenArtista.setPreferredSize(new java.awt.Dimension(122, 22));
-        txtOrigenArtista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtOrigenArtistaActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Origen");
-
-        txtAnioFormacion.setEditable(false);
-        txtAnioFormacion.setBackground(new java.awt.Color(255, 255, 255));
-        txtAnioFormacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtAnioFormacion.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txtAnioFormacion.setPreferredSize(new java.awt.Dimension(122, 22));
-        txtAnioFormacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnioFormacionActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Año Formación");
-
-        txtSitioWeb.setEditable(false);
-        txtSitioWeb.setBackground(new java.awt.Color(255, 255, 255));
-        txtSitioWeb.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtSitioWeb.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txtSitioWeb.setPreferredSize(new java.awt.Dimension(122, 22));
-        txtSitioWeb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSitioWebActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Sitio Web");
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 200, 300));
 
         btnInsertar.setText("Insertar");
         btnInsertar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -173,18 +138,10 @@ public class dialogArtistas extends javax.swing.JDialog {
                 btnInsertarActionPerformed(evt);
             }
         });
-
-        btnAceptar.setText("Aceptar");
-        btnAceptar.setEnabled(false);
-        btnAceptar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAceptar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptarActionPerformed(evt);
-            }
-        });
+        jPanel1.add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 94, -1));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 6, 15, 709));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setEnabled(false);
@@ -197,6 +154,7 @@ public class dialogArtistas extends javax.swing.JDialog {
                 btnEliminarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 94, -1));
 
         btnModificar.setText("Modificar");
         btnModificar.setEnabled(false);
@@ -207,71 +165,33 @@ public class dialogArtistas extends javax.swing.JDialog {
                 btnModificarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 94, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Artistas");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 200, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Cantidad Albumes");
-        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        frameEditarArtista.setClosable(true);
+        frameEditarArtista.setVisible(true);
 
-        txtCantAlbumes.setEditable(false);
-        txtCantAlbumes.setBackground(new java.awt.Color(255, 255, 255));
-        txtCantAlbumes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCantAlbumes.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txtCantAlbumes.setPreferredSize(new java.awt.Dimension(122, 22));
-        txtCantAlbumes.addActionListener(new java.awt.event.ActionListener() {
+        txtAnioFormacion.setBackground(new java.awt.Color(255, 255, 255));
+        txtAnioFormacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAnioFormacion.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtAnioFormacion.setPreferredSize(new java.awt.Dimension(122, 22));
+        txtAnioFormacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCantAlbumesActionPerformed(evt);
+                txtAnioFormacionActionPerformed(evt);
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Cantidad Canciones");
-        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Estado");
 
-        txtCantCanciones.setEditable(false);
-        txtCantCanciones.setBackground(new java.awt.Color(255, 255, 255));
-        txtCantCanciones.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCantCanciones.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txtCantCanciones.setPreferredSize(new java.awt.Dimension(122, 22));
-        txtCantCanciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCantCancionesActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Tipo");
-
-        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solista", "Banda" }));
-        comboTipo.setSelectedItem(null);
-        comboTipo.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        comboTipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboTipoActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Estado");
-
-        comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo", "Pausa" }));
-        comboEstado.setSelectedItem(null);
-        comboEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboEstadoActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Géneros");
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("Género");
 
         comboGeneros.setSelectedItem(null);
         for (Genero genero: Utilitario.listaGeneros) {
@@ -284,142 +204,419 @@ public class dialogArtistas extends javax.swing.JDialog {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        txtSitioWeb.setBackground(new java.awt.Color(255, 255, 255));
+        txtSitioWeb.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtSitioWeb.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtSitioWeb.setPreferredSize(new java.awt.Dimension(122, 22));
+        txtSitioWeb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSitioWebActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Año Formación");
+
+        comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo", "Pausa" }));
+        comboEstado.setSelectedItem(null);
+        comboEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEstadoActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("Origen");
+
+        txtNombreArtista.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreArtista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNombreArtista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtNombreArtista.setPreferredSize(new java.awt.Dimension(122, 22));
+        txtNombreArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreArtistaActionPerformed(evt);
+            }
+        });
+
+        txtOrigenArtista.setBackground(new java.awt.Color(255, 255, 255));
+        txtOrigenArtista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtOrigenArtista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtOrigenArtista.setPreferredSize(new java.awt.Dimension(122, 22));
+        txtOrigenArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtOrigenArtistaActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Tipo");
+
+        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solista", "Banda" }));
+        comboTipo.setSelectedItem(null);
+        comboTipo.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        comboTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTipoActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("Nombre");
+
+        btnAceptar.setText("Aceptar");
+        btnAceptar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAceptar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Sitio Web");
+
+        javax.swing.GroupLayout frameEditarArtistaLayout = new javax.swing.GroupLayout(frameEditarArtista.getContentPane());
+        frameEditarArtista.getContentPane().setLayout(frameEditarArtistaLayout);
+        frameEditarArtistaLayout.setHorizontalGroup(
+            frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frameEditarArtistaLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(frameEditarArtistaLayout.createSequentialGroup()
+                        .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtNombreArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtOrigenArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(comboTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnAceptar)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtCantAlbumes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtAnioFormacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(frameEditarArtistaLayout.createSequentialGroup()
+                        .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtSitioWeb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAceptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(frameEditarArtistaLayout.createSequentialGroup()
+                                .addGap(146, 146, 146)
+                                .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(comboGeneros, 0, 122, Short.MAX_VALUE)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(frameEditarArtistaLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtCantCanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(comboGeneros, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtAnioFormacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtSitioWeb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(52, 52, 52))
+                                .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(comboTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                                .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAceptar, comboEstado, comboTipo, jLabel1, jLabel2, jLabel3, jLabel4, jLabel6, jLabel7, jLabel8, jLabel9, txtAnioFormacion, txtCantAlbumes, txtCantCanciones, txtNombreArtista, txtOrigenArtista, txtSitioWeb});
-
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+        frameEditarArtistaLayout.setVerticalGroup(
+            frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frameEditarArtistaLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(frameEditarArtistaLayout.createSequentialGroup()
+                        .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNombreArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                    .addGroup(frameEditarArtistaLayout.createSequentialGroup()
+                        .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtOrigenArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel8))
+                        .addComponent(txtOrigenArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frameEditarArtistaLayout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAnioFormacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAnioFormacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel10)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(comboEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(comboGeneros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCantAlbumes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel4)
+                .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addGroup(frameEditarArtistaLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(comboEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(frameEditarArtistaLayout.createSequentialGroup()
+                            .addComponent(jLabel15)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtSitioWeb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtCantCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtSitioWeb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(frameEditarArtistaLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(comboTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11))
                 .addGap(18, 18, 18)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboGeneros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(btnAceptar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jSeparator1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAceptar, comboEstado, comboTipo, jLabel1, jLabel2, jLabel3, jLabel4, jLabel6, jLabel7, jLabel8, jLabel9, txtAnioFormacion, txtCantAlbumes, txtCantCanciones, txtNombreArtista, txtOrigenArtista, txtSitioWeb});
+        jPanel1.add(frameEditarArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 450, -1));
+
+        txtSitioWebConsultar.setEditable(false);
+        txtSitioWebConsultar.setBackground(new java.awt.Color(255, 255, 255));
+        txtSitioWebConsultar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtSitioWebConsultar.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtSitioWebConsultar.setPreferredSize(new java.awt.Dimension(122, 22));
+        txtSitioWebConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSitioWebConsultarActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Géneros");
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Tipo");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Cantidad Canciones");
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Sitio Web");
+
+        txtNombreArtistaConsultar.setEditable(false);
+        txtNombreArtistaConsultar.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreArtistaConsultar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNombreArtistaConsultar.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtNombreArtistaConsultar.setPreferredSize(new java.awt.Dimension(122, 22));
+        txtNombreArtistaConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreArtistaConsultarActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Nombre");
+
+        txtAnioFormacionConsultar.setEditable(false);
+        txtAnioFormacionConsultar.setBackground(new java.awt.Color(255, 255, 255));
+        txtAnioFormacionConsultar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAnioFormacionConsultar.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtAnioFormacionConsultar.setPreferredSize(new java.awt.Dimension(122, 22));
+        txtAnioFormacionConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAnioFormacionConsultarActionPerformed(evt);
+            }
+        });
+
+        txtTipoArtistaConsultar.setEditable(false);
+        txtTipoArtistaConsultar.setBackground(new java.awt.Color(255, 255, 255));
+        txtTipoArtistaConsultar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTipoArtistaConsultar.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtTipoArtistaConsultar.setPreferredSize(new java.awt.Dimension(122, 22));
+        txtTipoArtistaConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTipoArtistaConsultarActionPerformed(evt);
+            }
+        });
+
+        txtCantCanciones.setEditable(false);
+        txtCantCanciones.setBackground(new java.awt.Color(255, 255, 255));
+        txtCantCanciones.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCantCanciones.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtCantCanciones.setPreferredSize(new java.awt.Dimension(122, 22));
+        txtCantCanciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantCancionesActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Origen");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Cantidad Albumes");
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lstGeneros.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane5.setViewportView(lstGeneros);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Año Formación");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Estado");
+
+        txtOrigenArtistaConsultar.setEditable(false);
+        txtOrigenArtistaConsultar.setBackground(new java.awt.Color(255, 255, 255));
+        txtOrigenArtistaConsultar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtOrigenArtistaConsultar.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtOrigenArtistaConsultar.setPreferredSize(new java.awt.Dimension(122, 22));
+        txtOrigenArtistaConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtOrigenArtistaConsultarActionPerformed(evt);
+            }
+        });
+
+        txtEstadoArtistaConsultar.setEditable(false);
+        txtEstadoArtistaConsultar.setBackground(new java.awt.Color(255, 255, 255));
+        txtEstadoArtistaConsultar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtCantAlbumes.setEditable(false);
+        txtCantAlbumes.setBackground(new java.awt.Color(255, 255, 255));
+        txtCantAlbumes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCantAlbumes.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtCantAlbumes.setPreferredSize(new java.awt.Dimension(122, 22));
+        txtCantAlbumes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantAlbumesActionPerformed(evt);
+            }
+        });
+
+        paneInfoArtista.setLayer(txtSitioWebConsultar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(txtNombreArtistaConsultar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(txtAnioFormacionConsultar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(txtTipoArtistaConsultar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(txtCantCanciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(jScrollPane5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(txtOrigenArtistaConsultar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(txtEstadoArtistaConsultar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paneInfoArtista.setLayer(txtCantAlbumes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout paneInfoArtistaLayout = new javax.swing.GroupLayout(paneInfoArtista);
+        paneInfoArtista.setLayout(paneInfoArtistaLayout);
+        paneInfoArtistaLayout.setHorizontalGroup(
+            paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNombreArtistaConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtOrigenArtistaConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addComponent(txtAnioFormacionConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtSitioWebConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTipoArtistaConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtEstadoArtistaConsultar)))
+                    .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addComponent(txtCantAlbumes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCantCanciones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+
+        paneInfoArtistaLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel6, jLabel7, jLabel9, txtAnioFormacionConsultar, txtCantAlbumes, txtCantCanciones, txtEstadoArtistaConsultar, txtNombreArtistaConsultar, txtOrigenArtistaConsultar, txtSitioWebConsultar, txtTipoArtistaConsultar});
+
+        paneInfoArtistaLayout.setVerticalGroup(
+            paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNombreArtistaConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtOrigenArtistaConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAnioFormacionConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19)
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTipoArtistaConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSitioWebConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel9)
+                                .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                                    .addGap(23, 23, 23)
+                                    .addComponent(txtEstadoArtistaConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCantAlbumes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(paneInfoArtistaLayout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCantCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+
+        paneInfoArtistaLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel6, jLabel7, jLabel8, jLabel9, txtAnioFormacionConsultar, txtCantAlbumes, txtCantCanciones, txtEstadoArtistaConsultar, txtNombreArtistaConsultar, txtOrigenArtistaConsultar, txtSitioWebConsultar, txtTipoArtistaConsultar});
+
+        jPanel1.add(paneInfoArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, Short.MAX_VALUE)
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("Artistas");
@@ -432,61 +629,45 @@ public class dialogArtistas extends javax.swing.JDialog {
         artistaSeleccionado();
         Utilitario.listaArtistas.remove(artistaActual);
         actualizarListaArtistas();
-        
+        limpiarCajas();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void txtAnioFormacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioFormacionActionPerformed
+    private void txtAnioFormacionConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioFormacionConsultarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnioFormacionActionPerformed
+    }//GEN-LAST:event_txtAnioFormacionConsultarActionPerformed
 
-    private void txtOrigenArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrigenArtistaActionPerformed
+    private void txtOrigenArtistaConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrigenArtistaConsultarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOrigenArtistaActionPerformed
+    }//GEN-LAST:event_txtOrigenArtistaConsultarActionPerformed
 
-    private void txtNombreArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreArtistaActionPerformed
+    private void txtNombreArtistaConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreArtistaConsultarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreArtistaActionPerformed
+    }//GEN-LAST:event_txtNombreArtistaConsultarActionPerformed
     
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
-            modificarArtista(artistaActual);
-        } else {
-           agregarArtista();
-        }
-        deshabilitarCajas();
-        actualizarListaArtistas();
-        btnAceptar.setEnabled(false);
-        modificando = false;
-    }//GEN-LAST:event_btnAceptarActionPerformed
-
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
+        paneInfoArtista.setVisible(false);
+        frameEditarArtista.setVisible(true);
         modificando = false;
-        habilitarCajas();
         limpiarCajas();
-        btnAceptar.setEnabled(true); 
     }//GEN-LAST:event_btnInsertarActionPerformed
 
-    private void txtSitioWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSitioWebActionPerformed
+    private void txtSitioWebConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSitioWebConsultarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSitioWebActionPerformed
+    }//GEN-LAST:event_txtSitioWebConsultarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        modificando = true;
-        artistaSeleccionado();
-        obtenerInfoArtista(artistaActual);
-        habilitarCajas();
-        btnAceptar.setEnabled(true);
-                
+        paneInfoArtista.setVisible(false);
+        frameEditarArtista.setVisible(true);
+        modificando = true;     
     }//GEN-LAST:event_btnModificarActionPerformed
 
     //Limpia las cajas de texto si el elemento seleccionado en la lista cambia
     private void lstArtistasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstArtistasValueChanged
         artistaSeleccionado();
-        obtenerInfoArtista(artistaActual);
-        deshabilitarCajas();
+        mostrarInfoArtista(artistaActual);
+        EditarInfoArtista(artistaActual);    
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);
-        btnAceptar.setEnabled(false);
     }//GEN-LAST:event_lstArtistasValueChanged
 
     private void txtCantAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantAlbumesActionPerformed
@@ -497,13 +678,46 @@ public class dialogArtistas extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantCancionesActionPerformed
 
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        artistaSeleccionado();
+        if (modificando == true) { //Verifica si el usuario está usando el botón de modificar
+           modificarArtista(artistaActual);
+        } else {
+            agregarArtista();
+        }
+        actualizarListaArtistas();
+        modificando = false;
+        frameEditarArtista.dispose();
+        paneInfoArtista.setVisible(true);
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
     private void comboTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboTipoActionPerformed
 
+    private void txtOrigenArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrigenArtistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtOrigenArtistaActionPerformed
+
+    private void txtNombreArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreArtistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreArtistaActionPerformed
+
     private void comboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEstadoActionPerformed
+
+    private void txtSitioWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSitioWebActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSitioWebActionPerformed
+
+    private void txtAnioFormacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioFormacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAnioFormacionActionPerformed
+
+    private void txtTipoArtistaConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoArtistaConsultarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTipoArtistaConsultarActionPerformed
 
     private void comboGenerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboGenerosActionPerformed
         // TODO add your handling code here:
@@ -511,6 +725,7 @@ public class dialogArtistas extends javax.swing.JDialog {
 
     
     
+        
     //Toma el indice seleccionado de la lista Artista
     private void artistaSeleccionado(){
         int indiceArtista = lstArtistas.getSelectedIndex();
@@ -519,17 +734,27 @@ public class dialogArtistas extends javax.swing.JDialog {
         }
     }
     
-    //Obtiene los datos de un artista, y los muestra en las cajas de texto respectivas
-    private void obtenerInfoArtista(Artista artista){
+    //Obtiene los datos de un artista, y los muestra en las cajas de texto para consultar
+    private void mostrarInfoArtista(Artista artista){
+        txtNombreArtistaConsultar.setText(artista.getNombre());
+        txtOrigenArtistaConsultar.setText(artista.getOrigen());
+        txtTipoArtistaConsultar.setText(artista.getTipo());
+        txtEstadoArtistaConsultar.setText(artista.getEstado());
+        txtAnioFormacionConsultar.setText(Integer.toString(artista.getAnioFormacion()));
+        txtSitioWebConsultar.setText(artista.getSitioWeb());
+        txtCantAlbumes.setText(Integer.toString(artista.getCantidadAlbumes()));
+        txtCantCanciones.setText(Integer.toString(artista.getCantidadCanciones()));
+        generarListaGenerosPorArtista(artista);
+    }
+    
+     //Obtiene los datos de un artista, y los muestra en la pantalla de Editar & Insertar
+    private void EditarInfoArtista(Artista artista){
         txtNombreArtista.setText(artista.getNombre());
         txtOrigenArtista.setText(artista.getOrigen());
         comboTipo.setSelectedItem(artista.getTipo());
         comboEstado.setSelectedItem(artista.getEstado());
-        comboGeneros.setSelectedItem(artista.getMapaArtistaGenero().get(artista).getNombre());
         txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));
         txtSitioWeb.setText(artista.getSitioWeb());
-        txtCantAlbumes.setText(Integer.toString(artista.getCantidadAlbumes()));
-        txtCantCanciones.setText(Integer.toString(artista.getCantidadCanciones()));
     }
     
     //Agrega un nuevo artista a la lista
@@ -541,6 +766,8 @@ public class dialogArtistas extends javax.swing.JDialog {
             (comboEstado.getSelectedIndex()+1),
             Integer.parseInt(txtAnioFormacion.getText()),
             txtSitioWeb.getText());
+            Genero generoSeleccionado = obtenerGenero();
+            Utilitario.asignarGenero(artista, generoSeleccionado);
             Utilitario.listaArtistas.add(artista);
     }
     
@@ -551,7 +778,9 @@ public class dialogArtistas extends javax.swing.JDialog {
         artista.setTipo(comboTipo.getSelectedIndex()+1);
         artista.setEstado(comboEstado.getSelectedIndex()+1);
         artista.setAnioFormacion(Integer.parseInt(txtAnioFormacion.getText()));
-        artista.setSitioWeb(txtSitioWeb.getText());        
+        artista.setSitioWeb(txtSitioWeb.getText());
+        Genero generoSeleccionado = obtenerGenero();
+        Utilitario.asignarGenero(artista, generoSeleccionado);
     }
     
     //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
@@ -559,21 +788,22 @@ public class dialogArtistas extends javax.swing.JDialog {
         modeloListaArtistas.clear(); //Limpiar la lista visualmente antes de volver a cargarla,evitando el duplicado visual de informacion
         modeloListaArtistas.addAll(Utilitario.generarListaArtistas());
         }
-    
-    //Deshabilita las cajas de texto para prevenir cambios en los datos
-    private void deshabilitarCajas(){
-        txtNombreArtista.setEditable(false);
-        txtOrigenArtista.setEditable(false);
-        txtAnioFormacion.setEditable(false);
-        txtSitioWeb.setEditable(false);
+
+    private void generarListaGenerosPorArtista(Artista artista){
+        modeloListaGenerosPorArtista.clear();
+        for (Genero genero : artista.getListaGeneros()) {
+            modeloListaGenerosPorArtista.addElement(genero.getNombre());
+        }
     }
     
-    //Habilita las cajas de texto para agregar datos
-    private void habilitarCajas(){
-        txtNombreArtista.setEditable(true);
-        txtOrigenArtista.setEditable(true);
-        txtAnioFormacion.setEditable(true);
-        txtSitioWeb.setEditable(true);
+    private Genero obtenerGenero(){
+        Object nombreGenero = comboGeneros.getSelectedItem();
+        for (Genero genero : Utilitario.listaGeneros) {
+            if (genero.getNombre().equals(nombreGenero)) {
+                return genero;
+            }
+        }
+        return null;
     }
     
     //Limpia las cajas de texto
@@ -584,6 +814,12 @@ public class dialogArtistas extends javax.swing.JDialog {
         comboEstado.setSelectedItem(null);
         txtAnioFormacion.setText("");
         txtSitioWeb.setText("");
+        txtNombreArtistaConsultar.setText("");
+        txtOrigenArtistaConsultar.setText("");
+        txtTipoArtistaConsultar.setText("");
+        txtEstadoArtistaConsultar.setText("");
+        txtAnioFormacionConsultar.setText("");
+        txtSitioWebConsultar.setText("");
         txtCantAlbumes.setText("");
         txtCantCanciones.setText("");
     }
@@ -641,9 +877,17 @@ public class dialogArtistas extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.JComboBox<String> comboGeneros;
     private javax.swing.JComboBox<String> comboTipo;
+    private javax.swing.JInternalFrame frameEditarArtista;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -656,14 +900,23 @@ public class dialogArtistas extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JList<String> lstArtistas;
+    private javax.swing.JList<String> lstGeneros;
+    private javax.swing.JLayeredPane paneInfoArtista;
     private javax.swing.JTextField txtAnioFormacion;
+    private javax.swing.JTextField txtAnioFormacionConsultar;
     private javax.swing.JTextField txtCantAlbumes;
     private javax.swing.JTextField txtCantCanciones;
+    private javax.swing.JTextField txtEstadoArtistaConsultar;
     private javax.swing.JTextField txtNombreArtista;
+    private javax.swing.JTextField txtNombreArtistaConsultar;
     private javax.swing.JTextField txtOrigenArtista;
+    private javax.swing.JTextField txtOrigenArtistaConsultar;
     private javax.swing.JTextField txtSitioWeb;
+    private javax.swing.JTextField txtSitioWebConsultar;
+    private javax.swing.JTextField txtTipoArtistaConsultar;
     // End of variables declaration//GEN-END:variables
 }
