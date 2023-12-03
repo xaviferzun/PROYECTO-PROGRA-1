@@ -173,8 +173,8 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
     
     //Este método permite que al presionar el botón se llame al método utilitario para cargar datos iniciales.
     private void menuInicioDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicioDatosActionPerformed
-        Utilitario.cargarDatosArtistas();
         Utilitario.cargarDatosGeneros();
+        Utilitario.cargarDatosArtistas();
     }//GEN-LAST:event_menuInicioDatosActionPerformed
 
     private void mantenimientoAlbumesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoAlbumesActionPerformed

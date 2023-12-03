@@ -12,11 +12,11 @@ import java.util.Map;
 public class Artista {
     private String nombre;
     private int tipo; // 1 = Solista, 2 = Banda
-    private ArrayList<Genero> listaGeneros;
     private int anioFormacion;
     private String origen;
     private String sitioWeb;
     private ArrayList<Album> listaAlbumes = new ArrayList<>();
+    private Map<Artista, Genero> mapaArtistaGenero = new HashMap<>();
     private int cantidadAlbumes = 0;
     private int cantidadCanciones = 0;
     private int estado; // 1 = Activo, 2 = Inactivo, 3 = Pausa
@@ -81,6 +81,10 @@ public class Artista {
 
     public ArrayList<Album> getListaAlbumes() {
         return listaAlbumes;
+    }
+
+    public Map<Artista, Genero> getMapaArtistaGenero() {
+        return mapaArtistaGenero;
     }
     
     public int getCantidadAlbumes() {

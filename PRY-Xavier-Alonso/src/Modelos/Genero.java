@@ -4,14 +4,19 @@
  */
 package Modelos;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Genero {
     private String nombre;
     private String descripcion;
+    
 
     public Genero(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        
     }
 
 
@@ -30,7 +35,8 @@ public class Genero {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
+  
     
     
 }
