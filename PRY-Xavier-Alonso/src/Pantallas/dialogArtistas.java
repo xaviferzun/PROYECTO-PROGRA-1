@@ -175,7 +175,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         frameEditarArtista.setClosable(true);
         frameEditarArtista.setVisible(true);
 
-        txtAnioFormacion.setBackground(new java.awt.Color(255, 255, 255));
         txtAnioFormacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtAnioFormacion.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtAnioFormacion.setPreferredSize(new java.awt.Dimension(122, 22));
@@ -204,7 +203,6 @@ public class dialogArtistas extends javax.swing.JDialog {
             }
         });
 
-        txtSitioWeb.setBackground(new java.awt.Color(255, 255, 255));
         txtSitioWeb.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtSitioWeb.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtSitioWeb.setPreferredSize(new java.awt.Dimension(122, 22));
@@ -230,7 +228,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Origen");
 
-        txtNombreArtista.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreArtista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombreArtista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtNombreArtista.setPreferredSize(new java.awt.Dimension(122, 22));
@@ -240,7 +237,6 @@ public class dialogArtistas extends javax.swing.JDialog {
             }
         });
 
-        txtOrigenArtista.setBackground(new java.awt.Color(255, 255, 255));
         txtOrigenArtista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtOrigenArtista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtOrigenArtista.setPreferredSize(new java.awt.Dimension(122, 22));
@@ -363,7 +359,7 @@ public class dialogArtistas extends javax.swing.JDialog {
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        jPanel1.add(frameEditarArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 450, -1));
+        jPanel1.add(frameEditarArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 450, -1));
 
         txtSitioWebConsultar.setEditable(false);
         txtSitioWebConsultar.setBackground(new java.awt.Color(255, 255, 255));
@@ -616,7 +612,9 @@ public class dialogArtistas extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("Artistas");

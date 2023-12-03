@@ -23,28 +23,37 @@ public class Utilitario {
         Album album;
         Genero genero;
         artista = new Artista("Guns N' Roses", 2, "Estados Unidos", 3, 1985, "gunsnroses.com");
+        genero = listaGeneros.get(1);
+        asignarGenero(artista, genero);
+        genero = listaGeneros.get(2);
+        asignarGenero(artista, genero);
         album = new Album(1, "Appetite for Destruction");
         artista.agregarAlbum(album); 
+        asignarGeneroAlbum(artista, listaGeneros.get(1), album);
         album.agregarCancion(new Cancion(1, "Welcome to the Jungle"));
         album = new Album(3, "Use Your Illusion I"); 
         artista.agregarAlbum(album);
-        genero = listaGeneros.get(0);
-        asignarGenero(artista, genero);
-        genero = listaGeneros.get(1);
-        asignarGenero(artista, genero);
+        asignarGeneroAlbum(artista, listaGeneros.get(1), album);
         listaArtistas.add(artista);
         
         artista = new Artista("Queen", 2, "Inglaterra", 2, 1970, "queenonline.com");
-        artista.agregarAlbum(new Album(4, "A Night at the Opera"));
+        genero = listaGeneros.get(0);
+        asignarGenero(artista, genero);
+        album = new Album(4, "A Night at the Opera");
+        artista.agregarAlbum(album);
+        asignarGeneroAlbum(artista, listaGeneros.get(0), album);
         listaArtistas.add(artista);
         
         artista = new Artista("Dua Lipa", 1, "Inglaterra", 1, 2013, "dualipa.com");
+        genero = listaGeneros.get(3);
+        asignarGenero(artista, genero);
+        genero = listaGeneros.get(4);
+        asignarGenero(artista, genero);
         album = new Album(2, "Future Nostalgia");
         artista.agregarAlbum(album);
+        asignarGeneroAlbum(artista, listaGeneros.get(4), album);
         album.agregarCancion(new Cancion(2, "Don't Start Now"));
         album.agregarCancion(new Cancion(4, "Physical"));
-        genero = listaGeneros.get(2);
-        asignarGenero(artista, genero);
         listaArtistas.add(artista);        
     }
     
@@ -60,6 +69,9 @@ public class Utilitario {
     //Inicializar datos de Géneros predefinidos
     public static void cargarDatosGeneros(){
         Genero genero;
+        genero = new Genero("Rock", "Amplio género de música popular con raíces en el rock and roll, jazz y música clásica.");
+        listaGeneros.add(genero);
+        
         genero = new Genero("Hard Rock", "Subgénero pesado de la música rock caracterizado por voces agresivas y guitarras eléctricas distorsionadas");
         listaGeneros.add(genero);
         
@@ -67,6 +79,9 @@ public class Utilitario {
         listaGeneros.add(genero);
         
         genero = new Genero("Pop", "Mezcla de diferentes estilos, caracterizada por estribillos o ritmos pegadizos");
+        listaGeneros.add(genero);
+        
+        genero = new Genero("Dance-Pop", "Subgénero de la música pop desarrollado a partir del post-disco, new wave, synth pop​ y house");
         listaGeneros.add(genero);
     }
     
@@ -83,6 +98,12 @@ public class Utilitario {
         if (!artista.getListaGeneros().contains(genero)) {
             artista.getListaGeneros().add(genero);
             genero.getListaArtistas().add(artista);
+        }
+    }
+    
+    public static void asignarGeneroAlbum(Artista artista, Genero genero, Album album) {
+        if (artista.getListaGeneros().contains(genero)) {
+            album.setGenero(genero);
         }
     }
        

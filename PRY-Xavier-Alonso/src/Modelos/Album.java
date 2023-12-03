@@ -13,8 +13,9 @@ import java.util.Map;
 public class Album {
     private int numero;
     private String nombre;
-    private String tipo;
+    private int tipo; // 1=Estudio, 2=En Vivo, 3=EP, 4=Recopilatorio, 5=Sencillo
     private String publicacion;
+    private Genero genero;
     private String discografica;
     private int cantidadCanciones;
     private ArrayList<Cancion> listaCanciones = new ArrayList<>();
@@ -42,6 +43,31 @@ public class Album {
     
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getTipo() {
+        switch (this.tipo){ //1=Estudio, 2=En Vivo, 3=EP, 4=Recopilatorio, 5=Sencillo
+            case 1:
+                return "Estudio";
+            case 2: 
+                return "En Vivo";
+            case 3:
+                return "EP";
+            case 4: 
+                return "Recopilatorio";
+            case 5:
+                return "Sencillo";
+            default:
+                return "Desconocido";
+        }
+    }
+    
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
     
     public int getCantidadCanciones() {
