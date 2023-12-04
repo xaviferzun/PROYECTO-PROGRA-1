@@ -39,11 +39,13 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         mantenimientoCanciones = new javax.swing.JMenuItem();
         menuMantenimientoGeneros = new javax.swing.JMenuItem();
         mantenimientoGenerosxArtista = new javax.swing.JMenuItem();
+        menuConsultas = new javax.swing.JMenu();
+        consultasInfoGeneral = new javax.swing.JMenuItem();
+        consultasBusqueda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Gestor Musical Digital");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1024, 760));
         setSize(new java.awt.Dimension(1024, 760));
 
         javax.swing.GroupLayout frmPrincipalLayout = new javax.swing.GroupLayout(frmPrincipal);
@@ -140,6 +142,26 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuMantenimiento);
 
+        menuConsultas.setText("Consultas");
+
+        consultasInfoGeneral.setText("Información general");
+        consultasInfoGeneral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultasInfoGeneralActionPerformed(evt);
+            }
+        });
+        menuConsultas.add(consultasInfoGeneral);
+
+        consultasBusqueda.setText("Búsqueda");
+        consultasBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultasBusquedaActionPerformed(evt);
+            }
+        });
+        menuConsultas.add(consultasBusqueda);
+
+        jMenuBar1.add(menuConsultas);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -154,7 +176,7 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(frmPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 448, Short.MAX_VALUE))
+                .addGap(0, 444, Short.MAX_VALUE))
         );
 
         pack();
@@ -193,6 +215,16 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         pantallaGeneros.setVisible(true);
     }//GEN-LAST:event_menuMantenimientoGenerosActionPerformed
 
+    private void consultasInfoGeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultasInfoGeneralActionPerformed
+        dialogInfoGeneral pantallaInfoGeneral = new dialogInfoGeneral(this, true);
+        pantallaInfoGeneral.setVisible(true);
+    }//GEN-LAST:event_consultasInfoGeneralActionPerformed
+
+    private void consultasBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultasBusquedaActionPerformed
+        dialogBusqueda pantallaConsultas = new dialogBusqueda(this, true);
+        pantallaConsultas.setVisible(true);
+    }//GEN-LAST:event_consultasBusquedaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -230,12 +262,15 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem consultasBusqueda;
+    private javax.swing.JMenuItem consultasInfoGeneral;
     private javax.swing.JPanel frmPrincipal;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem mantenimientoAlbumes;
     private javax.swing.JMenuItem mantenimientoArtistas;
     private javax.swing.JMenuItem mantenimientoCanciones;
     private javax.swing.JMenuItem mantenimientoGenerosxArtista;
+    private javax.swing.JMenu menuConsultas;
     private javax.swing.JMenu menuInicio;
     private javax.swing.JMenuItem menuInicioDatos;
     private javax.swing.JMenuItem menuInicioSalir;
