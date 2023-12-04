@@ -12,13 +12,16 @@ public class Cancion {
     private int numero;
     private String titulo;
     private String duracion;
-    private String autorLetra;
+    private String autor;
     private int anioGrabacion;
     private Map<Cancion, Album> mapaCancionAlbum = new HashMap<>();
 
-    public Cancion(int numero, String titulo) {
+    public Cancion(int numero, String titulo, String duracion, int anioGrabacion, String autor) {
         this.numero = numero;
         this.titulo = titulo;
+        this.duracion = duracion;
+        this.anioGrabacion = anioGrabacion;
+        this.autor = autor;
     }    
 
     public int getNumero() {
@@ -45,12 +48,12 @@ public class Cancion {
         this.duracion = duracion;
     }
 
-    public String getAutorLetra() {
-        return autorLetra;
+    public String getAutor() {
+        return autor;
     }
 
-    public void setAutorLetra(String autorLetra) {
-        this.autorLetra = autorLetra;
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     public int getAnioGrabacion() {

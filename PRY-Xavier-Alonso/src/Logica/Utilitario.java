@@ -30,7 +30,7 @@ public class Utilitario {
         album = new Album(1, "Appetite for Destruction", 1, "21-07-1987", "Geffen Records");
         artista.agregarAlbum(album); 
         asignarGeneroAlbum(artista, listaGeneros.get(1), album);
-        album.agregarCancion(new Cancion(1, "Welcome to the Jungle"));
+        album.agregarCancion(new Cancion(1, "Welcome to the Jungle", "4:33", 1987, "Axl Rose"));
         album = new Album(3, "Use Your Illusion I", 1, "17-09-1991", "Geffen Records"); 
         artista.agregarAlbum(album);
         asignarGeneroAlbum(artista, listaGeneros.get(1), album);
@@ -52,8 +52,8 @@ public class Utilitario {
         album = new Album(2, "Future Nostalgia", 1, "27-03-2020", "Warner Records");
         artista.agregarAlbum(album);
         asignarGeneroAlbum(artista, listaGeneros.get(4), album);
-        album.agregarCancion(new Cancion(2, "Don't Start Now"));
-        album.agregarCancion(new Cancion(4, "Physical"));
+        album.agregarCancion(new Cancion(2, "Don't Start Now", "3:03", 2019, "Dua Lipa"));
+        album.agregarCancion(new Cancion(4, "Physical", "3:13", 2019, "Dua Lipa"));
         listaArtistas.add(artista);        
     }
     
