@@ -585,8 +585,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         modificando = true;
-        artistaAnterior();   
-        modificando = true;   
+        artistaAnterior();     
         panelInfoAlbum.setVisible(false);
         jInternalFrame1.setVisible(true);
     }//GEN-LAST:event_btnModificarActionPerformed

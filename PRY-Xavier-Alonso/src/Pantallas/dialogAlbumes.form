@@ -609,9 +609,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtNombreAlbum">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[135, 22]"/>
@@ -643,9 +640,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtNumeroAlbum">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
               <Events>
@@ -710,9 +704,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtPublicacion">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
               <Events>
@@ -745,9 +736,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtDiscografica">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
               <Events>
