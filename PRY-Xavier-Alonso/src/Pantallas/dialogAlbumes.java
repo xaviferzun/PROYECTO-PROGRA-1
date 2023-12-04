@@ -181,6 +181,8 @@ public class dialogAlbumes extends javax.swing.JDialog {
         jLabel6.setText("Albumes");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 102, 275, -1));
 
+        panelInfoAlbum.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Nombre");
@@ -374,7 +376,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
                 .addComponent(txtCantidadCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(panelInfoAlbum, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, -1, -1));
+        jPanel1.add(panelInfoAlbum, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 460, 290));
 
         jInternalFrame1.setVisible(true);
 
@@ -393,7 +395,6 @@ public class dialogAlbumes extends javax.swing.JDialog {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Género");
 
-        txtNombreAlbum.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreAlbum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombreAlbum.setPreferredSize(new java.awt.Dimension(135, 22));
         txtNombreAlbum.addActionListener(new java.awt.event.ActionListener() {
@@ -410,7 +411,6 @@ public class dialogAlbumes extends javax.swing.JDialog {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Publicación");
 
-        txtNumeroAlbum.setBackground(new java.awt.Color(255, 255, 255));
         txtNumeroAlbum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNumeroAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -446,7 +446,6 @@ public class dialogAlbumes extends javax.swing.JDialog {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Artista del  Album");
 
-        txtPublicacion.setBackground(new java.awt.Color(255, 255, 255));
         txtPublicacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPublicacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -463,7 +462,6 @@ public class dialogAlbumes extends javax.swing.JDialog {
             }
         });
 
-        txtDiscografica.setBackground(new java.awt.Color(255, 255, 255));
         txtDiscografica.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDiscografica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -653,6 +651,8 @@ public class dialogAlbumes extends javax.swing.JDialog {
         }
         actualizarListaAlbumes();
         modificando = false;
+        jInternalFrame1.setVisible(false);
+        panelInfoAlbum.setVisible(true);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void txtNumeroAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroAlbumActionPerformed

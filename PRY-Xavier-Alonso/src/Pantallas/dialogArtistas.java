@@ -75,6 +75,7 @@ public class dialogArtistas extends javax.swing.JDialog {
         jLabel17 = new javax.swing.JLabel();
         btnAceptar = new javax.swing.JToggleButton();
         jLabel15 = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JToggleButton();
         paneInfoArtista = new javax.swing.JLayeredPane();
         txtSitioWebConsultar = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -141,7 +142,7 @@ public class dialogArtistas extends javax.swing.JDialog {
         jPanel1.add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 94, -1));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 6, 15, 709));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -20, 15, 709));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setEnabled(false);
@@ -172,7 +173,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         jLabel5.setText("Artistas");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 200, -1));
 
-        frameEditarArtista.setClosable(true);
         frameEditarArtista.setVisible(true);
 
         txtAnioFormacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -276,6 +276,15 @@ public class dialogArtistas extends javax.swing.JDialog {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Sitio Web");
 
+        btnCerrar.setText("Cerrar");
+        btnCerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCerrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout frameEditarArtistaLayout = new javax.swing.GroupLayout(frameEditarArtista.getContentPane());
         frameEditarArtista.getContentPane().setLayout(frameEditarArtistaLayout);
         frameEditarArtistaLayout.setHorizontalGroup(
@@ -299,7 +308,8 @@ public class dialogArtistas extends javax.swing.JDialog {
                         .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtSitioWeb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAceptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnAceptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(frameEditarArtistaLayout.createSequentialGroup()
                                 .addGap(146, 146, 146)
@@ -315,7 +325,7 @@ public class dialogArtistas extends javax.swing.JDialog {
                                 .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         frameEditarArtistaLayout.setVerticalGroup(
             frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,12 +364,16 @@ public class dialogArtistas extends javax.swing.JDialog {
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboGeneros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAceptar)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCerrar)
+                .addGap(36, 36, 36))
         );
 
-        jPanel1.add(frameEditarArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 450, -1));
+        jPanel1.add(frameEditarArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 440, 310));
+
+        paneInfoArtista.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtSitioWebConsultar.setEditable(false);
         txtSitioWebConsultar.setBackground(new java.awt.Color(255, 255, 255));
@@ -602,19 +616,17 @@ public class dialogArtistas extends javax.swing.JDialog {
 
         paneInfoArtistaLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel6, jLabel7, jLabel8, jLabel9, txtAnioFormacionConsultar, txtCantAlbumes, txtCantCanciones, txtEstadoArtistaConsultar, txtNombreArtistaConsultar, txtOrigenArtistaConsultar, txtSitioWebConsultar, txtTipoArtistaConsultar});
 
-        jPanel1.add(paneInfoArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, -1, -1));
+        jPanel1.add(paneInfoArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 561, Short.MAX_VALUE)
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("Artistas");
@@ -720,6 +732,11 @@ public class dialogArtistas extends javax.swing.JDialog {
     private void comboGenerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboGenerosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboGenerosActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        frameEditarArtista.dispose();
+        paneInfoArtista.setVisible(true);
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     
     
@@ -870,6 +887,7 @@ public class dialogArtistas extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnAceptar;
+    private javax.swing.JToggleButton btnCerrar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnModificar;
