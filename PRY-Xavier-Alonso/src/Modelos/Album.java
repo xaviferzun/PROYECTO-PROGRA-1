@@ -23,9 +23,12 @@ public class Album {
 
     
     // Método Constructor
-    public Album(int numero, String nombre) {
+    public Album(int numero, String nombre, int tipo, String publicacion, String discografica) {
         this.numero = numero;
         this.nombre = nombre;
+        this.tipo = tipo;
+        this.publicacion = publicacion;
+        this.discografica = discografica;
     }
     
     // Métodos Getter y Setter
@@ -61,6 +64,18 @@ public class Album {
                 return "Desconocido";
         }
     }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getPublicacion() {
+        return publicacion;
+    }
+
+    public void setPublicacion(String publicacion) {
+        this.publicacion = publicacion;
+    }
     
     public Genero getGenero() {
         return genero;
@@ -68,6 +83,14 @@ public class Album {
 
     public void setGenero(Genero genero) {
         this.genero = genero;
+    }
+
+    public String getDiscografica() {
+        return discografica;
+    }
+
+    public void setDiscografica(String discografica) {
+        this.discografica = discografica;
     }
     
     public int getCantidadCanciones() {

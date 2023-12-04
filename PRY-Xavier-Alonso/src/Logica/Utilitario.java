@@ -27,11 +27,11 @@ public class Utilitario {
         asignarGenero(artista, genero);
         genero = listaGeneros.get(2);
         asignarGenero(artista, genero);
-        album = new Album(1, "Appetite for Destruction");
+        album = new Album(1, "Appetite for Destruction", 1, "21-07-1987", "Geffen Records");
         artista.agregarAlbum(album); 
         asignarGeneroAlbum(artista, listaGeneros.get(1), album);
         album.agregarCancion(new Cancion(1, "Welcome to the Jungle"));
-        album = new Album(3, "Use Your Illusion I"); 
+        album = new Album(3, "Use Your Illusion I", 1, "17-09-1991", "Geffen Records"); 
         artista.agregarAlbum(album);
         asignarGeneroAlbum(artista, listaGeneros.get(1), album);
         listaArtistas.add(artista);
@@ -39,7 +39,7 @@ public class Utilitario {
         artista = new Artista("Queen", 2, "Inglaterra", 2, 1970, "queenonline.com");
         genero = listaGeneros.get(0);
         asignarGenero(artista, genero);
-        album = new Album(4, "A Night at the Opera");
+        album = new Album(4, "A Night at the Opera", 1, "21-11-1975", "EMI");
         artista.agregarAlbum(album);
         asignarGeneroAlbum(artista, listaGeneros.get(0), album);
         listaArtistas.add(artista);
@@ -49,7 +49,7 @@ public class Utilitario {
         asignarGenero(artista, genero);
         genero = listaGeneros.get(4);
         asignarGenero(artista, genero);
-        album = new Album(2, "Future Nostalgia");
+        album = new Album(2, "Future Nostalgia", 1, "27-03-2020", "Warner Records");
         artista.agregarAlbum(album);
         asignarGeneroAlbum(artista, listaGeneros.get(4), album);
         album.agregarCancion(new Cancion(2, "Don't Start Now"));
