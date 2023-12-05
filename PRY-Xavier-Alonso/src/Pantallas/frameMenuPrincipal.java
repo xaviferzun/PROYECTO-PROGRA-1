@@ -46,7 +46,8 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Gestor Musical Digital");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setSize(new java.awt.Dimension(1024, 760));
+        setPreferredSize(new java.awt.Dimension(1080, 760));
+        setSize(new java.awt.Dimension(1080, 760));
 
         javax.swing.GroupLayout frmPrincipalLayout = new javax.swing.GroupLayout(frmPrincipal);
         frmPrincipal.setLayout(frmPrincipalLayout);
@@ -174,13 +175,13 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(frmPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 527, Short.MAX_VALUE))
+                .addGap(0, 738, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(frmPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 444, Short.MAX_VALUE))
+                .addGap(0, 548, Short.MAX_VALUE))
         );
 
         pack();

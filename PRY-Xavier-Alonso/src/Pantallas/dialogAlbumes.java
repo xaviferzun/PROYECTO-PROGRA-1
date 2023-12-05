@@ -10,6 +10,7 @@ import Modelos.Artista;
 import Modelos.Genero;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 public class dialogAlbumes extends javax.swing.JDialog {
@@ -118,7 +119,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(735, 548));
+        jPanel1.setPreferredSize(new java.awt.Dimension(856, 638));
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -135,10 +136,10 @@ public class dialogAlbumes extends javax.swing.JDialog {
                 btnInsertarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 309, -1, -1));
+        jPanel1.add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 15, 1080));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, -60, 15, 1190));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setEnabled(false);
@@ -150,7 +151,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 367, -1, -1));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
         btnModificar.setText("Modificar");
         btnModificar.setEnabled(false);
@@ -159,7 +160,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
                 btnModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 338, 98, -1));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 98, -1));
 
         lstAlbumes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         lstAlbumes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -174,12 +175,12 @@ public class dialogAlbumes extends javax.swing.JDialog {
         });
         jScrollPane4.setViewportView(lstAlbumes);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 134, 275, 157));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 275, 157));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Albumes");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 102, 275, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 275, -1));
 
         panelInfoAlbum.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -376,7 +377,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
                 .addComponent(txtCantidadCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(panelInfoAlbum, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 460, 290));
+        jPanel1.add(panelInfoAlbum, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 460, 290));
 
         jInternalFrame1.setVisible(true);
 
@@ -545,17 +546,19 @@ public class dialogAlbumes extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jPanel1.add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
+        jPanel1.add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 867, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 867, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -579,6 +582,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
         limpiarCajas();
         panelInfoAlbum.setVisible(false);
         jInternalFrame1.setVisible(true);
+        cmbArtistas.setEnabled(true);
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -711,14 +715,16 @@ public class dialogAlbumes extends javax.swing.JDialog {
     
     //Obtiene los datos de un album, y los muestra en las cajas de texto respectivas
     private void obtenerInfoAlbum(Album album){
-       txtNumeroAlbumConsultar.setText(Integer.toString(album.getNumero()));
-       txtNombreAlbumConsultar.setText(album.getNombre());
-       txtCantidadCanciones.setText(Integer.toString(album.getCantidadCanciones()));
-       txtArtistaAlbumConsultar.setText(album.getMapaAlbumArtista().get(album).getNombre());
-       txtGeneroAlbumConsultar.setText(album.getGenero().getNombre());
-       txtTipoAlbumConsultar.setText(album.getTipo());
-       txtPublicacionConsultar.setText(album.getPublicacion());
-       txtDiscograficaConsultar.setText(album.getDiscografica());
+       if (albumActual != null) {
+            txtNumeroAlbumConsultar.setText(Integer.toString(album.getNumero()));
+            txtNombreAlbumConsultar.setText(album.getNombre());
+            txtCantidadCanciones.setText(Integer.toString(album.getCantidadCanciones()));
+            txtArtistaAlbumConsultar.setText(album.getMapaAlbumArtista().get(album).getNombre());
+            txtGeneroAlbumConsultar.setText(album.getGenero().getNombre());
+            txtTipoAlbumConsultar.setText(album.getTipo());
+            txtPublicacionConsultar.setText(album.getPublicacion());
+            txtDiscograficaConsultar.setText(album.getDiscografica());
+        }
        
     }
     
@@ -740,9 +746,14 @@ public class dialogAlbumes extends javax.swing.JDialog {
         (comboTipo.getSelectedIndex()+1), 
         txtPublicacion.getText(),
         txtDiscografica.getText());
-        artista.agregarAlbum(album);
         Genero generoSeleccionado = obtenerGenero();
-        Utilitario.asignarGeneroAlbum(artistaActual, generoSeleccionado, album);
+        if (!artistaActual.getListaGeneros().contains(generoSeleccionado)) {
+            JOptionPane.showMessageDialog(rootPane, "Error: El artista no pertenece al género seleccionado.", "Género No Encontrado", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            artista.agregarAlbum(album);
+            Utilitario.asignarGeneroAlbum(artistaActual, generoSeleccionado, album);
+        }
     }
     
     private void eliminarAlbum(Album album){
@@ -756,7 +767,12 @@ public class dialogAlbumes extends javax.swing.JDialog {
         album.setPublicacion(txtPublicacion.getText());
         album.setDiscografica(txtDiscografica.getText());
         Genero generoSeleccionado = obtenerGenero();
-        Utilitario.asignarGeneroAlbum(artistaActual, generoSeleccionado, album);
+        if (!artistaActual.getListaGeneros().contains(generoSeleccionado)) {
+            JOptionPane.showMessageDialog(rootPane, "Error: El artista no pertenece al género seleccionado.", "Género No Encontrado", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            Utilitario.asignarGeneroAlbum(artistaActual, generoSeleccionado, album);
+        }
     }
     
     private Genero obtenerGenero(){
