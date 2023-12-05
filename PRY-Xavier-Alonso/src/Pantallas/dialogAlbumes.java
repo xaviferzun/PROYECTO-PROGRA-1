@@ -586,6 +586,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
         artistaAnterior();     
         panelInfoAlbum.setVisible(false);
         jInternalFrame1.setVisible(true);
+        cmbArtistas.setEnabled(false);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void txtNumeroAlbumConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroAlbumConsultarActionPerformed
@@ -653,6 +654,8 @@ public class dialogAlbumes extends javax.swing.JDialog {
         modificando = false;
         jInternalFrame1.setVisible(false);
         panelInfoAlbum.setVisible(true);
+        obtenerInfoAlbum(albumActual);
+        
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void txtNumeroAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroAlbumActionPerformed
@@ -747,13 +750,11 @@ public class dialogAlbumes extends javax.swing.JDialog {
     }
     
     private void modificarAlbum(Album album){
-        artistaAnterior.eliminarAlbum(album);
         album.setNumero(Integer.parseInt(txtNumeroAlbumConsultar.getText()));
         album.setNombre(txtNombreAlbumConsultar.getText());
         album.setTipo((comboTipo.getSelectedIndex()+1));
         album.setPublicacion(txtPublicacion.getText());
         album.setDiscografica(txtDiscografica.getText());
-        artistaActual.agregarAlbum(album);
         Genero generoSeleccionado = obtenerGenero();
         Utilitario.asignarGeneroAlbum(artistaActual, generoSeleccionado, album);
     }

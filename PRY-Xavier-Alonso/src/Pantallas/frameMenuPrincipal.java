@@ -65,7 +65,8 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         menuInicio.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         menuInicio.setText("Inicio");
         menuInicio.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        menuInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        menuInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        menuInicio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         menuInicioDatos.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
         menuInicioDatos.setText("Cargar datos iniciales");
@@ -143,6 +144,9 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(menuMantenimiento);
 
         menuConsultas.setText("Consultas");
+        menuConsultas.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
+        menuConsultas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        menuConsultas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         consultasInfoGeneral.setText("Información general");
         consultasInfoGeneral.addActionListener(new java.awt.event.ActionListener() {
