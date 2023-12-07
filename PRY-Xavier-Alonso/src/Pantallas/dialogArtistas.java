@@ -8,6 +8,7 @@ import Logica.Utilitario;
 import Modelos.Artista;
 import Modelos.Genero;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 
 public class dialogArtistas extends javax.swing.JDialog {
@@ -769,6 +770,7 @@ public class dialogArtistas extends javax.swing.JDialog {
         txtNombreArtista.setText(artista.getNombre());
         txtOrigenArtista.setText(artista.getOrigen());
         comboTipo.setSelectedItem(artista.getTipo());
+        comboGeneros.setSelectedIndex(-1);
         comboEstado.setSelectedItem(artista.getEstado());
         txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));
         txtSitioWeb.setText(artista.getSitioWeb());
@@ -776,6 +778,16 @@ public class dialogArtistas extends javax.swing.JDialog {
     
     //Agrega un nuevo artista a la lista
     private void agregarArtista(){
+        if (txtNombreArtista.getText().isEmpty() || 
+            txtOrigenArtista.getText().isEmpty() || 
+            comboTipo.getSelectedItem() == null ||
+            comboGeneros.getSelectedItem() == null ||
+            comboEstado.getSelectedItem()== null ||
+            txtAnioFormacion.getText().isEmpty() || 
+            txtSitioWeb.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Error: Se deben llenar todos los campos requeridos.", "Campos Vacíos", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         Artista artista = new Artista(
             txtNombreArtista.getText(),
             (comboTipo.getSelectedIndex()+1),
@@ -790,6 +802,16 @@ public class dialogArtistas extends javax.swing.JDialog {
     
     //Permite cambiar datos a un artista existente
     private void modificarArtista(Artista artista){
+        if (txtNombreArtista.getText().isEmpty() || 
+            txtOrigenArtista.getText().isEmpty() || 
+            comboTipo.getSelectedItem() == null ||
+            comboGeneros.getSelectedItem() == null ||
+            comboEstado.getSelectedItem()== null ||
+            txtAnioFormacion.getText().isEmpty() || 
+            txtSitioWeb.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Error: Se deben llenar todos los campos requeridos.", "Campos Vacíos", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         artista.setNombre(txtNombreArtista.getText());
         artista.setOrigen(txtOrigenArtista.getText());
         artista.setTipo(comboTipo.getSelectedIndex()+1);
@@ -827,6 +849,7 @@ public class dialogArtistas extends javax.swing.JDialog {
     private void limpiarCajas(){
         txtNombreArtista.setText("");
         txtOrigenArtista.setText("");
+        comboGeneros.setSelectedItem(null);
         comboTipo.setSelectedItem(null);
         comboEstado.setSelectedItem(null);
         txtAnioFormacion.setText("");

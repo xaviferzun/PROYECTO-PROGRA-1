@@ -740,6 +740,16 @@ public class dialogAlbumes extends javax.swing.JDialog {
     }
     
     private void agregarAlbum(Artista artista){
+        if (txtNumeroAlbum.getText().isEmpty() || 
+            cmbArtistas.getSelectedItem() == null ||
+            txtNombreAlbum.getText().isEmpty() || 
+            comboTipo.getSelectedItem() == null ||
+            comboGenero.getSelectedItem() == null ||
+            txtPublicacion.getText().isEmpty() || 
+            txtDiscografica.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Error: Se deben llenar todos los campos requeridos.", "Campos Vacíos", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         Album album = new Album(
         Integer.parseInt(txtNumeroAlbum.getText()),
         txtNombreAlbum.getText(),
@@ -761,8 +771,17 @@ public class dialogAlbumes extends javax.swing.JDialog {
     }
     
     private void modificarAlbum(Album album){
-        album.setNumero(Integer.parseInt(txtNumeroAlbumConsultar.getText()));
-        album.setNombre(txtNombreAlbumConsultar.getText());
+        if (txtNumeroAlbum.getText().isEmpty() || 
+            txtNombreAlbum.getText().isEmpty() || 
+            comboTipo.getSelectedItem() == null ||
+            comboGenero.getSelectedItem() == null ||
+            txtPublicacion.getText().isEmpty() || 
+            txtDiscografica.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Error: Se deben llenar todos los campos requeridos.", "Campos Vacíos", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        album.setNumero(Integer.parseInt(txtNumeroAlbum.getText()));
+        album.setNombre(txtNombreAlbum.getText());
         album.setTipo((comboTipo.getSelectedIndex()+1));
         album.setPublicacion(txtPublicacion.getText());
         album.setDiscografica(txtDiscografica.getText());
@@ -800,6 +819,7 @@ public class dialogAlbumes extends javax.swing.JDialog {
         txtPublicacion.setText("");
         txtDiscografica.setText("");
         cmbArtistas.setSelectedItem(null);
+        comboTipo.setSelectedItem(null);
         comboGenero.setSelectedItem(null);
     }
     

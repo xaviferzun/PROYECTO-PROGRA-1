@@ -10,6 +10,7 @@ import Modelos.Artista;
 import Modelos.Cancion;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 public class dialogCanciones extends javax.swing.JDialog {
@@ -726,6 +727,15 @@ public class dialogCanciones extends javax.swing.JDialog {
     }
     
     private void agregarCancion(Album album){
+        if (txtNumeroCancion.getText().isEmpty() || 
+            txtTituloCancion.getText().isEmpty() || 
+            txtAutor.getText().isEmpty() ||
+            txtGrabacion.getText().isEmpty() || 
+            cmbAlbumes.getSelectedItem() == null ||
+            txtDuracion.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Error: Se deben llenar todos los campos requeridos.", "Campos Vacíos", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         Cancion cancion = new Cancion(
         Integer.parseInt(txtNumeroCancion.getText()),
         txtTituloCancion.getText(),
@@ -740,6 +750,15 @@ public class dialogCanciones extends javax.swing.JDialog {
     }
     
     private void modificarCancion(Cancion cancion){
+        if (txtNumeroCancion.getText().isEmpty() || 
+            txtTituloCancion.getText().isEmpty() || 
+            txtAutor.getText().isEmpty() ||
+            txtGrabacion.getText().isEmpty() || 
+            cmbAlbumes.getSelectedItem() == null ||
+            txtDuracion.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Error: Se deben llenar todos los campos requeridos.", "Campos Vacíos", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         albumAnterior.eliminarCancion(cancion);
         cancion.setNumero(Integer.parseInt(txtNumeroCancion.getText()));
         cancion.setTitulo(txtTituloCancion.getText());

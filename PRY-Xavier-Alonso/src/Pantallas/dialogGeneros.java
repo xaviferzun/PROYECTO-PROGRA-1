@@ -11,6 +11,7 @@ import Modelos.Cancion;
 import Modelos.Genero;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 public class dialogGeneros extends javax.swing.JDialog {
@@ -337,6 +338,11 @@ public class dialogGeneros extends javax.swing.JDialog {
     }
     
     private void agregarGenero(){
+        if (txtNombreGenero.getText().isEmpty() || 
+            txtDescripcion.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Error: Se deben llenar todos los campos requeridos.", "Campos Vacíos", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
        Genero genero = new Genero(
         txtNombreGenero.getText(),
         txtDescripcion.getText());
@@ -352,6 +358,11 @@ public class dialogGeneros extends javax.swing.JDialog {
     }
     
     private void modificarGenero(Genero genero){
+        if (txtNombreGenero.getText().isEmpty() || 
+            txtDescripcion.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Error: Se deben llenar todos los campos requeridos.", "Campos Vacíos", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         int indice = lstGeneros.getSelectedIndex();
         if (indice != -1) {
             genero.setNombre(txtNombreGenero.getText());
