@@ -46,7 +46,6 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Gestor Musical Digital");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1080, 760));
         setSize(new java.awt.Dimension(1080, 760));
 
         javax.swing.GroupLayout frmPrincipalLayout = new javax.swing.GroupLayout(frmPrincipal);
@@ -138,8 +137,13 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         menuMantenimiento.add(menuMantenimientoGeneros);
 
         mantenimientoGenerosxArtista.setFont(new java.awt.Font("Ebrima", 0, 14)); // NOI18N
-        mantenimientoGenerosxArtista.setText("Géneros por artista");
+        mantenimientoGenerosxArtista.setText("Géneros por Artista");
         mantenimientoGenerosxArtista.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        mantenimientoGenerosxArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mantenimientoGenerosxArtistaActionPerformed(evt);
+            }
+        });
         menuMantenimiento.add(mantenimientoGenerosxArtista);
 
         jMenuBar1.add(menuMantenimiento);
@@ -229,6 +233,11 @@ public class frameMenuPrincipal extends javax.swing.JFrame {
         dialogBusqueda pantallaConsultas = new dialogBusqueda(this, true);
         pantallaConsultas.setVisible(true);
     }//GEN-LAST:event_consultasBusquedaActionPerformed
+
+    private void mantenimientoGenerosxArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoGenerosxArtistaActionPerformed
+        dialogGenerosPorArtista generosPorArtista = new dialogGenerosPorArtista(this, true);
+        generosPorArtista.setVisible(true);
+    }//GEN-LAST:event_mantenimientoGenerosxArtistaActionPerformed
 
     /**
      * @param args the command line arguments

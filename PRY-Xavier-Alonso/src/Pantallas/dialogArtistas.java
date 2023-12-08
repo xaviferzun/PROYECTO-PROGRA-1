@@ -63,8 +63,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         frameEditarArtista = new javax.swing.JInternalFrame();
         txtAnioFormacion = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        comboGeneros = new javax.swing.JComboBox<>();
         txtSitioWeb = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         comboEstado = new javax.swing.JComboBox<>();
@@ -189,21 +187,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Estado");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Género");
-
-        comboGeneros.setSelectedItem(null);
-        for (Genero genero: Utilitario.listaGeneros) {
-            comboGeneros.addItem(genero.getNombre());
-
-        }
-        comboGeneros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboGenerosActionPerformed(evt);
-            }
-        });
-
         txtSitioWeb.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtSitioWeb.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtSitioWeb.setPreferredSize(new java.awt.Dimension(122, 22));
@@ -311,21 +294,14 @@ public class dialogArtistas extends javax.swing.JDialog {
                             .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnAceptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(frameEditarArtistaLayout.createSequentialGroup()
-                                .addGap(146, 146, 146)
-                                .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(comboGeneros, 0, 122, Short.MAX_VALUE)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(frameEditarArtistaLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(comboTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                                .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(frameEditarArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         frameEditarArtistaLayout.setVerticalGroup(
@@ -361,11 +337,7 @@ public class dialogArtistas extends javax.swing.JDialog {
                         .addGap(22, 22, 22)
                         .addComponent(comboTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel11))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(comboGeneros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(btnAceptar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCerrar)
@@ -612,7 +584,7 @@ public class dialogArtistas extends javax.swing.JDialog {
                         .addGroup(paneInfoArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCantCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                .addGap(67, 67, 67))
         );
 
         paneInfoArtistaLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel6, jLabel7, jLabel8, jLabel9, txtAnioFormacionConsultar, txtCantAlbumes, txtCantCanciones, txtEstadoArtistaConsultar, txtNombreArtistaConsultar, txtOrigenArtistaConsultar, txtSitioWebConsultar, txtTipoArtistaConsultar});
@@ -732,10 +704,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTipoArtistaConsultarActionPerformed
 
-    private void comboGenerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboGenerosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboGenerosActionPerformed
-
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         frameEditarArtista.dispose();
         paneInfoArtista.setVisible(true);
@@ -770,7 +738,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         txtNombreArtista.setText(artista.getNombre());
         txtOrigenArtista.setText(artista.getOrigen());
         comboTipo.setSelectedItem(artista.getTipo());
-        comboGeneros.setSelectedIndex(-1);
         comboEstado.setSelectedItem(artista.getEstado());
         txtAnioFormacion.setText(Integer.toString(artista.getAnioFormacion()));
         txtSitioWeb.setText(artista.getSitioWeb());
@@ -781,7 +748,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         if (txtNombreArtista.getText().isEmpty() || 
             txtOrigenArtista.getText().isEmpty() || 
             comboTipo.getSelectedItem() == null ||
-            comboGeneros.getSelectedItem() == null ||
             comboEstado.getSelectedItem()== null ||
             txtAnioFormacion.getText().isEmpty() || 
             txtSitioWeb.getText().isEmpty()) {
@@ -795,8 +761,6 @@ public class dialogArtistas extends javax.swing.JDialog {
             (comboEstado.getSelectedIndex()+1),
             Integer.parseInt(txtAnioFormacion.getText()),
             txtSitioWeb.getText());
-            Genero generoSeleccionado = obtenerGenero();
-            Utilitario.asignarGenero(artista, generoSeleccionado);
             Utilitario.listaArtistas.add(artista);
     }
     
@@ -805,7 +769,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         if (txtNombreArtista.getText().isEmpty() || 
             txtOrigenArtista.getText().isEmpty() || 
             comboTipo.getSelectedItem() == null ||
-            comboGeneros.getSelectedItem() == null ||
             comboEstado.getSelectedItem()== null ||
             txtAnioFormacion.getText().isEmpty() || 
             txtSitioWeb.getText().isEmpty()) {
@@ -818,8 +781,6 @@ public class dialogArtistas extends javax.swing.JDialog {
         artista.setEstado(comboEstado.getSelectedIndex()+1);
         artista.setAnioFormacion(Integer.parseInt(txtAnioFormacion.getText()));
         artista.setSitioWeb(txtSitioWeb.getText());
-        Genero generoSeleccionado = obtenerGenero();
-        Utilitario.asignarGenero(artista, generoSeleccionado);
     }
     
     //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
@@ -835,21 +796,11 @@ public class dialogArtistas extends javax.swing.JDialog {
         }
     }
     
-    private Genero obtenerGenero(){
-        Object nombreGenero = comboGeneros.getSelectedItem();
-        for (Genero genero : Utilitario.listaGeneros) {
-            if (genero.getNombre().equals(nombreGenero)) {
-                return genero;
-            }
-        }
-        return null;
-    }
     
     //Limpia las cajas de texto
     private void limpiarCajas(){
         txtNombreArtista.setText("");
         txtOrigenArtista.setText("");
-        comboGeneros.setSelectedItem(null);
         comboTipo.setSelectedItem(null);
         comboEstado.setSelectedItem(null);
         txtAnioFormacion.setText("");
@@ -917,7 +868,6 @@ public class dialogArtistas extends javax.swing.JDialog {
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> comboEstado;
-    private javax.swing.JComboBox<String> comboGeneros;
     private javax.swing.JComboBox<String> comboTipo;
     private javax.swing.JInternalFrame frameEditarArtista;
     private javax.swing.JEditorPane jEditorPane1;
@@ -925,7 +875,6 @@ public class dialogArtistas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
