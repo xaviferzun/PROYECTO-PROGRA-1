@@ -39,7 +39,7 @@ public class Artista {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
     public String getTipo() {
         switch (this.tipo){
             case 1:

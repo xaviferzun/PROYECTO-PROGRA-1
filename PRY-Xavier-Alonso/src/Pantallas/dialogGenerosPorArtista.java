@@ -133,7 +133,6 @@ public class dialogGenerosPorArtista extends javax.swing.JDialog {
                     .addComponent(jLabel3)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(comboArtistas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -148,7 +147,7 @@ public class dialogGenerosPorArtista extends javax.swing.JDialog {
                             .addComponent(btnAgregar)
                             .addGap(18, 18, 18)
                             .addComponent(btnEliminar)))
-                    .addContainerGap(158, Short.MAX_VALUE))
+                    .addContainerGap(176, Short.MAX_VALUE))
             );
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
