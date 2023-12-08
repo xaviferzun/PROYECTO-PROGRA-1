@@ -19,6 +19,8 @@ public class dialogGenerosPorArtista extends javax.swing.JDialog {
     DefaultListModel modeloGenerosArtista = new DefaultListModel();
     DefaultListModel modeloTodosGeneros = new DefaultListModel();
     private Artista artistaActual;
+    private Genero generoActual;
+    
 
     /**
      * Creates new form dialogGenerosPorArtista
@@ -165,21 +167,23 @@ public class dialogGenerosPorArtista extends javax.swing.JDialog {
     }
     private void comboArtistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboArtistasActionPerformed
         artistaSeleccionado();
-        modeloGenerosArtista.clear();
-        modeloTodosGeneros.clear();
-        modeloGenerosArtista.addAll(cargarGenerosArtista(artistaActual));
-        modeloTodosGeneros.addAll(cargarTodosGeneros(artistaActual));
+        actualizarListas(artistaActual);
         
     }//GEN-LAST:event_comboArtistasActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         artistaSeleccionado();
-        Genero generoSeleccionado = obtenerGenero();
-        Utilitario.asignarGenero(artistaActual, generoSeleccionado);
+        obtenerGeneroListaTodos();
+        Utilitario.asignarGenero(artistaActual, generoActual);
+        actualizarListas(artistaActual);
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        artistaSeleccionado();
+        obtenerGeneroListaArtista();
+        eliminarGeneroArtista(artistaActual, generoActual);
+        actualizarListas(artistaActual);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     //Toma el indice seleccionado del ComboBox Artistas
@@ -210,14 +214,34 @@ public class dialogGenerosPorArtista extends javax.swing.JDialog {
         return todosGeneros;
     }
     
-    private Genero obtenerGenero(){
+    private void obtenerGeneroListaTodos(){
         String nombreGenero = lstTodosGeneros.getSelectedValue();
         for (Genero genero : Utilitario.listaGeneros) {
             if (genero.getNombre().equals(nombreGenero)) {
-                return genero;
+                this.generoActual = genero;
             }
         }
-        return null;
+    }
+    
+    private void obtenerGeneroListaArtista(){
+        String nombreGenero = lstGenerosArtista.getSelectedValue();
+        for (Genero genero : Utilitario.listaGeneros) {
+            if (genero.getNombre().equals(nombreGenero)) {
+                this.generoActual = genero;
+            }
+        }
+    }
+    
+    private void eliminarGeneroArtista(Artista artista, Genero genero){
+        artista.getListaGeneros().remove(genero);
+        genero.getListaArtistas().remove(artista);
+    }
+    
+    private void actualizarListas(Artista artista){
+    modeloGenerosArtista.clear();
+    modeloTodosGeneros.clear();
+    modeloGenerosArtista.addAll(cargarGenerosArtista(artista));
+    modeloTodosGeneros.addAll(cargarTodosGeneros(artista));
     }
     
     
