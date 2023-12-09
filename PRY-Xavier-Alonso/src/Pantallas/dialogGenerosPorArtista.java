@@ -185,7 +185,10 @@ public class dialogGenerosPorArtista extends javax.swing.JDialog {
         actualizarListas(artistaActual);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    //Toma el indice seleccionado del ComboBox Artistas
+    /**
+    * Este método se utiliza para seleccionar un artista de la lista desplegable de artistas.
+    * Si el índice del artista seleccionado no es -1, entonces el artista actual se establece en el artista en el índice seleccionado.
+    */
     private void artistaSeleccionado(){
         int indiceArtista = comboArtistas.getSelectedIndex();
         if (indiceArtista != -1){
@@ -194,6 +197,11 @@ public class dialogGenerosPorArtista extends javax.swing.JDialog {
         }
     }
     
+    /**
+    * Este método se utiliza para cargar los géneros del artista proporcionado.
+    * @param artista El artista cuyos géneros se van a cargar.
+    * @return Una lista vinculada de los nombres de los géneros del artista.
+    */
     private LinkedList cargarGenerosArtista(Artista artista){
         LinkedList generosArtista = new LinkedList();
         for (Genero genero : artista.getListaGeneros()) {
@@ -203,6 +211,11 @@ public class dialogGenerosPorArtista extends javax.swing.JDialog {
         return generosArtista;
     }
     
+    /**
+    * Este método se utiliza para cargar todos los géneros que no están en la lista de géneros del artista proporcionado.
+    * @param artista El artista cuyos géneros no se van a cargar.
+    * @return Una lista vinculada de los nombres de los géneros que no están en la lista de géneros del artista.
+    */
     private LinkedList cargarTodosGeneros(Artista artista){
         LinkedList todosGeneros = new LinkedList();
         for (Genero genero : Utilitario.listaGeneros) {
@@ -213,6 +226,10 @@ public class dialogGenerosPorArtista extends javax.swing.JDialog {
         return todosGeneros;
     }
     
+    /**
+    * Este método se utiliza para obtener el género seleccionado de la lista de todos los géneros.
+    * Si el nombre del género seleccionado es igual al nombre de un género en la lista de todos los géneros, entonces el género actual se establece en ese género.
+    */
     private void obtenerGeneroListaTodos(){
         String nombreGenero = lstTodosGeneros.getSelectedValue();
         for (Genero genero : Utilitario.listaGeneros) {
@@ -222,6 +239,10 @@ public class dialogGenerosPorArtista extends javax.swing.JDialog {
         }
     }
     
+    /**
+    * Este método se utiliza para obtener el género seleccionado de la lista de géneros del artista.
+    * Si el nombre del género seleccionado es igual al nombre de un género en la lista de todos los géneros, entonces el género actual se establece en ese género.
+    */
     private void obtenerGeneroListaArtista(){
         String nombreGenero = lstGenerosArtista.getSelectedValue();
         for (Genero genero : Utilitario.listaGeneros) {
@@ -231,11 +252,21 @@ public class dialogGenerosPorArtista extends javax.swing.JDialog {
         }
     }
     
+    /**
+    * Este método se utiliza para eliminar un género de la lista de géneros del artista proporcionado.
+    * @param artista El artista del que se va a eliminar el género.
+    * @param genero El género que se va a eliminar.
+    */
     private void eliminarGeneroArtista(Artista artista, Genero genero){
         artista.getListaGeneros().remove(genero);
         genero.getListaArtistas().remove(artista);
     }
     
+    /**
+    * Este método se utiliza para actualizar las listas de géneros del artista y de todos los géneros.
+    * Primero, se limpian las listas visualmente antes de volver a cargarlas, evitando el duplicado visual de información.
+    * @param artista El artista cuyas listas de géneros se van a actualizar.
+    */
     private void actualizarListas(Artista artista){
     modeloGenerosArtista.clear();
     modeloTodosGeneros.clear();

@@ -31,7 +31,7 @@ public class Artista {
         this.sitioWeb = sitioWeb;
     }
     
-    // Métodos Getters y Setters
+    // Métodos Getter y Setter
     public String getNombre() {
         return nombre;
     }

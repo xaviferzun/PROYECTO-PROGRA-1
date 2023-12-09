@@ -22,6 +22,7 @@ public class Album {
     private Map<Album, Artista> mapaAlbumArtista = new HashMap<>();
 
     
+    // Método Constructor
     public Album(int numero, String nombre, int tipo, String publicacion, String discografica) {
         this.numero = numero;
         this.nombre = nombre;

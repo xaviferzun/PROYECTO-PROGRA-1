@@ -17,6 +17,7 @@ public class Cancion {
     private Map<Cancion, Album> mapaCancionAlbum = new HashMap<>();
 
     
+    // Método Constructor
     public Cancion(int numero, String titulo, String duracion, int anioGrabacion, String autor) {
         this.numero = numero;
         this.titulo = titulo;
@@ -25,6 +26,7 @@ public class Cancion {
         this.autor = autor;
     }    
 
+    // Métodos Getter y Setter
     public int getNumero() {
         return numero;
     }

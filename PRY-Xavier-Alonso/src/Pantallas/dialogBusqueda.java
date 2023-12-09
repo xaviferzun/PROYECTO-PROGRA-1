@@ -247,7 +247,12 @@ public class dialogBusqueda extends javax.swing.JDialog {
         modeloTablaCanciones.setRowCount(0);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    
+    /**
+    * Este método se utiliza para cargar la lista de canciones en la tabla de canciones.
+    * Se seleccionan los artistas, álbumes y géneros de las listas desplegables correspondientes.
+    * Si no se selecciona un artista, un álbum o un género, se cargan todos los artistas, álbumes o géneros, respectivamente.
+    * Para cada canción del álbum del artista seleccionado que pertenece al género seleccionado, se agrega la canción a la tabla.
+    */
     private void cargarListaCanciones(){
         modeloTablaCanciones.setColumnIdentifiers(new String[] {"Número", "Título", "Artista", "Álbum", "Duración"});
         Object artistaSeleccionado = cmbArtistas.getSelectedItem();

@@ -12,13 +12,14 @@ public class Genero {
     private String descripcion;
     private ArrayList<Artista> listaArtistas = new ArrayList<>();
     
-
+    // Método Constructor
     public Genero(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         
     }
-
+    
+    // Métodos Getter y Setter
     public String getNombre() {
         return nombre;
     }

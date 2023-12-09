@@ -340,7 +340,10 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGenerosArtistaActionPerformed
 
-    
+    /**
+    * Este método se utiliza para cargar la lista de canciones en la tabla de canciones.
+    * Recorre la lista de artistas, álbumes y canciones, y agrega cada canción a la tabla.
+    */
     private void cargarListaCanciones(){
         modeloTablaCanciones.setColumnIdentifiers(new String[] {"Número", "Título", "Artista", "Álbum", "Duración"});
         for (Artista artista : Utilitario.listaArtistas) {
@@ -357,6 +360,10 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
         }
     }
     
+    /**
+    * Este método se utiliza para cargar la información del artista de la canción seleccionada en la tabla.
+    * Si el índice de la canción seleccionada no es -1, entonces se muestra la información del artista de la canción seleccionada.
+    */
     private void cargarInfoArtista(){
         int indiceCancion = tablaInfoGeneral.getSelectedRow();
         Artista artistaCancion = null;
@@ -383,6 +390,10 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
         }
     }
     
+    /**
+    * Este método se utiliza para cargar la información del álbum de la canción seleccionada en la tabla.
+    * Si el índice de la canción seleccionada no es -1, entonces se muestra la información del álbum de la canción seleccionada.
+    */
     private void cargarInfoAlbum(){
         int indiceCancion = tablaInfoGeneral.getSelectedRow();
         Album albumCancion = null;
@@ -401,6 +412,10 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
         }
     }
     
+    /**
+    * Este método se utiliza para cargar la información de la canción seleccionada en la tabla.
+    * Si el índice de la canción seleccionada no es -1, entonces se muestra la información de la canción seleccionada.
+    */
     private void cargarInfoCancion(){
         int indiceCancion = tablaInfoGeneral.getSelectedRow();
         Cancion cancionSeleccionada = null;
