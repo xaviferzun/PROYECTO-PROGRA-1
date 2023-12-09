@@ -33,9 +33,13 @@ public class Utilitario {
         artista.agregarAlbum(album); 
         asignarGeneroAlbum(artista, listaGeneros.get(1), album);
         album.agregarCancion(new Cancion(1, "Welcome to the Jungle", "4:33", 1987, "Axl Rose"));
+        album.agregarCancion(new Cancion(6, "Paradise City", "6:48", 1987, "Axl Rose"));
+        album.agregarCancion(new Cancion(9, "Sweet Child o' Mine", "5:56", 1987, "Axl Rose"));
         album = new Album(3, "Use Your Illusion I", 1, "17-09-1991", "Geffen Records"); 
         artista.agregarAlbum(album);
         asignarGeneroAlbum(artista, listaGeneros.get(1), album);
+        album.agregarCancion(new Cancion(4, "Don't Cry", "4:45", 1990, "Axl Rose"));
+        album.agregarCancion(new Cancion(10, "November Rain", "8:57", 1991, "Axl Rose"));
         listaArtistas.add(artista);
         
         artista = new Artista("Queen", 2, "Inglaterra", 2, 1970, "queenonline.com");
@@ -44,6 +48,8 @@ public class Utilitario {
         album = new Album(4, "A Night at the Opera", 1, "21-11-1975", "EMI");
         artista.agregarAlbum(album);
         asignarGeneroAlbum(artista, listaGeneros.get(0), album);
+        album.agregarCancion(new Cancion(4, "Bohemian Rhapsody", "5:55", 1975, "Freddie Mercury"));
+        album.agregarCancion(new Cancion(2, "Love of My Life", "3:39", 1975, "Freddie Mercury"));
         listaArtistas.add(artista);
         
         artista = new Artista("Dua Lipa", 1, "Inglaterra", 1, 2013, "dualipa.com");
