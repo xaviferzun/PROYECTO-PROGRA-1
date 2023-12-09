@@ -8,6 +8,7 @@ import Logica.Utilitario;
 import Modelos.Album;
 import Modelos.Artista;
 import Modelos.Cancion;
+import Modelos.Genero;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -52,12 +53,12 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
         txtEstado = new javax.swing.JTextField();
         txtCantidadAlbum = new javax.swing.JTextField();
         txtGenerosArtista = new javax.swing.JTextField();
-        txtInfoArtista6 = new javax.swing.JTextField();
-        txtInfoArtista7 = new javax.swing.JTextField();
-        txtInfoArtista8 = new javax.swing.JTextField();
+        txtNumeroAlbum = new javax.swing.JTextField();
+        txtTipoAlbum = new javax.swing.JTextField();
+        txtGeneroAlbum = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtInfoArtista9 = new javax.swing.JTextField();
-        txtInfoArtista10 = new javax.swing.JTextField();
+        txtNumeroCancion = new javax.swing.JTextField();
+        txtGrabacion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -77,15 +78,7 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
             new String [] {
                 "Número", "Título", "Artista", "Álbum", "Duración"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         tablaInfoGeneral.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaInfoGeneralMouseClicked(evt);
@@ -93,6 +86,9 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tablaInfoGeneral);
 
+        txtTipoArtista.setEditable(false);
+        txtTipoArtista.setBackground(new java.awt.Color(255, 255, 255));
+        txtTipoArtista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTipoArtista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTipoArtistaActionPerformed(evt);
@@ -107,51 +103,75 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Canción");
 
+        txtFormacion.setEditable(false);
+        txtFormacion.setBackground(new java.awt.Color(255, 255, 255));
+        txtFormacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFormacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFormacionActionPerformed(evt);
             }
         });
 
+        txtOrigen.setEditable(false);
+        txtOrigen.setBackground(new java.awt.Color(255, 255, 255));
+        txtOrigen.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtOrigen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtOrigenActionPerformed(evt);
             }
         });
 
+        txtEstado.setEditable(false);
+        txtEstado.setBackground(new java.awt.Color(255, 255, 255));
+        txtEstado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEstadoActionPerformed(evt);
             }
         });
 
+        txtCantidadAlbum.setEditable(false);
+        txtCantidadAlbum.setBackground(new java.awt.Color(255, 255, 255));
+        txtCantidadAlbum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCantidadAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCantidadAlbumActionPerformed(evt);
             }
         });
 
+        txtGenerosArtista.setEditable(false);
+        txtGenerosArtista.setBackground(new java.awt.Color(255, 255, 255));
+        txtGenerosArtista.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtGenerosArtista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGenerosArtistaActionPerformed(evt);
             }
         });
 
-        txtInfoArtista6.addActionListener(new java.awt.event.ActionListener() {
+        txtNumeroAlbum.setEditable(false);
+        txtNumeroAlbum.setBackground(new java.awt.Color(255, 255, 255));
+        txtNumeroAlbum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNumeroAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtInfoArtista6ActionPerformed(evt);
+                txtNumeroAlbumActionPerformed(evt);
             }
         });
 
-        txtInfoArtista7.addActionListener(new java.awt.event.ActionListener() {
+        txtTipoAlbum.setEditable(false);
+        txtTipoAlbum.setBackground(new java.awt.Color(255, 255, 255));
+        txtTipoAlbum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTipoAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtInfoArtista7ActionPerformed(evt);
+                txtTipoAlbumActionPerformed(evt);
             }
         });
 
-        txtInfoArtista8.addActionListener(new java.awt.event.ActionListener() {
+        txtGeneroAlbum.setEditable(false);
+        txtGeneroAlbum.setBackground(new java.awt.Color(255, 255, 255));
+        txtGeneroAlbum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtGeneroAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtInfoArtista8ActionPerformed(evt);
+                txtGeneroAlbumActionPerformed(evt);
             }
         });
 
@@ -159,15 +179,21 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Álbumes");
 
-        txtInfoArtista9.addActionListener(new java.awt.event.ActionListener() {
+        txtNumeroCancion.setEditable(false);
+        txtNumeroCancion.setBackground(new java.awt.Color(255, 255, 255));
+        txtNumeroCancion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNumeroCancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtInfoArtista9ActionPerformed(evt);
+                txtNumeroCancionActionPerformed(evt);
             }
         });
 
-        txtInfoArtista10.addActionListener(new java.awt.event.ActionListener() {
+        txtGrabacion.setEditable(false);
+        txtGrabacion.setBackground(new java.awt.Color(255, 255, 255));
+        txtGrabacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtGrabacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtInfoArtista10ActionPerformed(evt);
+                txtGrabacionActionPerformed(evt);
             }
         });
 
@@ -183,19 +209,18 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
                     .addComponent(txtOrigen)
                     .addComponent(txtEstado)
                     .addComponent(txtCantidadAlbum, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtGenerosArtista)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(93, 93, 93)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtInfoArtista7)
-                        .addComponent(txtInfoArtista6)
-                        .addComponent(txtInfoArtista8))
+                        .addComponent(txtTipoAlbum)
+                        .addComponent(txtNumeroAlbum)
+                        .addComponent(txtGeneroAlbum))
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(93, 93, 93)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtInfoArtista10, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                    .addComponent(txtInfoArtista9)
+                    .addComponent(txtGrabacion, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(txtNumeroCancion)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(159, 159, 159))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -204,6 +229,10 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 43, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(txtGenerosArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,17 +256,17 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtInfoArtista6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNumeroAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtInfoArtista7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtTipoAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtInfoArtista9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNumeroCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtInfoArtista10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtGrabacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(15, 15, 15)
-                        .addComponent(txtInfoArtista8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtGeneroAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -281,33 +310,35 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantidadAlbumActionPerformed
 
-    private void txtGenerosArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerosArtistaActionPerformed
+    private void txtNumeroAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroAlbumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtGenerosArtistaActionPerformed
+    }//GEN-LAST:event_txtNumeroAlbumActionPerformed
 
-    private void txtInfoArtista6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInfoArtista6ActionPerformed
+    private void txtTipoAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoAlbumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtInfoArtista6ActionPerformed
+    }//GEN-LAST:event_txtTipoAlbumActionPerformed
 
-    private void txtInfoArtista7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInfoArtista7ActionPerformed
+    private void txtGeneroAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroAlbumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtInfoArtista7ActionPerformed
+    }//GEN-LAST:event_txtGeneroAlbumActionPerformed
 
-    private void txtInfoArtista8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInfoArtista8ActionPerformed
+    private void txtNumeroCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroCancionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtInfoArtista8ActionPerformed
+    }//GEN-LAST:event_txtNumeroCancionActionPerformed
 
-    private void txtInfoArtista9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInfoArtista9ActionPerformed
+    private void txtGrabacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGrabacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtInfoArtista9ActionPerformed
-
-    private void txtInfoArtista10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInfoArtista10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtInfoArtista10ActionPerformed
+    }//GEN-LAST:event_txtGrabacionActionPerformed
 
     private void tablaInfoGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaInfoGeneralMouseClicked
         cargarInfoArtista();
+        cargarInfoAlbum();
+        cargarInfoCancion();
     }//GEN-LAST:event_tablaInfoGeneralMouseClicked
+
+    private void txtGenerosArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerosArtistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGenerosArtistaActionPerformed
 
     
     private void cargarListaCanciones(){
@@ -328,13 +359,68 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
     
     private void cargarInfoArtista(){
         int indiceCancion = tablaInfoGeneral.getSelectedRow();
-        Cancion cancion;
-        for (Artista artista : Utilitario.listaArtistas) {
-            for (Album album : artista.getListaAlbumes()) { 
-                    cancion = album.getListaCanciones().get(indiceCancion);
+        Artista artistaCancion = null;
+        if (indiceCancion != -1) {
+            String nombreArtista = modeloTablaCanciones.getValueAt(indiceCancion, 2).toString();
+            for (Artista artista : Utilitario.listaArtistas) {
+                if (artista.getNombre().equals(nombreArtista)) {
+                    artistaCancion = artista;
+                }
             }
+            txtTipoArtista.setText(artistaCancion.getTipo());
+            txtFormacion.setText(Integer.toString(artistaCancion.getAnioFormacion()));
+            txtOrigen.setText(artistaCancion.getOrigen());
+            txtEstado.setText(artistaCancion.getEstado());
+            txtCantidadAlbum.setText(Integer.toString(artistaCancion.getCantidadAlbumes()));
+            String generos = "";
+            for (Genero genero : artistaCancion.getListaGeneros()) {
+                generos += genero.getNombre() + ", ";
+            }
+            if (!generos.isEmpty()) {
+                generos = generos.substring(0, generos.length() -2);
+            }
+            txtGenerosArtista.setText(generos);  
         }
     }
+    
+    private void cargarInfoAlbum(){
+        int indiceCancion = tablaInfoGeneral.getSelectedRow();
+        Album albumCancion = null;
+        if (indiceCancion != -1) {
+            String nombreAlbum = modeloTablaCanciones.getValueAt(indiceCancion, 3).toString();
+            for (Artista artista : Utilitario.listaArtistas) {
+                for (Album album : artista.getListaAlbumes()) {
+                    if (album.getNombre().equals(nombreAlbum)) {
+                    albumCancion = album;
+                    }   
+                }
+            }
+            txtNumeroAlbum.setText(Integer.toString(albumCancion.getNumero()));
+            txtTipoAlbum.setText(albumCancion.getTipo());
+            txtGeneroAlbum.setText(albumCancion.getGenero().getNombre());
+        }
+    }
+    
+    private void cargarInfoCancion(){
+        int indiceCancion = tablaInfoGeneral.getSelectedRow();
+        Cancion cancionSeleccionada = null;
+        if (indiceCancion != -1) {
+            String nombreCancion = modeloTablaCanciones.getValueAt(indiceCancion, 1).toString();
+        for (Artista artista : Utilitario.listaArtistas) {
+            for (Album album : artista.getListaAlbumes()) { 
+                for (Cancion cancion : album.getListaCanciones()){
+                    if (cancion.getTitulo().equals(nombreCancion)) {
+                        cancionSeleccionada = cancion;
+                    }
+                }
+            }
+        }
+            txtNumeroCancion.setText(Integer.toString(cancionSeleccionada.getNumero()));
+            txtGrabacion.setText(Integer.toString(cancionSeleccionada.getAnioGrabacion()));
+        }
+    }
+    
+    
     
     
     /**
@@ -391,13 +477,13 @@ public class dialogInfoGeneral extends javax.swing.JDialog {
     private javax.swing.JTextField txtCantidadAlbum;
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtFormacion;
+    private javax.swing.JTextField txtGeneroAlbum;
     private javax.swing.JTextField txtGenerosArtista;
-    private javax.swing.JTextField txtInfoArtista10;
-    private javax.swing.JTextField txtInfoArtista6;
-    private javax.swing.JTextField txtInfoArtista7;
-    private javax.swing.JTextField txtInfoArtista8;
-    private javax.swing.JTextField txtInfoArtista9;
+    private javax.swing.JTextField txtGrabacion;
+    private javax.swing.JTextField txtNumeroAlbum;
+    private javax.swing.JTextField txtNumeroCancion;
     private javax.swing.JTextField txtOrigen;
+    private javax.swing.JTextField txtTipoAlbum;
     private javax.swing.JTextField txtTipoArtista;
     // End of variables declaration//GEN-END:variables
 }

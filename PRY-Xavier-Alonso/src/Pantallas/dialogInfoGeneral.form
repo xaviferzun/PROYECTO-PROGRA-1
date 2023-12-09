@@ -51,22 +51,21 @@
                       <Component id="txtOrigen" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtEstado" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtCantidadAlbum" alignment="1" max="32767" attributes="0"/>
-                      <Component id="txtGenerosArtista" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel2" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="txtInfoArtista7" max="32767" attributes="0"/>
-                          <Component id="txtInfoArtista6" max="32767" attributes="0"/>
-                          <Component id="txtInfoArtista8" max="32767" attributes="0"/>
+                          <Component id="txtTipoAlbum" max="32767" attributes="0"/>
+                          <Component id="txtNumeroAlbum" max="32767" attributes="0"/>
+                          <Component id="txtGeneroAlbum" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jLabel6" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="txtInfoArtista10" alignment="1" pref="110" max="32767" attributes="0"/>
-                      <Component id="txtInfoArtista9" alignment="1" max="32767" attributes="0"/>
+                      <Component id="txtGrabacion" alignment="1" pref="115" max="32767" attributes="0"/>
+                      <Component id="txtNumeroCancion" alignment="1" max="32767" attributes="0"/>
                       <Component id="jLabel5" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
@@ -78,6 +77,11 @@
                       <Component id="jLabel1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+                  <Component id="txtGenerosArtista" min="-2" pref="187" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -104,20 +108,20 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtInfoArtista6" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNumeroAlbum" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtInfoArtista7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtTipoAlbum" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtInfoArtista9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNumeroCancion" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtInfoArtista10" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtGrabacion" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="txtInfoArtista8" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtGeneroAlbum" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -152,11 +156,11 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="5" rowCount="4">
-                    <Column editable="true" title="N&#xfa;mero" type="java.lang.Integer"/>
-                    <Column editable="true" title="T&#xed;tulo" type="java.lang.String"/>
-                    <Column editable="true" title="Artista" type="java.lang.String"/>
-                    <Column editable="true" title="&#xc1;lbum" type="java.lang.String"/>
-                    <Column editable="true" title="Duraci&#xf3;n" type="java.lang.String"/>
+                    <Column editable="true" title="N&#xfa;mero" type="java.lang.Object"/>
+                    <Column editable="true" title="T&#xed;tulo" type="java.lang.Object"/>
+                    <Column editable="true" title="Artista" type="java.lang.Object"/>
+                    <Column editable="true" title="&#xc1;lbum" type="java.lang.Object"/>
+                    <Column editable="true" title="Duraci&#xf3;n" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -199,6 +203,13 @@
           </SubComponents>
         </Container>
         <Component class="javax.swing.JTextField" name="txtTipoArtista">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTipoArtistaActionPerformed"/>
           </Events>
@@ -222,43 +233,99 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFormacion">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFormacionActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtOrigen">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtOrigenActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEstado">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEstadoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantidadAlbum">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCantidadAlbumActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtGenerosArtista">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGenerosArtistaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtInfoArtista6">
+        <Component class="javax.swing.JTextField" name="txtNumeroAlbum">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtInfoArtista6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroAlbumActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtInfoArtista7">
+        <Component class="javax.swing.JTextField" name="txtTipoAlbum">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtInfoArtista7ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTipoAlbumActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtInfoArtista8">
+        <Component class="javax.swing.JTextField" name="txtGeneroAlbum">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtInfoArtista8ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGeneroAlbumActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -270,14 +337,28 @@
             <Property name="text" type="java.lang.String" value="&#xc1;lbumes"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtInfoArtista9">
+        <Component class="javax.swing.JTextField" name="txtNumeroCancion">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtInfoArtista9ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroCancionActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtInfoArtista10">
+        <Component class="javax.swing.JTextField" name="txtGrabacion">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtInfoArtista10ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGrabacionActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
