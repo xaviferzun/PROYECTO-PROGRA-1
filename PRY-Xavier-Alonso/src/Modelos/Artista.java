@@ -119,12 +119,22 @@ public class Artista {
     
     // Métodos de Clase
     
+    /**
+    * Agrega un álbum al artista.
+    *
+    * @param album el álbum a agregar
+    */
     public void agregarAlbum(Album album){
         this.listaAlbumes.add(album);
         album.getMapaAlbumArtista().put(album, this);
         this.cantidadAlbumes++;
     }
     
+    /**
+    * Elimina un álbum del artista.
+    *
+    * @param album el álbum a eliminar
+    */
     public void eliminarAlbum(Album album){
         this.listaAlbumes.remove(album);  
         album.getMapaAlbumArtista().remove(album);
@@ -132,7 +142,11 @@ public class Artista {
     }
 
     
-    //Crear lista de Strings con nombres de Albumes
+    /**
+    * Genera una lista de los nombres de los álbumes del artista.
+    *
+    * @return una lista de los nombres de los álbumes
+    */
     public LinkedList<String> generarListaAlbumes(){
         LinkedList<String> resultado = new LinkedList<>();
         for (Album album : listaAlbumes) {

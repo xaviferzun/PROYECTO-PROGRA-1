@@ -297,7 +297,10 @@ public class dialogGeneros extends javax.swing.JDialog {
 
     
     
-    //Toma el indice seleccionado de la lista Géneros
+    /**
+    * Este método se utiliza para seleccionar un género de la lista de géneros.
+    * Si el índice del género seleccionado no es -1, entonces el género actual se establece en el género en el índice seleccionado.
+    */
     private void generoSeleccionado(){
         int indiceGenero = lstGeneros.getSelectedIndex();
         if (indiceGenero != -1){
@@ -322,12 +325,19 @@ public class dialogGeneros extends javax.swing.JDialog {
         }
     }*/
     
-    //Obtiene los datos de un album, y los muestra en las cajas de texto respectivas
+    /**
+    * Este método se utiliza para obtener la información del género proporcionado.
+    * @param genero El género cuya información se va a obtener.
+    */
     private void obtenerInfoGenero(Genero genero){
        txtNombreGenero.setText(genero.getNombre());
        txtDescripcion.setText(genero.getDescripcion());
     }
     
+    /**
+    * Este método se utiliza para agregar un nuevo género a la lista de géneros.
+    * Si alguno de los campos requeridos está vacío, se muestra un mensaje de error.
+    */
     private void agregarGenero(){
         if (txtNombreGenero.getText().isEmpty() || 
             txtDescripcion.getText().isEmpty()){
@@ -340,6 +350,10 @@ public class dialogGeneros extends javax.swing.JDialog {
         Utilitario.listaGeneros.add(genero);
     }
     
+    /**
+    * Este método se utiliza para eliminar un género de la lista de géneros.
+    * @param genero El género que se va a eliminar.
+    */
     private void eliminarGenero(Genero genero){
         int indice = lstGeneros.getSelectedIndex();
         if (indice != -1) {
@@ -348,6 +362,11 @@ public class dialogGeneros extends javax.swing.JDialog {
         }
     }
     
+    /**
+    * Este método se utiliza para modificar la información del género proporcionado.
+    * Si alguno de los campos requeridos está vacío, se muestra un mensaje de error.
+    * @param genero El género cuya información se va a modificar.
+    */
     private void modificarGenero(Genero genero){
         if (txtNombreGenero.getText().isEmpty() || 
             txtDescripcion.getText().isEmpty()){
@@ -361,25 +380,37 @@ public class dialogGeneros extends javax.swing.JDialog {
         }        
     }
     
-    //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
+    
+    /**
+    * Este método se utiliza para actualizar la lista de géneros.
+    * Primero, se limpia la lista visualmente antes de volver a cargarla, evitando el duplicado visual de información.
+    */
     private void actualizarListaGeneros(){
         modeloListaGeneros.clear(); //Limpiar la lista visualmente antes de volver a cargarla, evitando el duplicado visual de informacion
         modeloListaGeneros.addAll(Utilitario.generarListaGeneros());
     }
     
-    //Deshabilita las cajas de texto para prevenir cambios en los datos
+    
+    /**
+    * Este método se utiliza para deshabilitar las cajas de texto para la descripción y el nombre del género.
+    */
     private void deshabilitarCajas(){
         txtDescripcion.setEditable(false);
         txtNombreGenero.setEditable(false);
     }
     
-    //Habilita las cajas de texto para agregar datos
+    
+    /**
+    * Este método se utiliza para habilitar las cajas de texto para la descripción y el nombre del género.
+    */
     private void habilitarCajas(){
         txtDescripcion.setEditable(true);
         txtNombreGenero.setEditable(true);
     }
     
-    //Limpia las cajas de texto
+    /**
+    * Este método se utiliza para limpiar todas las cajas de texto.
+    */
     private void limpiarCajas(){
         txtDescripcion.setText("");
         txtNombreGenero.setText("");

@@ -19,7 +19,6 @@ public class Genero {
         
     }
 
-
     public String getNombre() {
         return nombre;
     }
@@ -39,9 +38,5 @@ public class Genero {
     public ArrayList<Artista> getListaArtistas() {
         return listaArtistas;
     }
-    
-
-  
-    
     
 }

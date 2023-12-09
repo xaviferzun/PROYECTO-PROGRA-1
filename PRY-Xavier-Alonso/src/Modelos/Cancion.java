@@ -16,6 +16,7 @@ public class Cancion {
     private int anioGrabacion;
     private Map<Cancion, Album> mapaCancionAlbum = new HashMap<>();
 
+    
     public Cancion(int numero, String titulo, String duracion, int anioGrabacion, String autor) {
         this.numero = numero;
         this.titulo = titulo;
@@ -67,9 +68,5 @@ public class Cancion {
     public Map<Cancion, Album> getMapaCancionAlbum() {
         return mapaCancionAlbum;
     }
-    
-    
-    
-    
    
 }

@@ -650,7 +650,10 @@ public class dialogCanciones extends javax.swing.JDialog {
     
     
     
-    //Muestra y actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
+    /**
+    * Este método se utiliza para actualizar la lista de canciones.
+    * Primero, se limpia la lista visualmente antes de volver a cargarla, evitando el duplicado visual de información.
+    */
     private void actualizarListaCanciones(){
         modeloListaCanciones.clear(); //Limpiar la lista visualmente antes de volver a cargarla, evitando el duplicado visual de informacion
         for (Artista artista : Utilitario.listaArtistas) {
@@ -660,7 +663,10 @@ public class dialogCanciones extends javax.swing.JDialog {
         }
     }
     
-    //Toma el indice seleccionado de la lista Canciones
+    /**
+    * Este método se utiliza para seleccionar una canción de la lista de canciones.
+    * Si el nombre de la canción seleccionada no es nulo, entonces la canción actual se establece en la canción con el nombre seleccionado.
+    */
     private void cancionSeleccionada(){
         String nombreCancion = lstCanciones.getSelectedValue();
         if (nombreCancion != null) {
@@ -677,7 +683,10 @@ public class dialogCanciones extends javax.swing.JDialog {
         }
     }
     
-    //Toma el indice seleccionado del ComboBox Albumes
+    /**
+    * Este método se utiliza para seleccionar un álbum de la lista desplegable de álbumes.
+    * Si el nombre del álbum seleccionado no es nulo, entonces el álbum actual se establece en el álbum con el nombre seleccionado.
+    */
     private void albumSeleccionado(){
         Object nombreAlbum = cmbAlbumes.getSelectedItem();
         if (nombreAlbum != null) {
@@ -691,7 +700,10 @@ public class dialogCanciones extends javax.swing.JDialog {
         }
     }
     
-    //Toma el indice seleccionado del ComboBox Albumes para guardarlo en una variable temporal
+    /**
+    * Este método se utiliza para seleccionar el álbum anterior de la lista desplegable de álbumes.
+    * Si el nombre del álbum seleccionado no es nulo, entonces el álbum anterior se establece en el álbum con el nombre seleccionado.
+    */
     private void albumAnterior(){
         Object nombreAlbum = cmbAlbumes.getSelectedItem();
         if (nombreAlbum != null) {
@@ -705,7 +717,10 @@ public class dialogCanciones extends javax.swing.JDialog {
         }
     }
     
-    //Obtiene los datos de una canción y los muestra en las cajas de texto respectivas
+    /**
+    * Este método se utiliza para obtener la información de la canción proporcionada.
+    * @param cancion La canción cuya información se va a obtener.
+    */
     private void obtenerInfoCancion(Cancion cancion){
        txtNumeroCancionConsultar.setText(Integer.toString(cancion.getNumero()));
        txtTituloCancionConsultar.setText(cancion.getTitulo());
@@ -716,7 +731,10 @@ public class dialogCanciones extends javax.swing.JDialog {
        txtGrabacionConsultar.setText(Integer.toString(cancion.getAnioGrabacion()));
     }
     
-    //Obtiene los datos de una canción y los muestra en las cajas de texto respectivas
+    /**
+    * Este método se utiliza para editar la información de la canción proporcionada.
+    * @param cancion La canción cuya información se va a editar.
+    */
     private void editarInfoCancion(Cancion cancion){
        txtNumeroCancion.setText(Integer.toString(cancion.getNumero()));
        txtTituloCancion.setText(cancion.getTitulo());
@@ -726,6 +744,11 @@ public class dialogCanciones extends javax.swing.JDialog {
        txtGrabacion.setText(Integer.toString(cancion.getAnioGrabacion()));
     }
     
+    /**
+    * Este método se utiliza para agregar una nueva canción al álbum proporcionado.
+    * Si alguno de los campos requeridos está vacío, se muestra un mensaje de error.
+    * @param album El álbum al que se va a agregar la canción.
+    */
     private void agregarCancion(Album album){
         if (txtNumeroCancion.getText().isEmpty() || 
             txtTituloCancion.getText().isEmpty() || 
@@ -745,10 +768,20 @@ public class dialogCanciones extends javax.swing.JDialog {
         album.agregarCancion(cancion);
     }
     
+    /**
+    * Este método se utiliza para eliminar una canción del álbum actual.
+    * @param cancion La canción que se va a eliminar.
+    */
     private void eliminarCancion(Cancion cancion){
         albumActual.eliminarCancion(cancion);
     }
     
+    
+    /**
+    * Este método se utiliza para modificar la información de la canción proporcionada.
+    * Si alguno de los campos requeridos está vacío, se muestra un mensaje de error.
+    * @param cancion La canción cuya información se va a modificar.
+    */
     private void modificarCancion(Cancion cancion){
         if (txtNumeroCancion.getText().isEmpty() || 
             txtTituloCancion.getText().isEmpty() || 
@@ -768,19 +801,25 @@ public class dialogCanciones extends javax.swing.JDialog {
         albumActual.agregarCancion(cancion);
     }
    
-    //Deshabilita las cajas de texto para prevenir cambios en los datos
+    /**
+    * Este método se utiliza para deshabilitar las cajas de texto para el título de la canción y el número de la canción.
+    */
     private void deshabilitarCajas(){
         txtTituloCancionConsultar.setEditable(false);
         txtNumeroCancionConsultar.setEditable(false);
     }
     
-    //Habilita las cajas de texto para agregar datos
+    /**
+    * Este método se utiliza para habilitar las cajas de texto para el título de la canción y el número de la canción.
+    */
     private void habilitarCajas(){
         txtTituloCancionConsultar.setEditable(true);
         txtNumeroCancionConsultar.setEditable(true);
     }
     
-    //Limpia las cajas de texto
+    /**
+    * Este método se utiliza para limpiar todas las cajas de texto y combos.
+    */
     private void limpiarCajas(){
         txtTituloCancionConsultar.setText("");
         txtAlbumConsultar.setText("");

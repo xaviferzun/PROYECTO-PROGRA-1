@@ -609,7 +609,7 @@ public class dialogArtistas extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Eliminar artista seleccionado de la lista
+    
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         artistaSeleccionado();
         Utilitario.listaArtistas.remove(artistaActual);
@@ -712,7 +712,10 @@ public class dialogArtistas extends javax.swing.JDialog {
     
     
         
-    //Toma el indice seleccionado de la lista Artista
+    /**
+    * Este método se utiliza para seleccionar un artista de la lista de artistas.
+    * Si el índice del artista seleccionado no es -1, entonces el artista actual se establece en el artista en el índice seleccionado.
+    */
     private void artistaSeleccionado(){
         int indiceArtista = lstArtistas.getSelectedIndex();
         if (indiceArtista != -1){
@@ -720,7 +723,10 @@ public class dialogArtistas extends javax.swing.JDialog {
         }
     }
     
-    //Obtiene los datos de un artista, y los muestra en las cajas de texto para consultar
+    /**
+    * Este método se utiliza para mostrar la información del artista proporcionado.
+    * @param artista El artista cuya información se va a mostrar.
+    */
     private void mostrarInfoArtista(Artista artista){
         txtNombreArtistaConsultar.setText(artista.getNombre());
         txtOrigenArtistaConsultar.setText(artista.getOrigen());
@@ -733,7 +739,10 @@ public class dialogArtistas extends javax.swing.JDialog {
         generarListaGenerosPorArtista(artista);
     }
     
-     //Obtiene los datos de un artista, y los muestra en la pantalla de Editar & Insertar
+    /**
+    * Este método se utiliza para editar la información del artista proporcionado.
+    * @param artista El artista cuya información se va a editar.
+    */
     private void EditarInfoArtista(Artista artista){
         txtNombreArtista.setText(artista.getNombre());
         txtOrigenArtista.setText(artista.getOrigen());
@@ -743,7 +752,10 @@ public class dialogArtistas extends javax.swing.JDialog {
         txtSitioWeb.setText(artista.getSitioWeb());
     }
     
-    //Agrega un nuevo artista a la lista
+    /**
+    * Este método se utiliza para agregar un nuevo artista a la lista de artistas.
+    * Si alguno de los campos requeridos está vacío, se muestra un mensaje de error.
+    */
     private void agregarArtista(){
         if (txtNombreArtista.getText().isEmpty() || 
             txtOrigenArtista.getText().isEmpty() || 
@@ -764,7 +776,11 @@ public class dialogArtistas extends javax.swing.JDialog {
             Utilitario.listaArtistas.add(artista);
     }
     
-    //Permite cambiar datos a un artista existente
+    /**
+    * Este método se utiliza para modificar la información del artista proporcionado.
+    * Si alguno de los campos requeridos está vacío, se muestra un mensaje de error.
+    * @param artista El artista cuya información se va a modificar.
+    */
     private void modificarArtista(Artista artista){
         if (txtNombreArtista.getText().isEmpty() || 
             txtOrigenArtista.getText().isEmpty() || 
@@ -783,12 +799,19 @@ public class dialogArtistas extends javax.swing.JDialog {
         artista.setSitioWeb(txtSitioWeb.getText());
     }
     
-    //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
+    /**
+    * Este método se utiliza para actualizar la lista de artistas.
+    * Primero, se limpia la lista visualmente antes de volver a cargarla, evitando el duplicado visual de información.
+    */
     private void actualizarListaArtistas(){
         modeloListaArtistas.clear(); //Limpiar la lista visualmente antes de volver a cargarla,evitando el duplicado visual de informacion
         modeloListaArtistas.addAll(Utilitario.generarListaArtistas());
-        }
-
+    }
+    
+    /**
+     * Este método se utiliza para generar una lista de géneros por artista.
+     * @param artista El artista para el que se va a generar la lista de géneros.
+     */
     private void generarListaGenerosPorArtista(Artista artista){
         modeloListaGenerosPorArtista.clear();
         for (Genero genero : artista.getListaGeneros()) {
@@ -797,7 +820,9 @@ public class dialogArtistas extends javax.swing.JDialog {
     }
     
     
-    //Limpia las cajas de texto
+    /**
+    * Este método se utiliza para limpiar todas las cajas de texto y combos.
+    */
     private void limpiarCajas(){
         txtNombreArtista.setText("");
         txtOrigenArtista.setText("");

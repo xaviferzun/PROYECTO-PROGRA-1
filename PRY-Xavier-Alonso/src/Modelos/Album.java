@@ -22,7 +22,6 @@ public class Album {
     private Map<Album, Artista> mapaAlbumArtista = new HashMap<>();
 
     
-    // Método Constructor
     public Album(int numero, String nombre, int tipo, String publicacion, String discografica) {
         this.numero = numero;
         this.nombre = nombre;
@@ -104,21 +103,37 @@ public class Album {
     public Map<Album, Artista> getMapaAlbumArtista() {
         return mapaAlbumArtista;
     }
-     
+    
+    
     // Métodos de Clase
+    
+    /**
+    * Agrega una canción al álbum.
+    *
+    * @param cancion la canción a agregar
+    */
     public void agregarCancion(Cancion cancion){
         this.listaCanciones.add(cancion);
         cancion.getMapaCancionAlbum().put(cancion, this);
         this.cantidadCanciones++;
     }
     
-      public void eliminarCancion(Cancion cancion){
+    /**
+    * Elimina una canción del álbum.
+    *
+     * @param cancion la canción a eliminar
+     */
+    public void eliminarCancion(Cancion cancion){
         this.listaCanciones.remove(cancion);    
         cancion.getMapaCancionAlbum().remove(cancion);
         this.cantidadCanciones--;
     }
     
-    //Crear lista de Strings con nombres de las Canciones
+    /**
+    * Genera una lista de los títulos de las canciones en el álbum.
+    *
+    * @return una lista de los títulos de las canciones
+    */
     public LinkedList<String> generarListaCanciones(){
         LinkedList<String> resultado = new LinkedList<>();
         for (Cancion item : listaCanciones) {
@@ -126,7 +141,6 @@ public class Album {
         }
         return resultado;
     }
-  
     
 }
 

@@ -673,15 +673,22 @@ public class dialogAlbumes extends javax.swing.JDialog {
     
     
     
-    //Actualiza la lista en la interfaz sin necesidad de cerrar la ventana, y que pueda ser invocado cuando sea necesario
+    /**
+    * Este método se utiliza para actualizar la lista de álbumes.
+    * Primero, se limpia la lista visualmente antes de volver a cargarla, evitando el duplicado visual de información.
+    */
     private void actualizarListaAlbumes(){
-        modeloListaAlbumes.clear(); //Limpiar la lista visualmente antes de volver a cargarla, evitando el duplicado visual de informacion
+        modeloListaAlbumes.clear(); 
         for (Artista artista : Utilitario.listaArtistas) {
             modeloListaAlbumes.addAll(artista.generarListaAlbumes());
         }
     }
     
-    //Toma el indice seleccionado de la lista Albumes
+    
+    /**
+    * Este método se utiliza para seleccionar un álbum de la lista de álbumes.
+    * Si el nombre del álbum seleccionado no es nulo, entonces el álbum actual se establece en el álbum con el nombre seleccionado.
+    */
     private void albumSeleccionado(){
         String nombreAlbum = lstAlbumes.getSelectedValue();
         if (nombreAlbum != null) {
@@ -695,7 +702,10 @@ public class dialogAlbumes extends javax.swing.JDialog {
         }
     }
     
-    //Toma el indice seleccionado del ComboBox Artistas
+    /**
+    * Este método se utiliza para seleccionar un artista de la lista desplegable de artistas.
+    * Si el índice del artista seleccionado no es -1, entonces el artista actual se establece en el artista en el índice seleccionado.
+    */
     private void artistaSeleccionado(){
         int indiceArtista = cmbArtistas.getSelectedIndex();
         if (indiceArtista != -1){
@@ -704,7 +714,10 @@ public class dialogAlbumes extends javax.swing.JDialog {
         }
     }
     
-    //Toma el indice seleccionado del ComboBox Artistas para guardarlo en una variable temporal
+    /**
+    * Este método se utiliza para seleccionar el artista anterior de la lista desplegable de artistas.
+    * Si el índice del artista seleccionado no es -1, entonces el artista anterior se establece en el artista en el índice seleccionado.
+    */
     private void artistaAnterior(){
         int indiceArtista = cmbArtistas.getSelectedIndex();
         if (indiceArtista != -1){
@@ -713,7 +726,11 @@ public class dialogAlbumes extends javax.swing.JDialog {
         }
     }
     
-    //Obtiene los datos de un album, y los muestra en las cajas de texto respectivas
+    /**
+    * Este método se utiliza para obtener la información del álbum proporcionado.
+    * Si el álbum actual no es nulo, entonces se muestra la información del álbum.
+    * @param album El álbum cuya información se va a obtener.
+    */
     private void obtenerInfoAlbum(Album album){
        if (albumActual != null) {
             txtNumeroAlbumConsultar.setText(Integer.toString(album.getNumero()));
@@ -725,9 +742,12 @@ public class dialogAlbumes extends javax.swing.JDialog {
             txtPublicacionConsultar.setText(album.getPublicacion());
             txtDiscograficaConsultar.setText(album.getDiscografica());
         }
-       
     }
     
+    /**
+    * Este método se utiliza para editar la información del álbum proporcionado.
+    * @param album El álbum cuya información se va a editar.
+    */
     private void editarInfoAlbum(Album album){
        txtNumeroAlbum.setText(Integer.toString(album.getNumero()));
        txtNombreAlbum.setText(album.getNombre());
@@ -739,6 +759,11 @@ public class dialogAlbumes extends javax.swing.JDialog {
        txtDiscografica.setText(album.getDiscografica());
     }
     
+    /**
+    * Este método se utiliza para agregar un nuevo álbum a la lista de álbumes del artista proporcionado.
+    * Si alguno de los campos requeridos está vacío, se muestra un mensaje de error.
+    * @param artista El artista al que se va a agregar el álbum.
+    */
     private void agregarAlbum(Artista artista){
         if (txtNumeroAlbum.getText().isEmpty() || 
             cmbArtistas.getSelectedItem() == null ||
@@ -766,10 +791,19 @@ public class dialogAlbumes extends javax.swing.JDialog {
         }
     }
     
+    /**
+    * Este método se utiliza para eliminar un álbum de la lista de álbumes del artista actual.
+    * @param album El álbum que se va a eliminar.
+    */
     private void eliminarAlbum(Album album){
         artistaActual.eliminarAlbum(album);
     }
     
+    /**
+    * Este método se utiliza para modificar la información del álbum proporcionado.
+    * Si alguno de los campos requeridos está vacío, se muestra un mensaje de error.
+    * @param album El álbum cuya información se va a modificar.
+    */
     private void modificarAlbum(Album album){
         if (txtNumeroAlbum.getText().isEmpty() || 
             txtNombreAlbum.getText().isEmpty() || 
@@ -794,6 +828,10 @@ public class dialogAlbumes extends javax.swing.JDialog {
         }
     }
     
+    /**
+    * Este método se utiliza para obtener el género seleccionado en el combo de géneros.
+    * @return El género seleccionado. Si no se encuentra el género, se devuelve null.
+    */
     private Genero obtenerGenero(){
         Object nombreGenero = comboGenero.getSelectedItem();
         for (Genero genero : Utilitario.listaGeneros) {
@@ -804,7 +842,9 @@ public class dialogAlbumes extends javax.swing.JDialog {
         return null;
     }
     
-    //Limpia las cajas de texto
+    /**
+    * Este método se utiliza para limpiar todas las cajas de texto y combos.
+    */
     private void limpiarCajas(){
         txtNombreAlbumConsultar.setText("");
         txtNumeroAlbumConsultar.setText("");
@@ -822,7 +862,6 @@ public class dialogAlbumes extends javax.swing.JDialog {
         comboTipo.setSelectedItem(null);
         comboGenero.setSelectedItem(null);
     }
-    
     
     
     /**

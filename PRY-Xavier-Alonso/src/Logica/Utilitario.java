@@ -17,7 +17,9 @@ public class Utilitario {
     
     public static ArrayList<Genero> listaGeneros = new ArrayList<>();
     
-    //Inicializar datos de Artistas predefinidos
+    /**
+    * Carga los datos de los artistas en la lista de artistas.
+    */
     public static void cargarDatosArtistas(){
         Artista artista; 
         Album album;
@@ -57,7 +59,11 @@ public class Utilitario {
         listaArtistas.add(artista);        
     }
     
-    //Crear lista de Strings con nombres de Artistas
+    /**
+    * Genera una lista de los nombres de los artistas.
+    *
+    * @return una lista de los nombres de los artistas
+    */
     public static LinkedList<String> generarListaArtistas(){
         LinkedList<String> resultado = new LinkedList<>();
         for (Artista artista : listaArtistas) {
@@ -66,7 +72,9 @@ public class Utilitario {
         return resultado;
     }
     
-    //Inicializar datos de Géneros predefinidos
+    /**
+    * Carga los datos de los géneros en la lista de géneros.
+    */
     public static void cargarDatosGeneros(){
         Genero genero;
         genero = new Genero("Rock", "Amplio género de música popular con raíces en el rock and roll, jazz y música clásica.");
@@ -85,7 +93,11 @@ public class Utilitario {
         listaGeneros.add(genero);
     }
     
-     //Crear lista de Strings con nombres de Géneros
+    /**
+    * Genera una lista de los nombres de los géneros.
+    *
+    * @return una lista de los nombres de los géneros
+    */
     public static LinkedList<String> generarListaGeneros(){
         LinkedList<String> resultado = new LinkedList<>();
         for (Genero item : listaGeneros) {
@@ -94,6 +106,12 @@ public class Utilitario {
         return resultado;
     }
     
+    /**
+    * Asigna un género a un artista.
+    *
+    * @param artista el artista al que se asignará el género
+    * @param genero el género que se asignará al artista
+    */
     public static void asignarGenero(Artista artista, Genero genero) {
         if (!artista.getListaGeneros().contains(genero)) {
             artista.getListaGeneros().add(genero);
@@ -101,12 +119,18 @@ public class Utilitario {
         }
     }
     
+    /**
+    * Asigna un género a un álbum de un artista.
+    *
+    * @param artista el artista que tiene el álbum
+    * @param genero el género que se asignará al álbum
+    * @param album el álbum al que se asignará el género
+    */
     public static void asignarGeneroAlbum(Artista artista, Genero genero, Album album) {
         if (artista.getListaGeneros().contains(genero)) {
             album.setGenero(genero);
         }
     }
-       
 }
       
     
